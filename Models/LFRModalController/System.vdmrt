@@ -20,11 +20,16 @@ operations
 public System : () ==> System
 System () == 
 (
-	leftSensor := new IRSensor(hwi.lfLeftVal);
-	rightSensor := new IRSensor(hwi.lfRightVal);
+	-- create sensor and actuator objects
+	leftSensor := new IRSensor(hwi.lfLeftVal, hwi.lfLeftFailFlag);
+	rightSensor := new IRSensor(hwi.lfRightVal, hwi.lfRightFailFlag);
 	leftServo := new Servo(hwi.servoLeftVal, false);
 	rightServo := new Servo(hwi.servoRightVal, true);
+	
+	-- create controller object
 	controller := new Controller(leftSensor, rightSensor, leftServo, rightServo);
+	
+	-- deploy objects
 	cpu.deploy(controller, "Controller");
 	cpu.deploy(leftSensor, "Left sensor");
 	cpu.deploy(leftSensor, "Right sensor");

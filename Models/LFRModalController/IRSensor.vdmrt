@@ -3,17 +3,25 @@ class IRSensor
 instance variables 
 
 port : RealPort;
+failed : BoolPort
 
 operations
 
-public IRSensor: RealPort ==> IRSensor
-IRSensor(p) == (
+-- constructor for IRSensor
+public IRSensor: RealPort * BoolPort ==> IRSensor
+IRSensor(p,f) == (
 	port := p;
+	failed := f
 );
 
 public getReading: () ==> real
 getReading() == (
 	return port.getValue()
+);
+
+public hasFailed: () ==> bool
+hasFailed() == (
+	failed.getValue()
 )
 
 end IRSensor

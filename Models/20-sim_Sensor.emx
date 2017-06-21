@@ -8,7 +8,7 @@
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
     <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\20-sim_Sensor.emx</LibraryPath>
-  <TimeStamp>2017-6-21 17:47:21</TimeStamp>
+  <TimeStamp>2017-6-21 20:25:15</TimeStamp>
 </Description>
 </Information>';
  type 'Mainmodel-sim_Sensor'
@@ -26,6 +26,7 @@
       signal out lf_1_sensor_reading;
       signal out lf_1_sensor_position_x;
       signal out lf_1_sensor_position_y;
+      signal boolean out lf_1_sensor_fail_flag;
     end;
     icon bg right shadow 11776947
      figures
@@ -486,6 +487,7 @@ equations
          signal in raw_map_reading;
          signal out lf_1_sensor_reading;
          signal integer in id;
+         signal boolean out lf_1_fail_flag;
        end;
        icon bg left
         figures
@@ -648,6 +650,7 @@ equations
          plug lf_1_sensor_reading 336 408;
          plug id 224 224;
          plug robot_state 144 280;
+         plug lf_1_fail_flag 504 336;
          percentageTo8BitValue 336 224
           description '<Description>
  <Version>4.0</Version>
@@ -892,6 +895,7 @@ implementation_end;
    signal in sensor_position;
    signal out sensor_position_out;
    signal in id;
+   signal boolean out failed;
  end;
  icon bg right
   figures
@@ -907,21 +911,25 @@ implementation_end;
 parameters
 	integer global lf_left_stuck_value;
 	real global lf_fail_time;
+initialequations
+	failed = false;
 equations
 	// change output based on fault parameter
 	
 
 	if lf_fail_time > 0 and time>= lf_fail_time then		
 		sensor_position_out = lf_left_stuck_value;
+		failed = true;
 	else
 		sensor_position_out = sensor_position;
+		failed = false;
 	end;
 		
 	
 implementation_end;
 specification_end;
 										specification 'no_fault'
- description '<Description>
+description '<Description>
  <Version>4.0</Version>
  <LibraryPath>Template\Submodel-Equation.emx</LibraryPath>
  <IsMainModel>1</IsMainModel>
@@ -964,6 +972,7 @@ specification_end;
          split_id\output -> calculate_sensor_position\id;
          split_id\output -> Splitter2\input;
          Splitter2\output -> stuck_fault\id 192 368;
+         stuck_fault\failed -> lf_1_fail_flag;
          stuck_fault\sensor_position_out -> lf_1_sensor_reading 336 376;
         end;
        implementation_end;
@@ -1416,13 +1425,14 @@ equations
 	output = [input1; input2; input3; input4; input5; input6; input7; input8; input9];implementation_end;
 specification_end;
 						end;
-      plug lf_1_sensor_position_y 568 232;
+      plug lf_1_sensor_position_x 568 216;
+      plug robot_x 352 504;
       plug lf_1_sensor_reading 312 288;
       plug robot_theta 488 504;
       plug robot_z 440 504;
       plug robot_y 392 504;
-      plug lf_1_sensor_position_x 568 216;
-      plug robot_x 352 504;
+      plug lf_1_sensor_position_y 568 232;
+      plug lf_1_sensor_fail_flag 320 304;
       Splitter6 440 224
        description '<Description><Version>4.0</Version>
    <LibraryPath>Signal\Block Diagram\Splitter.emx</LibraryPath>
@@ -1451,6 +1461,7 @@ implementation_end;
       Demux4\output1 -> lf_1_sensor_position_x;
       Demux4\output2 -> lf_1_sensor_position_y;
       id_1\output -> lf_1\id;
+      lf_1\lf_1_fail_flag -> lf_1_sensor_fail_flag;
       lf_1\lf_1_sensor_reading -> lf_1_sensor_reading;
       lf_1\raw_map_reading <- map\sensor_value1;
       lf_1\sensor_position -> Splitter6\input;
@@ -1521,8 +1532,6 @@ z = 0;
     <ModelProperty section="CCodeDialog" entry="TargetDirectory" value="c:\temp\%SUBMODEL_NAME%"/>
   </ModelProperties>
   <Variables>
-   <Initials>
-   </Initials>
   </Variables>
   <PlotSpecs>
    <VarNames>
@@ -3163,12 +3172,12 @@ z = 0;
      <ToggleState>Base</ToggleState>
     </PlotPanel>
    </PlotPanels>
-   <WindowRectangles virtualDesktopWidth="5120" virtualDesktopHeight="1599">
-     <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="1">
-0.353906 0.352778 0.802734 0.890972
+   <WindowRectangles virtualDesktopWidth="1707" virtualDesktopHeight="960">
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="1">
+0.353837 0.353125 0.802578 0.891667
      </WindowRectangle>
-     <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="2">
-0.0957031 0.159722 0.503125 0.619444
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="2">
+0.0954892 0.159375 0.503222 0.619792
      </WindowRectangle>
    </WindowRectangles>
   </PlotSpecs>

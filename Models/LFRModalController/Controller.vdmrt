@@ -29,7 +29,7 @@ Step() == cycles(20) (
 			init := false		
 		);
 
-		IO`printf("Left: %s, right: %s", [leftSensor.getReading(),rightSensor.getReading()]);
+		IO`printf("Left: %s (%s), right: %s (%s)", [leftSensor.getReading(),leftSensor.hasFailed(),rightSensor.getReading(),rightSensor.hasFailed()]);
 /*
 		if leftSensor.getReading() < 150 and rightSensor.getReading() > 150 then 
 		(
