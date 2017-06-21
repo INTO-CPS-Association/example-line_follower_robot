@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Document>
- <Model version="4.6" build="4.6.2.7245">
+ <Model version="4.6" build="4.6.3.7711">
   <Sidops><![CDATA[model 128.1 184
  description '<Information>
  <Description>
@@ -8,7 +8,7 @@
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
     <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\Body.emx</LibraryPath>
-  <TimeStamp>2017-6-19 14:21:13</TimeStamp>
+  <TimeStamp>2017-6-21 17:22:36</TimeStamp>
 </Description>
 </Information>';
  type 'Mainmodel-5S'
@@ -662,7 +662,7 @@ implementation_end;
          wheel_right => Fr\p;
         end;
        implementation_end;
-      Demux 318 139.5
+      Demux 318 136
 						specifications active 'outputs_4'
 							specification 'default'
 description '<Description>
@@ -1394,7 +1394,7 @@ parameters
 	real global num_sensors = 2;
 
    /* setup */
-	real global initial_position[3] = [0.156;-0.33;-0.524];	
+	real global initial_position[3] = [0.148;-0.08;0];	
 
    /* robot design */
 	real global wheel_radius = 0.03325;
@@ -1499,7 +1499,7 @@ equations
 	equal (collect (p.f));
 	flow = first (p.f);
 implementation_end;
-         EnergyIntoLeftMotor 584 199.6
+         EnergyIntoLeftMotor 584 199.8
           description '<Description>
  <Version>4.0</Version>
  <IsMainModel>1</IsMainModel>
@@ -1865,7 +1865,7 @@ equations
 	equal (collect (p.f));
 	flow = first (p.f);
 implementation_end;
-         EnergyIntoRightMotor 504 207.6
+         EnergyIntoRightMotor 504 207.8
           description '<Description>
  <Version>4.0</Version>
  <IsMainModel>1</IsMainModel>
@@ -2224,7 +2224,7 @@ implementation_end;
         submodels
          plug y 72 216;
          plug to_body 448 216;
-         powermux_left 336.1 216
+         powermux_left 336 216
           description '<Description>
  <Version>4.0</Version>
  <LibraryPath>Template\Submodel-Equation.emx</LibraryPath>
@@ -2245,7 +2245,7 @@ implementation_end;
           end;
           icon bg
            figures
-            text 'name' 336.1 216 color 0;
+            text 'name' 336 216 color 0;
           end;
           implementation eq
 equations 
@@ -8604,7 +8604,7 @@ specification_end;
    plug servoRight 512 320;
    plug servoLeft 512 328;
    plug wheel_left_rotation 512 224;
-   Sensors_Block 208.8 64
+   Sensors_Block 208.7 64
     description '<Description>
  <Version>4.5</Version>
  <IsMainModel>1</IsMainModel>
@@ -8670,7 +8670,7 @@ specification_end;
     icon bg right shadow 11776947
      figures
       rectangle 124.1 40 293.4 88 color 0 fill 15132390;
-      text 'name' 174.7 72 color 0 16;
+      text 'name' 176 72 color 0 16;
      terminals
       robot_x 247.8 88 fixed;
       robot_y 255.8 88 fixed;
@@ -8694,7 +8694,7 @@ specification_end;
     end;
     implementation bg
      submodels
-      Demux 634 224
+      Demux 631.5 224
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9040,7 +9040,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux1 634 168
+      Demux1 631.5 168
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9386,7 +9386,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux2 634 120
+      Demux2 631.5 120
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9732,7 +9732,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux3 242 152
+      Demux3 239.5 152
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -10078,7 +10078,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux4 242 208
+      Demux4 239.5 208
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -13231,7 +13231,7 @@ equations
 implementation_end;
 specification_end;
 						end;
-      Mux 422.5 431
+      Mux 422.5 418.5
 						specifications active 'inputs_4'
 							specification 'default'
 description '<Description>
@@ -14289,8 +14289,8 @@ specification_end;
 <ExpData>
   <VersionNumber>4.6</VersionNumber>
   <ModelProperties>
-    <ModelProperty section="CCodeDialog" entry="SubmodelName" value="Environment\Sensors_Block"/>
-    <ModelProperty section="CCodeDialog" entry="TargetName" value="FMU 2.0 export for 20-sim submodel"/>
+    <ModelProperty section="CCodeDialog" entry="SubmodelName" value="Body"/>
+    <ModelProperty section="CCodeDialog" entry="TargetName" value="FMU 2.0 export for 20-sim submodel (GitHub)"/>
     <ModelProperty section="CCodeDialog" entry="TargetDirectory" value="c:\temp\%SUBMODEL_NAME%"/>
   </ModelProperties>
   <Variables>
@@ -14322,47 +14322,49 @@ specification_end;
    </Parameters>
    <Initials>
     <Variable>
-     <Name>Body_Block\body\inertia\state_initial</Name>
+     <Name>Body\body\inertia\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\mass\state_initial</Name>
+     <Name>Body\body\mass\state_initial</Name>
      <Rows>2</Rows>
      <Columns>1</Columns>
      <Value>0 0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\position\velocity_int_initial</Name>
+     <Name>Body\body\position\velocity_int_initial</Name>
      <Rows>2</Rows>
      <Columns>1</Columns>
      <Value>0 0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\theta\input_int_initial</Name>
+     <Name>Body\body\theta\input_int_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\EnergyIntoLeftMotor\E_initial</Name>
+     <Name>Body\servo_left\EnergyIntoLeftMotor\E_initial</Name>
+     <Unit>J</Unit>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\inductance\state_initial</Name>
+     <Name>Body\servo_left\inductance\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\internal_controller\error_int_initial</Name>
+     <Name>Body\servo_left\internal_controller\error_int_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\EnergyIntoRightMotor\E_initial</Name>
+     <Name>Body\servo_right\EnergyIntoRightMotor\E_initial</Name>
+     <Unit>J</Unit>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\inductance\state_initial</Name>
+     <Name>Body\servo_right\inductance\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\internal_controller\error_int_initial</Name>
+     <Name>Body\servo_right\internal_controller\error_int_initial</Name>
      <Value>0</Value>
     </Variable>
    </Initials>
@@ -14531,6 +14533,8 @@ specification_end;
         </Z>
        </ScaleValue>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Reference Frame</Name>
        <Position>
        </Position>
@@ -14559,6 +14563,8 @@ specification_end;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Default Lights and Cameras</Name>
          <Position>
          </Position>
@@ -14576,6 +14582,8 @@ specification_end;
          <Childs>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Ambient</Name>
       <Position>
       </Position>
@@ -14661,6 +14669,8 @@ specification_end;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Parallel</Name>
       <Position>
        <X>
@@ -14805,6 +14815,8 @@ specification_end;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Window</Name>
       <Position>
        <X>
@@ -14944,6 +14956,8 @@ specification_end;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Ceiling</Name>
       <Position>
        <Z>
@@ -15075,6 +15089,8 @@ specification_end;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Scenery</Name>
          <Position>
          </Position>
@@ -15103,6 +15119,8 @@ specification_end;
        </Z>
       </ScaleValue>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Robot Frame</Name>
       <Position>
        <X>
@@ -15146,6 +15164,8 @@ specification_end;
          </Z>
         </ScaleValue>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Body</Name>
         <Position>
         </Position>
@@ -15244,6 +15264,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Top Panel</Name>
      <Position>
       <Z>
@@ -15353,6 +15375,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Front Panel</Name>
      <Position>
       <Y>
@@ -15459,6 +15483,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Back Panel</Name>
      <Position>
       <Y>
@@ -15571,6 +15597,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Panel</Name>
      <Position>
       <X>
@@ -15680,6 +15708,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Panel</Name>
      <Position>
       <X>
@@ -15789,6 +15819,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Scoop</Name>
      <Position>
       <Y>
@@ -15828,6 +15860,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Netduino</Name>
      <Position>
       <Y>
@@ -15934,6 +15968,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Netduino Board</Name>
        <Position>
        </Position>
@@ -16018,6 +16054,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -16111,6 +16149,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -16198,6 +16238,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Blue Header</Name>
        <Position>
         <Y>
@@ -16282,6 +16324,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Blue Header</Name>
        <Position>
         <X>
@@ -16369,6 +16413,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Blue Header</Name>
        <Position>
         <X>
@@ -16456,6 +16502,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Blue Header</Name>
        <Position>
         <X>
@@ -16564,6 +16612,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Proto Shield</Name>
        <Position>
         <Z>
@@ -16645,6 +16695,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Black Header</Name>
        <Position>
         <Y>
@@ -16729,6 +16781,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Black Header</Name>
        <Position>
         <X>
@@ -16816,6 +16870,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Black Header</Name>
        <Position>
         <X>
@@ -16903,6 +16959,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Black Header</Name>
        <Position>
         <X>
@@ -16996,6 +17054,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -17037,6 +17097,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Battery Bay</Name>
      <Position>
       <X>
@@ -17143,6 +17205,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Bay</Name>
        <Position>
        </Position>
@@ -17247,6 +17311,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Distance IR</Name>
      <Position>
       <X>
@@ -17358,6 +17424,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Distance IR</Name>
      <Position>
       <X>
@@ -17400,6 +17468,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Encoder</Name>
      <Position>
       <X>
@@ -17512,6 +17582,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Board</Name>
        <Position>
        </Position>
@@ -17596,6 +17668,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -17686,6 +17760,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -17727,6 +17803,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Encoder</Name>
      <Position>
       <X>
@@ -17839,6 +17917,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Board</Name>
        <Position>
        </Position>
@@ -17923,6 +18003,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -18013,6 +18095,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Spacer</Name>
        <Position>
         <X>
@@ -18054,6 +18138,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Servo</Name>
      <Position>
       <X>
@@ -18142,6 +18228,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Main</Name>
        <Position>
        </Position>
@@ -18241,6 +18329,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Top</Name>
        <Position>
         <Y>
@@ -18334,6 +18424,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Shaft</Name>
        <Position>
         <X>
@@ -18375,6 +18467,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Servo</Name>
      <Position>
       <X>
@@ -18463,6 +18557,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Main</Name>
        <Position>
        </Position>
@@ -18562,6 +18658,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Top</Name>
        <Position>
         <Y>
@@ -18655,6 +18753,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Shaft</Name>
        <Position>
         <X>
@@ -18766,6 +18866,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <DrawHidden>true</DrawHidden>
      <Name>Grid</Name>
      <Position>
@@ -18806,6 +18908,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>BatteryMeter</Name>
      <Position>
       <Y>
@@ -18895,6 +18999,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Meter Value</Name>
        <Position>
         <Z>
@@ -18977,6 +19083,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Meter</Name>
        <Position>
         <X>
@@ -19016,6 +19124,8 @@ specification_end;
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>ScoopReference</Name>
      <Position>
       <Y>
@@ -19120,6 +19230,8 @@ specification_end;
         </YOrigin>
        </Texture>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Scoop</Name>
        <Position>
        </Position>
@@ -19203,6 +19315,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Left LF Sensor</Name>
        <Position>
         <X>
@@ -19287,6 +19401,8 @@ specification_end;
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Right LF Sensor</Name>
        <Position>
         <X>
@@ -19329,6 +19445,8 @@ specification_end;
          </Z>
         </ScaleValue>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Left Wheel</Name>
         <Position>
          <X>
@@ -19448,6 +19566,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Wheel Front</Name>
      <Position>
      </Position>
@@ -19553,6 +19673,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Left Wheel Back</Name>
      <Position>
       <Z>
@@ -19588,6 +19710,8 @@ specification_end;
          </Z>
         </ScaleValue>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Right Wheel</Name>
         <Position>
          <X>
@@ -19707,6 +19831,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Wheel Front</Name>
      <Position>
      </Position>
@@ -19812,6 +19938,8 @@ specification_end;
       </YOrigin>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Right Wheel Back</Name>
      <Position>
       <Z>
@@ -19836,6 +19964,8 @@ specification_end;
        </Frame>
        <Camera>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Top Down RobotCam</Name>
         <Position>
          <X>
@@ -19888,6 +20018,8 @@ specification_end;
        </Camera>
        <Camera>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>RobotCam</Name>
         <Position>
          <X>
@@ -19903,7 +20035,7 @@ specification_end;
         <Orientation>
          <ZAxis>
      <X>
-      <Value>-0.000857828468321134</Value>
+      <Value>-0.000857828468320998</Value>
      </X>
      <Y>
       <Value>-0.871339241775118</Value>
@@ -19914,7 +20046,7 @@ specification_end;
          </ZAxis>
          <YAxis>
      <X>
-      <Value>-0.000483071730186409</Value>
+      <Value>-0.000483071730186333</Value>
      </X>
      <Y>
       <Value>-0.490680095902397</Value>
@@ -19979,6 +20111,8 @@ specification_end;
        </Z>
       </ScaleValue>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Room Frame</Name>
       <Position>
        <Z>
@@ -20010,6 +20144,8 @@ specification_end;
          </Z>
         </ScaleValue>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Table Reference Frame</Name>
         <Position>
          <Z>
@@ -20113,6 +20249,8 @@ specification_end;
       </TextureScale>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Square Part</Name>
      <Position>
      </Position>
@@ -20224,6 +20362,8 @@ specification_end;
       </TextureScale>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Near End</Name>
      <Position>
       <Y>
@@ -20338,6 +20478,8 @@ specification_end;
       </TextureScale>
      </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Far End</Name>
      <Position>
       <Y>
@@ -20363,6 +20505,8 @@ specification_end;
          </Cylinder>
          <Camera>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Table Cam</Name>
      <Position>
       <X>
@@ -20506,6 +20650,8 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Leg</Name>
      <Position>
       <Y>
@@ -20596,6 +20742,8 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Foot</Name>
      <Position>
       <Y>
@@ -20686,6 +20834,8 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Leg</Name>
      <Position>
       <Y>
@@ -20776,6 +20926,8 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
      <Name>Foot</Name>
      <Position>
       <Y>
@@ -20886,6 +21038,8 @@ specification_end;
        </YOrigin>
       </Texture>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Map</Name>
       <Position>
        <Z>
@@ -20911,6 +21065,8 @@ specification_end;
      </Square>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Top Down</Name>
       <Position>
        <X>
@@ -22260,9 +22416,6 @@ specification_end;
   </ExportData>
   <BreakPoints>
   </BreakPoints>
-  <AnimationPlayback>
-   <PlaybackSpeed>1</PlaybackSpeed>
-  </AnimationPlayback>
 </ExpData>
   </Experiment>
 </Experiments>

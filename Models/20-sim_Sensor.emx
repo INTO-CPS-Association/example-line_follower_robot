@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Document>
- <Model version="4.6" build="4.6.0.6684">
+ <Model version="4.6" build="4.6.3.7711">
   <Sidops><![CDATA[model 128 184
  description '<Information>
  <Description>
     <Version>4.6</Version>
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
-    <LibraryPath>C:\Users\Richard\Documents\INTO-CPS\INTO_Git\case-study_line_follower_robot\Models\R2G2P_Single_Sensor.emx</LibraryPath>
-  <TimeStamp>2016-9-1 11:00:42</TimeStamp>
+    <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\20-sim_Sensor.emx</LibraryPath>
+  <TimeStamp>2017-6-21 17:47:21</TimeStamp>
 </Description>
 </Information>';
- type Mainmodel
+ type 'Mainmodel-sim_Sensor'
  end;
  implementation bg
   submodels
-   Sensor_Block 216.4 72
+   Sensor_Block 216.3 72
     description '<Information><Description><Version>4.5</Version><IsMainModel>1</IsMainModel><KeepParameterValues>False</KeepParameterValues><AllowLibraryUpdate>True</AllowLibraryUpdate><Configuration><struct><member><name>DocumentationMask</name><value><struct></struct></value></member></struct></Configuration></Description></Information>';
     type Submodel
      ports
@@ -30,7 +30,7 @@
     icon bg right shadow 11776947
      figures
       rectangle 129.7 48 303 96 color 0 fill 15132390;
-      text 'name' 181.5 80 color 0 16;
+      text 'name' 184 80 color 0 16;
      terminals
       robot_x 256.4 96 fixed;
       robot_y 264.5 96 fixed;
@@ -42,7 +42,7 @@
     end;
     implementation bg
      submodels
-      Demux4 482.5 224
+      Demux4 480 224
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -418,7 +418,7 @@ parameters
 
 	real global lf_position_x = -0.1;
 	real global lf_position_y = -0.1;
-	real global lf_fail_time = 0.0;
+	real global lf_fail_time = 0;
 
    /* realistic and faulty behaviour */
 	real global ambient_light = 0.0 {W};		// ambient light level in Watts
@@ -877,9 +877,9 @@ equations
     collect (output) = input;
 implementation_end;
          stuck_fault 368 368
-									specifications active 'no_fault'
+									specifications active 'fail_fixed_value'
 										specification 'fail_fixed_value'
-description '<Description>
+ description '<Description>
  <Version>4.0</Version>
  <LibraryPath>Template\Submodel-Equation.emx</LibraryPath>
  <IsMainModel>1</IsMainModel>
@@ -897,8 +897,8 @@ description '<Description>
   figures
    rectangle 352 352 384 384 color 255 fill 15132390 width 2;
    line 360 368 376 368 color 255 fill 255;
-   line 360 376 376 376;
-   line 360 360 360 376;
+   line 360 376 376 376 color 0;
+   line 360 360 360 376 color 0;
   terminals
    sensor_position 352 360 fixed;
    sensor_position_out 352 376 fixed;
@@ -906,12 +906,12 @@ description '<Description>
  implementation eq
 parameters
 	integer global lf_left_stuck_value;
-	real global lf_fail_times[5,2];
+	real global lf_fail_time;
 equations
 	// change output based on fault parameter
 	
 
-	if time>= lf_fail_times[id,1] and time <= lf_fail_times[id,2] then		
+	if lf_fail_time > 0 and time>= lf_fail_time then		
 		sensor_position_out = lf_left_stuck_value;
 	else
 		sensor_position_out = sensor_position;
@@ -1071,7 +1071,7 @@ equations
 implementation_end;
 specification_end;
 						end;
-      Mux 422.5 431
+      Mux 422.5 418.5
 						specifications active 'inputs_4'
 							specification 'default'
 description '<Description>
@@ -1516,20 +1516,12 @@ z = 0;
 <ExpData>
   <VersionNumber>4.6</VersionNumber>
   <ModelProperties>
-    <ModelProperty section="CCodeDialog" entry="SubmodelName" value="Sensor_Block_Rep"/>
+    <ModelProperty section="CCodeDialog" entry="SubmodelName" value="Sensor_Block"/>
     <ModelProperty section="CCodeDialog" entry="TargetName" value="FMU 2.0 export for 20-sim submodel (GitHub)"/>
     <ModelProperty section="CCodeDialog" entry="TargetDirectory" value="c:\temp\%SUBMODEL_NAME%"/>
   </ModelProperties>
   <Variables>
-   <Constants>
-   </Constants>
-   <Parameters>
-   </Parameters>
    <Initials>
-    <Variable>
-     <Name>Submodel2\radius_initial</Name>
-     <Value>0</Value>
-    </Variable>
    </Initials>
   </Variables>
   <PlotSpecs>
@@ -1977,6 +1969,8 @@ z = 0;
         </Z>
        </ScaleValue>
        <ShowReferenceFrame>true</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Reference Frame</Name>
        <Position>
        </Position>
@@ -2005,6 +1999,8 @@ z = 0;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Default Lights and Cameras</Name>
          <Position>
          </Position>
@@ -2022,6 +2018,8 @@ z = 0;
          <Childs>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Ambient</Name>
       <Position>
       </Position>
@@ -2107,6 +2105,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Parallel</Name>
       <Position>
        <X>
@@ -2251,6 +2251,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Spot Light 1</Name>
       <Position>
        <X>
@@ -2401,6 +2403,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Spot Light 2</Name>
       <Position>
        <X>
@@ -2551,6 +2555,8 @@ z = 0;
      </Light>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Camera Looking at Origin</Name>
       <Position>
        <X>
@@ -2620,6 +2626,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Front(XY)-Camera</Name>
       <Position>
        <Z>
@@ -2671,6 +2679,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Side(YZ)-Camera</Name>
       <Position>
        <X>
@@ -2722,6 +2732,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Top(XZ)-Camera</Name>
       <Position>
        <Y>
@@ -2786,6 +2798,8 @@ z = 0;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Scenery</Name>
          <Position>
          </Position>
@@ -2884,6 +2898,8 @@ z = 0;
        </YOrigin>
       </Texture>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Square</Name>
       <Position>
        <Z>
@@ -2920,6 +2936,8 @@ z = 0;
        </Z>
       </ScaleValue>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Reference Frame</Name>
       <Position>
        <X>
@@ -3013,6 +3031,8 @@ z = 0;
         </ShininessPower>
         <OverrideQuality>false</OverrideQuality>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Cylinder</Name>
         <Position>
         </Position>
@@ -3034,6 +3054,8 @@ z = 0;
      </Frame>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Camera</Name>
       <Position>
        <X>
@@ -3141,9 +3163,9 @@ z = 0;
      <ToggleState>Base</ToggleState>
     </PlotPanel>
    </PlotPanels>
-   <WindowRectangles virtualDesktopWidth="5120" virtualDesktopHeight="1846">
+   <WindowRectangles virtualDesktopWidth="5120" virtualDesktopHeight="1599">
      <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="1">
-0.360547 0.488889 0.809375 1.02708
+0.353906 0.352778 0.802734 0.890972
      </WindowRectangle>
      <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="2">
 0.0957031 0.159722 0.503125 0.619444

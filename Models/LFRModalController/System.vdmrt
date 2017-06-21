@@ -1,0 +1,35 @@
+system System
+
+instance variables
+
+-- Hardware interface variable required by FMU Import/Export
+public static hwi: HardwareInterface := new HardwareInterface();
+
+public static controller: [Controller] := nil;    
+
+private leftSensor: IRSensor;
+private rightSensor: IRSensor;
+
+private leftServo: Servo;
+private rightServo: Servo;
+
+private cpu : CPU := new CPU(<FP>, 1E6);
+
+operations
+
+public System : () ==> System
+System () == 
+(
+	leftSensor := new IRSensor(hwi.lfLeftVal);
+	rightSensor := new IRSensor(hwi.lfRightVal);
+	leftServo := new Servo(hwi.servoLeftVal, false);
+	rightServo := new Servo(hwi.servoRightVal, true);
+	controller := new Controller(leftSensor, rightSensor, leftServo, rightServo);
+	cpu.deploy(controller, "Controller");
+	cpu.deploy(leftSensor, "Left sensor");
+	cpu.deploy(leftSensor, "Right sensor");
+	cpu.deploy(leftSensor, "Left servo");
+	cpu.deploy(leftSensor, "Right servo");
+);
+
+end System

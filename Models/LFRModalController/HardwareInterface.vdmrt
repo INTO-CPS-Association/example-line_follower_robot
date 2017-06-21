@@ -1,0 +1,48 @@
+--##	EXPORT	305abc1c92fc3a109a5d814aa3ff19f8b9965b5b	LFRModalController.fmu	2017-21-06 17:17:10	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	f10820d4b5792d6f2ec4c08423e1beb17892ebae	LFRModalController.fmu	2017-21-06 15:43:30	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	b590ed816720f5c363a0155466ad17807085fde7	LFRModalController.fmu	2017-17-06 14:16:03	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	5bbc39fab8d6071154d231f2e8759e2ee5277d13	LFRModalController.fmu	2017-15-06 19:44:46	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	b6dbfde76feda9420a0d664b7a3043e6eff72806	LFRModalController.fmu	2017-15-06 19:44:33	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	5506a35a1c826452b451944bb552b0389782443e	LFRModalController.fmu	2017-15-06 19:39:57	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	7f4e1ad33face1fd2158969dce166576d985bd73	LFRModalController.fmu	2017-15-06 19:35:06	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	70dd95beb5775be551f6e0a5044748e8397d55fd	LFRModalController.fmu	2017-15-06 19:29:05	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	e1763e2ac4ab3d0241f055c4da71a9aacf8cc6c8	LFRModalController.fmu	2017-15-06 19:14:18	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	273b450c60892ff3fae0b03f940065e40f0d48a2	LFRModalController.fmu	2017-13-06 22:40:14	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	547e489756450f7dcc484cde3b60f90c7d796e4e	LFRModalController.fmu	2017-13-06 22:39:40	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	8d2fa4f93f9df336d07cb8fd3c6462b1525cd538	LFRModalController.fmu	2017-13-06 19:08:02	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	873486cd5dda904b9152d5660fc5f2c801e68513	LFRModalController.fmu	2017-13-06 18:57:22	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	db9537f07e1defff3e2421a2bb47cf7af6cd8bc0	LFRModalController.fmu	2017-13-06 18:50:36	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	36a904befd899d3fcd938f5497c5714b0d776d31	LFRModalController.fmu	2017-13-06 18:42:42	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	IMPORT	c379b44596d413cb31a7fde2430edacc81bfd125	modelDescription.xml	2017-08-06 12:36:03	FMI-ModelDescription	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+-- Generated class
+class HardwareInterface
+
+values
+	-- @ interface: type = parameter, name="forwardRotate";
+	public forwardRotate : RealPort = new RealPort(5.0);
+	-- @ interface: type = parameter, name="forwardSpeed";
+	public forwardSpeed : RealPort = new RealPort(4.0);
+	-- @ interface: type = parameter, name="backwardRotate";
+	public backwardRotate : RealPort = new RealPort(1.0);
+
+
+instance variables
+	-- @ interface: type = input, name="total_energy_used";
+	public totalenergyused : RealPort := new RealPort(0.0);
+	-- @ interface: type = input, name="lfLeftVal";
+	public lfLeftVal : RealPort := new RealPort(0.0);
+	-- @ interface: type = input, name="lfRightVal";
+	public lfRightVal : RealPort := new RealPort(0.0);
+
+
+instance variables
+	-- @ interface: type = output, name="servoLeftVal";
+	public servoLeftVal : RealPort := new RealPort(0.0);
+	-- @ interface: type = output, name="servoRightVal";
+	public servoRightVal : RealPort := new RealPort(0.0);
+
+
+  
+  
+end HardwareInterface
+

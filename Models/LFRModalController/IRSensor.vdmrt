@@ -1,0 +1,19 @@
+class IRSensor
+
+instance variables 
+
+port : RealPort;
+
+operations
+
+public IRSensor: RealPort ==> IRSensor
+IRSensor(p) == (
+	port := p;
+);
+
+public getReading: () ==> real
+getReading() == (
+	return port.getValue()
+)
+
+end IRSensor
