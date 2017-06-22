@@ -14,37 +14,41 @@
 Servo leftServo;  // create servo object to control a servo
 Servo rightServo;
 
-const int leftServoPpmPin = 9;
-const int rightServoPpmPin = 10;
+// left rs A1 23
+const int RS_LEFT_PIN = 23;
+//right rs A0 24
+const int RS_RIGHT_PIN = 24;
+//left servo 5
+const int SERVO_LEFT_PIN = 5;
+//right servo 6
+const int SERVO_RIGHT_PIN = 6;
 
-const int leftServoInPinA = 2;
-const int leftServoInPinB = 3;
+//IO
+//8 is connected to ATMega1284p pin 17
+const int SERVO_LEFT_ENABLE_PIN = 17;
+//9 is connected to ATMega1284p pin 16
+const int SERVO_RIGHT_ENABLE_PIN = 16;
 
-const int rightServoInPinA = 4;
-const int rightServoInPinB = 5;
+//software serial
+//Arduino TX 10 to ATMega1284p RX pin 14
+const int SW_SERIAL_TX_PIN = 10;
+//Arduino RX 11 to ATMega1284p TX pin 15
+const int SW_SERIAL_RX_PIN = 11;
 
-const int rightIrSensorPin = 6;
-const int leftIrSensorPin = 7;
+SoftwareSerial mySerial(SW_SERIAL_RX_PIN, SW_SERIAL_TX_PIN); // RX, TX
 
 const int fullSpeedClockwise = 1300;
 const int fullSpeedCounterclockwise = 1700;
 
 void setup() {
-	leftServo.attach(leftServoPpmPin); // attaches the servo on pin 9 to the servo object
-	rightServo.attach(rightServoPpmPin);
+	pinMode(SERVO_LEFT_ENABLE_PIN, INPUT);
+	pinMode(SERVO_RIGHT_ENABLE_PIN, INPUT);
 
-//	leftServo.writeMicroseconds(1200);
-//	leftServo.writeMicroseconds(1700);
-//	leftServo.writeMicroseconds(1500);
+	pinMode(RS_LEFT_PIN, INPUT);
+	pinMode(RS_RIGHT_PIN, INPUT);
 
-	pinMode(leftServoInPinA, INPUT);
-//	pinMode(leftServoInPinB, INPUT);
-
-	pinMode(rightServoInPinA, INPUT);
-//	pinMode(rightServoInPinB, INPUT);
-
-	pinMode(rightIrSensorPin, INPUT);
-	pinMode(leftIrSensorPin, INPUT);
+	leftServo.attach(SERVO_LEFT_PIN);
+	rightServo.attach(SERVO_RIGHT_PIN);
 
 	Serial.begin(57600);
 	while (!Serial) {
@@ -52,6 +56,10 @@ void setup() {
 	}
 
 	Serial.println("Ready!");
+
+	// set the data rate for the SoftwareSerial port
+	mySerial.begin(4800);
+	mySerial.println("Hello, world?");
 }
 
 uint8_t leftServoState = 4;
@@ -61,9 +69,8 @@ int rightSensorValue = 0;
 
 void loop() {
 
-	uint8_t lServoCmd = digitalRead(leftServoInPinA);
-	uint8_t rServoCmd = digitalRead(rightServoInPinA);
-	//& (digitalRead(leftServoInPinB) << 1);
+	uint8_t lServoCmd = digitalRead(SERVO_LEFT_ENABLE_PIN);
+	uint8_t rServoCmd = digitalRead(SERVO_RIGHT_ENABLE_PIN);
 
 	if (leftServoState != lServoCmd) {
 
@@ -77,7 +84,6 @@ void loop() {
 		leftServoState = lServoCmd;
 	}
 
-	//& (digitalRead(leftServoInPinB) << 1);
 	if (rightServoState != rServoCmd) {
 		if (rServoCmd == 0) {
 			Serial.println("Servo Right = CCW");
@@ -89,12 +95,19 @@ void loop() {
 		rightServoState = rServoCmd;
 	}
 
-	leftSensorValue = analogRead(leftIrSensorPin);
-	rightSensorValue = analogRead(rightIrSensorPin);
+	leftSensorValue = analogRead(RS_LEFT_PIN);
+	rightSensorValue = analogRead(RS_RIGHT_PIN);
 	Serial.print("Sensor Left = ");
 	Serial.println(leftSensorValue);
 	Serial.print("Sensor Right = ");
 	Serial.println(leftSensorValue);
+
+	if (mySerial.available()) {
+		Serial.write(mySerial.read());
+	}
+	if (Serial.available()) {
+		mySerial.write(Serial.read());
+	}
 
 	delay(15);                           // waits for the servo to get there
 }
