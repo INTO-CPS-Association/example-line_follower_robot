@@ -24,10 +24,10 @@ const int SERVO_LEFT_PIN = 5;
 const int SERVO_RIGHT_PIN = 6;
 
 //IO
-//8 is connected to ATMega1284p pin 17
-const int SERVO_LEFT_ENABLE_PIN = 17;
-//9 is connected to ATMega1284p pin 16
-const int SERVO_RIGHT_ENABLE_PIN = 16;
+//8 is connected to ATMega1284p pin 17 D3
+const int SERVO_LEFT_ENABLE_PIN = 8;
+//9 is connected to ATMega1284p pin 16 D2
+const int SERVO_RIGHT_ENABLE_PIN = 9;
 
 //software serial
 //Arduino TX 10 to ATMega1284p RX pin 14
@@ -37,8 +37,18 @@ const int SW_SERIAL_RX_PIN = 11;
 
 SoftwareSerial mySerial(SW_SERIAL_RX_PIN, SW_SERIAL_TX_PIN); // RX, TX
 
-const int fullSpeedClockwise = 1300;
-const int fullSpeedCounterclockwise = 1700;
+//
+//const int fullSpeedClockwise = 1300;
+//1530
+//const int fullSpeedCounterclockwise = 1700;
+const int deadStill = 1528;
+
+const int fullSpeedClockwise = deadStill-10;
+const int fullSpeedCounterclockwise = deadStill+15;
+
+
+
+//left servi still 1528
 
 void setup() {
 	pinMode(SERVO_LEFT_ENABLE_PIN, INPUT);
@@ -58,8 +68,8 @@ void setup() {
 	Serial.println("Ready!");
 
 	// set the data rate for the SoftwareSerial port
-	mySerial.begin(4800);
-	mySerial.println("Hello, world?");
+	mySerial.begin(19200);
+	//mySerial.println("Hello, world?");
 }
 
 uint8_t leftServoState = 4;
@@ -69,8 +79,11 @@ int rightSensorValue = 0;
 
 void loop() {
 
+
 	uint8_t lServoCmd = digitalRead(SERVO_LEFT_ENABLE_PIN);
 	uint8_t rServoCmd = digitalRead(SERVO_RIGHT_ENABLE_PIN);
+
+	//rServoCmd=!lServoCmd;
 
 	if (leftServoState != lServoCmd) {
 
@@ -97,17 +110,23 @@ void loop() {
 
 	leftSensorValue = analogRead(RS_LEFT_PIN);
 	rightSensorValue = analogRead(RS_RIGHT_PIN);
-	Serial.print("Sensor Left = ");
-	Serial.println(leftSensorValue);
-	Serial.print("Sensor Right = ");
-	Serial.println(leftSensorValue);
+//	Serial.print("Sensor Left = ");
+//	Serial.println(leftSensorValue);
+//	Serial.print("Sensor Right = ");
+//	Serial.println(leftSensorValue);
 
 	if (mySerial.available()) {
-		Serial.write(mySerial.read());
+		int d = mySerial.read();
+		Serial.write(d);
+		if(d=='X')
+		{
+			Serial.write("\r\n");
+		}
+
 	}
-	if (Serial.available()) {
-		mySerial.write(Serial.read());
-	}
+//	if (Serial.available()) {
+//		mySerial.write(Serial.read());
+//	}
 
 	delay(15);                           // waits for the servo to get there
 }
