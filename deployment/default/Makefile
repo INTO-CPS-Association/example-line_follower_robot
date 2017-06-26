@@ -4,7 +4,7 @@
 
 ## General Flags
 PROJECT = AURobot
-MCU = atmega128
+MCU = atmega1284p
 TARGET = AURobot.elf
 CC = avr-gcc
 
@@ -15,7 +15,7 @@ COMMON = -mmcu=$(MCU)
 
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
-CFLAGS += -Wall -gdwarf-2 -Os -std=gnu99 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DFATAL_ERROR"(message)" 
+CFLAGS += -Wall -gdwarf-2 -std=gnu99 -DFATAL_ERROR"(message)"        -DF_CPU=8000000UL -O0 -fsigned-char
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags
@@ -46,7 +46,7 @@ LIBS = -lc -lm
 OBJECTS = adcutil.o main.o BoolPort.o Controller.o Fmu.o FmuModel.o HardwareInterface.o IntPort.o Port.o RealPort.o RobotSensor.o RobotServo.o StringPort.o System.o World.o CSVLib.o IOLib.o MATHLib.o PatternBindMatch.o PrettyPrint.o TypedValue.o VdmBasicTypes.o VdmClass.o VdmGC.o VdmMap.o VdmProduct.o VdmSeq.o VdmSet.o VdmUnpackString.o 
 
 ## Objects explicitly added by the user
-LINKONLYOBJECTS = 
+LINKONLYOBJECTS = "C:\Users\AU542988\Desktop\case-study_line_follower_robot\deployment\uart.o" 
 
 ## Build
 all: $(TARGET) AURobot.hex AURobot.eep AURobot.lss size

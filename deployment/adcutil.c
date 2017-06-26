@@ -9,6 +9,7 @@
 void InitADC()
 {
     ADMUX = (1 << REFS0); // For Aref=AVcc;
+	
     ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1); //| (1 << ADPS0); //Rrescalar div factor =128
     //ADCSRB=0;
 }
@@ -17,7 +18,9 @@ uint16_t ReadADC(uint8_t ch)
 {
     //Select ADC Channel ch must be 0-7
     ch = ch & 0b00000111;
-    ADMUX |= ch;
+  
+  	//Remember to clear the bottom three bits when other channels are read.
+	ADMUX = (ADMUX & 0xf8) | ch;
 
     //Start Single conversion
     ADCSRA |= (1 << ADSC);
