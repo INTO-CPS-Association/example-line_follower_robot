@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Robot" version="4">
   <OBJECT>
     <ID name="Robot" mc="Standard.Class" uid="93359b18-e579-4141-8e37-8b82d8036bf3"/>
-    <PID name="linefollowrobot_mm" mc="Standard.Package" uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152"/>
+    <PID name="Architecture" mc="Standard.Package" uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -96,7 +96,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Sensor" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
+              <ID name="Sensor1" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>

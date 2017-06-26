@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="StrtType" version="4">
   <OBJECT>
     <ID name="StrtType" mc="Standard.Stereotype" uid="6d5f9721-01c0-4573-a22d-9609f9d5c464"/>
-    <PID name="INTOCPS" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
+    <PID name="INTOCPS::Modelling" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
     <ATTRIBUTES>
       <ATT name="Image"></ATT>
       <ATT name="Icon"><![CDATA[res/icons/strtype.png]]></ATT>

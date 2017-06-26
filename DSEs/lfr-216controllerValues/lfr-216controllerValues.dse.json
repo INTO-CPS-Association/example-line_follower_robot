@@ -1,6 +1,6 @@
 {
     "algorithm": {},
-    "objectiveConstraints": {},
+    "objectiveConstraints": [],
     "objectiveDefinitions": {
         "externalScripts": {
 			"meanSpeed": {
@@ -46,7 +46,7 @@
         },
         "internalFunctions": {}
     },
-    "parameterConstraints": {},
+    "parameterConstraints": [],
     "parameters": {
         "{controllerFMU}.controller.forwardSpeed": [
             0.2,

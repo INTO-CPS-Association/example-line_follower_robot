@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Sensor2" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="sensor2FMU" version="4">
   <OBJECT>
-    <ID name="Sensor2" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
-    <PID name="linefollowrobot_mm" mc="Standard.Package" uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152"/>
+    <ID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
+    <PID name="Architecture" mc="Standard.Package" uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -11,7 +11,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Sensor2]]></ATT>
+      <ATT name="Name"><![CDATA[sensor2FMU]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -339,6 +339,28 @@
             </COMP>
             <LINK relation="Definition">
               <FOREIGNID name="EComponent_platform" mc="Standard.TagType" uid="6d54dcce-4c9d-4c9d-8189-43e75e7ccf31"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Standard.TaggedValue" uid="39f6f835-201f-4e4e-8cb7-3b55528b319f"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Qualifier">
+              <OBJECT>
+                <ID name="" mc="Standard.TagParameter" uid="748c3c3f-b26d-4550-ae0a-a55498802308"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"><![CDATA[7c90c49d-5b55-41ed-a310-4550324abbe1]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID name="EComponent_guid" mc="Standard.TagType" uid="55c344fa-b72e-477d-ab79-370ac53bc104"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>

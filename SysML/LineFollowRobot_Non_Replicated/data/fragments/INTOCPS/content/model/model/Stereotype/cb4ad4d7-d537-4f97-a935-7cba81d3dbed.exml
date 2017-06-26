@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Parameter" version="4">
   <OBJECT>
     <ID name="Parameter" mc="Standard.Stereotype" uid="cb4ad4d7-d537-4f97-a935-7cba81d3dbed"/>
-    <PID name="INTOCPS" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
+    <PID name="INTOCPS::Modelling" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
     <ATTRIBUTES>
       <ATT name="Image"></ATT>
       <ATT name="Icon"><![CDATA[res/icons/parameter.png]]></ATT>

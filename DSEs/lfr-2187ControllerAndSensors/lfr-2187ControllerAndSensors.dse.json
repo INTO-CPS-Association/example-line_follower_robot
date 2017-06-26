@@ -1,6 +1,6 @@
 {
     "algorithm": {},
-    "objectiveConstraints": {},
+    "objectiveConstraints": [],
     "objectiveDefinitions": {
         "externalScripts": {
 			"meanSpeed": {

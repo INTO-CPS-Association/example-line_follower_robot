@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="3DVisualisation" version="4">
   <OBJECT>
     <ID name="3DVisualisation" mc="Standard.Class" uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb"/>
-    <PID name="linefollowrobot_mm" mc="Standard.Package" uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152"/>
+    <PID name="Architecture" mc="Standard.Package" uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
