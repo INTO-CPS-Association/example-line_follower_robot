@@ -1,0 +1,4 @@
+time,step-size,{bodyFMU}.body.robot_theta,{bodyFMU}.body.robot_x,{bodyFMU}.body.robot_y,{bodyFMU}.body.robot_z,{bodyFMU}.body.total_energy_used,{controllerFMU}.controller.servoLeftVal,{controllerFMU}.controller.servoRightVal,{sensor1FMU}.sensor1.lf_1_sensor_reading,{sensor1FMU}.sensor2.lf_1_sensor_reading
+0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0000000000000002,1.0000000000000002
+0.1,0.1,0.0,0.138,-0.08,0.0,0.7999999999997272,0.4,-0.4,254.00000000000006,255.00000000000006
+20.1,20.0,0.0,0.138,1.272910443167193,0.0,368.6674202705358,0.4,-0.4,254.00000000000006,254.00000000000006

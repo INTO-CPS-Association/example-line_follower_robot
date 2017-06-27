@@ -1,3 +1,5 @@
+--##	EXPORT	3106979dfbd0340d2e2d45f9e6f78e7722f42a2f	LFRController.fmu	2017-29-03 14:35:01	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	c02934b71efdee60336e540ec37497048345f3de	LFRController.fmu	2017-29-03 10:52:11	c-code	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
 class HardwareInterface
 
 values

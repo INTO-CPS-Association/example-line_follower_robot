@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<fmiModelDescription fmiVersion="2.0" modelName="Sensor_Block" guid="{055a4706-7749-41de-a1ab-7d6d28a95c69}" generationTool="20-sim" numberOfEventIndicators="0" copyright="Controllab Products B.V." license="-">
+<CoSimulation modelIdentifier="Sensor_Block" needsExecutionTool="false" canHandleVariableCommunicationStepSize="true" canInterpolateInputs="false" maxOutputDerivativeOrder="0" canRunAsynchronuously="false" canBeInstantiatedOnlyOncePerProcess="false" canNotUseMemoryManagementFunctions="true" canGetAndSetFMUstate="false" canSerializeFMUstate="false" providesDirectionalDerivative="false">
+<SourceFiles>
+<File name="EulerAngles.c" />
+<File name="fmi2Functions.c" />
+<File name="MotionProfiles.c" />
+<File name="xxfuncs.c" />
+<File name="xxinteg.c" />
+<File name="xxinverse.c" />
+<File name="xxmatrix.c" />
+<File name="xxmodel.c" />
+<File name="xxsubmod.c" />
+<File name="xxTable2D.c" />
+</SourceFiles>
+</CoSimulation>
+<DefaultExperiment startTime="0.0" stopTime="30.0" stepSize="0.01" />
+<ModelVariables>
+<ScalarVariable name="Demux4.output1" valueReference="25" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Demux4.input[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Demux4.input[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Demux4.output2" valueReference="26" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_position_x" valueReference="3" variability="tunable" causality="parameter">
+<Real start="-0.1" />
+</ScalarVariable>
+<ScalarVariable name="lf_position_y" valueReference="4" variability="tunable" causality="parameter">
+<Real start="-0.1" />
+</ScalarVariable>
+<ScalarVariable name="lf_fail_time" valueReference="5" description="realistic and faulty behaviour" variability="tunable" causality="parameter">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="ambient_light" valueReference="6" description="ambient light level in Watts" variability="tunable" causality="parameter">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="noise_level" valueReference="7" description="number of lsb's that are noisy" variability="tunable" causality="parameter">
+<Integer start="0" />
+</ScalarVariable>
+<ScalarVariable name="id_1.output" valueReference="27" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="id_1.C" valueReference="8" variability="tunable" causality="parameter">
+<Integer start="1" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.input" valueReference="42" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.output" valueReference="28" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.bits" valueReference="9" description="quantization levels (bits)" variability="tunable" causality="parameter">
+<Real start="8.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.minimum" valueReference="10" description="minimum output value" variability="tunable" causality="parameter">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.maximum" valueReference="11" description="minimum output value" variability="tunable" causality="parameter">
+<Real start="255.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.hold_signal" valueReference="29" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.windowed_signal" valueReference="30" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.quantisized_signal" valueReference="31" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.lsb" valueReference="32" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.half_lsb" valueReference="33" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.AD_8bit.noise_value" valueReference="34" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.input" valueReference="43" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.output" valueReference="35" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.led_power" valueReference="12" variability="tunable" causality="parameter">
+<Real start="5.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.rx_power_off" valueReference="13" variability="tunable" causality="parameter">
+<Real start="0.5" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.rx_power_on" valueReference="14" variability="tunable" causality="parameter">
+<Real start="4.5" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.ambient_light.reflected_power" valueReference="36" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.robot_state[0]" valueReference="72" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.robot_state[1]" valueReference="73" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.robot_state[2]" valueReference="74" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.robot_state[3]" valueReference="75" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.sensor_position[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.sensor_position[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.id" valueReference="39" variability="discrete" causality="local">
+<Integer />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.rotated_x" valueReference="40" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.calculate_sensor_position.rotated_y" valueReference="41" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.percentageTo8BitValue.input" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.percentageTo8BitValue.output" valueReference="42" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.percentageTo8BitValue.K" valueReference="15" description="gain" variability="tunable" causality="parameter">
+<Real start="255.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.raw_map_reading" valueReference="46" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.reflectivity" valueReference="43" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.lo_input" valueReference="16" variability="tunable" causality="parameter">
+<Real start="-1.6777216e7" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.hi_input" valueReference="17" variability="tunable" causality="parameter">
+<Real start="-1.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.lo_output" valueReference="18" variability="tunable" causality="parameter">
+<Real start="0.1" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_to_reflectivity.hi_output" valueReference="19" variability="tunable" causality="parameter">
+<Real start="0.9" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Gain.input" valueReference="44" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Gain.output" valueReference="84" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Gain.sensor_response_factor" valueReference="20" description="gain" variability="tunable" causality="parameter">
+<Real start="223.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.PlusMinus.output" valueReference="44" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.PlusMinus.plus1" valueReference="35" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.PlusMinus.minus1" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Splitter1.input" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Splitter1.output1" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Splitter1.output2" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.input" valueReference="35" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.output" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.Splitter2.input" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.Splitter2.output1" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.split_id.input" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.split_id.output1" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.split_id.output2" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.stuck_fault.sensor_position" valueReference="28" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.stuck_fault.sensor_position_out" valueReference="28" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.stuck_fault.id" valueReference="45" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.sensor_position[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.sensor_position[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.id" valueReference="45" variability="discrete" causality="local">
+<Integer />
+</ScalarVariable>
+<ScalarVariable name="lf_1.raw_map_reading" valueReference="46" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.robot_state[0]" valueReference="72" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.robot_state[1]" valueReference="73" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.robot_state[2]" valueReference="74" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.robot_state[3]" valueReference="75" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.lf_1_sensor_reading" valueReference="28" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sensor_position1[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sensor_position1[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sensor_value1" valueReference="46" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix_size" valueReference="22" variability="tunable" causality="parameter">
+<Integer start="3" />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix_scale" valueReference="23" variability="tunable" causality="parameter">
+<Real start="0.001" />
+</ScalarVariable>
+<ScalarVariable name="map.id" valueReference="47" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.input1[0]" valueReference="48" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.input1[1]" valueReference="49" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.input1[2]" valueReference="50" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_offsets[0]" valueReference="51" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_offsets[1]" valueReference="52" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_offsets[2]" valueReference="53" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.i" valueReference="54" variability="discrete" causality="local">
+<Integer />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[0]" valueReference="55" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[1]" valueReference="56" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[2]" valueReference="57" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[3]" valueReference="58" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[4]" valueReference="59" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[5]" valueReference="60" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[6]" valueReference="61" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[7]" valueReference="62" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.sample_matrix1[8]" valueReference="63" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.x1" valueReference="64" variability="discrete" causality="local">
+<Integer />
+</ScalarVariable>
+<ScalarVariable name="map.y1" valueReference="65" variability="discrete" causality="local">
+<Integer />
+</ScalarVariable>
+<ScalarVariable name="map.sensor_field_width" valueReference="66" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="map.retval" valueReference="67" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.robot_x" valueReference="68" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.robot_y" valueReference="69" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.robot_z" valueReference="70" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.robot_theta" valueReference="71" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.output[0]" valueReference="72" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.output[1]" valueReference="73" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.output[2]" valueReference="74" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Mux.output[3]" valueReference="75" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.input[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.input[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.output1[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.output1[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.output2[0]" valueReference="37" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="Splitter6.output2[1]" valueReference="38" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1_sensor_position_x" valueReference="76" variability="continuous" causality="output">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1_sensor_position_y" valueReference="77" variability="continuous" causality="output">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1_sensor_reading" valueReference="78" variability="continuous" causality="output">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="robot_theta" valueReference="79" variability="continuous" causality="input">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="robot_x" valueReference="80" variability="continuous" causality="input">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="robot_y" valueReference="81" variability="continuous" causality="input">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="robot_z" valueReference="82" variability="continuous" causality="input">
+<Real start="0.0" />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Integrate.input" valueReference="84" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Integrate.output" valueReference="83" variability="continuous" causality="local">
+<Real />
+</ScalarVariable>
+<ScalarVariable name="lf_1.response_delay.Integrate.initial" valueReference="24" description="initial value" variability="fixed" causality="parameter">
+<Real start="0.0" />
+</ScalarVariable>
+</ModelVariables>
+<ModelStructure>
+<Outputs>
+<Unknown index="115" />
+<Unknown index="116" />
+<Unknown index="117" />
+</Outputs>
+</ModelStructure>
+</fmiModelDescription>

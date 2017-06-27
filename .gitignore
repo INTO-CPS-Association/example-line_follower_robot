@@ -40,3 +40,7 @@ Thumbs.db
 # OSes and edits. -jwc/6June2013
 Icon[^-0-9a-zA-Z]
 !Icon*/
+
+
+*.s#*
+*.b#*
