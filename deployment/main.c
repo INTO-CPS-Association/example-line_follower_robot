@@ -168,26 +168,14 @@ int main()
 	double now = 0;
 	double step = 0.01;
 
-	char buffer[100];
+	char buffer[20];
 	int lm, rm, alive;
 
 	alive = 0;
 
-	/*
- 	while (true) {
-		sprintf(buffer, "L %4d R %4d     \r\n", (uint16_t)fmiBuffer.realBuffer[FMI_LEFTVAL], (uint16_t)fmiBuffer.realBuffer[FMI_RIGHTVAL]);
-		uart_puts(buffer);
-	}
-
-*/
-
 	while(true)
 	{
 	//Read switch values that indicate sensor threshold crossings.
-	//fmiBuffer.realBuffer[FMI_LEFTVAL] = bit_is_set(PIND, PD0) ? 200.0 : 0.0; //ReadADC(0);
-    //fmiBuffer.realBuffer[FMI_RIGHTVAL] = bit_is_set(PIND, PD1) ? 200.0 : 0.0;
-
-	// hardware sync inputs to buffer
 	fmiBuffer.realBuffer[FMI_LEFTVAL] = ReadADC(0);
 	fmiBuffer.realBuffer[FMI_RIGHTVAL] = ReadADC(1);
 
@@ -223,8 +211,10 @@ int main()
     }
 
 
-	//sprintf(buffer, "LS %4d   RS %4d   LM %4d   RM %4d          X  \r\n", (uint16_t)fmiBuffer.realBuffer[FMI_LEFTVAL], (uint16_t)fmiBuffer.realBuffer[FMI_RIGHTVAL], lm, rm);
-	//uart_puts(buffer);
+//	sprintf(buffer, "LS %4d   RS %4d   LM %4d   RM %4d          X  \r\n", (uint16_t)fmiBuffer.realBuffer[FMI_LEFTVAL], (uint16_t)fmiBuffer.realBuffer[FMI_RIGHTVAL], lm, rm);
+//	sprintf(buffer, "LS %4d   RS %4d X  \r\n", (uint16_t)fmiBuffer.realBuffer[FMI_LEFTVAL], (uint16_t)fmiBuffer.realBuffer[FMI_RIGHTVAL]);
+
+//	uart_puts(buffer);
 
 
 	// alive indicator

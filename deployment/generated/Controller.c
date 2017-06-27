@@ -55,9 +55,9 @@ return ret_12;
 TVP andResult_1 = newBoolGC(false, NULL)
 ;
 
-if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
-	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_1 = newBoolGC(true, NULL);;;
 /* Controller.vdmrt 23:9 */
@@ -80,9 +80,9 @@ CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this,
 TVP andResult_2 = newBoolGC(false, NULL)
 ;
 
-if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
-	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_2 = newBoolGC(true, NULL);;;
 /* Controller.vdmrt 29:9 */
@@ -105,9 +105,9 @@ CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this,
 TVP andResult_3 = newBoolGC(false, NULL)
 ;
 
-if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
-	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_3 = newBoolGC(true, NULL);;;
 /* Controller.vdmrt 35:9 */
@@ -130,9 +130,9 @@ CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this,
 TVP andResult_4 = newBoolGC(false, NULL)
 ;
 
-if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
-	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(500, NULL), NULL)) )
+	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_4 = newBoolGC(true, NULL);;;
 /* Controller.vdmrt 41:9 */
