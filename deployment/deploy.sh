@@ -1,5 +1,11 @@
 #!/bin/bash
 
+rm -rf resources sources LFRController.zip modelDescription.xml main.c
+
+mv LFRController.fmu LFRController.zip
+unzip LFRController.zip
+
+
 leftval=`grep 'name="lfLeftVal"' modelDescription.xml | awk -F \" '{print $4}'`
 forwardrotate=`grep 'name="forwardRotate"' modelDescription.xml | awk -F \" '{print $4}'`
 servoleft=`grep 'name="servoLeftVal"' modelDescription.xml | awk -F \" '{print $4}'`
