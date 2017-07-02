@@ -1,0 +1,57 @@
+class Controller
+
+instance variables
+
+leftSensor: IRSensor;
+rightSensor: IRSensor;
+
+leftServo: Servo;
+rightServo: Servo;
+
+init: bool := true
+
+operations
+
+public Controller: IRSensor * IRSensor * Servo * Servo ==> Controller
+Controller(lfl, lfr, ls, rs) == (
+	leftSensor := lfl;
+	rightSensor := lfr;
+	leftServo := ls;
+	rightServo := rs
+);
+
+Step: () ==> ()
+Step() == cycles(20) (
+
+		if init then (
+			rightServo.setSpeed(1.0);
+			leftServo.setSpeed(1.0);
+			init := false		
+		);
+
+		IO`printf("Left: %s (%s), right: %s (%s)", [leftSensor.getReading(),leftSensor.hasFailed(),rightSensor.getReading(),rightSensor.hasFailed()]);
+/*
+		if leftSensor.getReading() < 150 and rightSensor.getReading() > 150 then 
+		(
+			rightServo.setSpeed(0);
+			leftServo.setSpeed(0.8);
+			IO`printf("Left: %s, right: %s", [0.0,0.8]);
+		)
+		else if leftSensor.getReading() > 150 and rightSensor.getReading() < 150 then
+		(
+			rightServo.setSpeed(0.8);
+			leftServo.setSpeed(0.0);
+			IO`printf("Left: %s, right: %s", [0.8,0.0]);		
+		)
+		else
+		(
+			IO`println("nada");
+		)*/
+
+);
+
+thread
+
+periodic(10E6, 0, 0, 0)(Step)
+
+end Controller

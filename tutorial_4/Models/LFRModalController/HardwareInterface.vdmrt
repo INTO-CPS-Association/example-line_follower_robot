@@ -1,0 +1,21 @@
+--##	EXPORT	4a90431d6d339b070735d4bc2becc48a1a20248f	LFRModalController.fmu	2017-21-06 20:33:23	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+--##	EXPORT	8c82cabadbcbeb554daa51ff899aae4233e0a268	LFRModalController.fmu	2017-21-06 20:19:46	tool-wrapper	{"name":"fmu-import-export","version":"0.2.1-SNAPSHOT"}
+class HardwareInterface
+
+instance variables
+	-- @ interface: type = input, name="lfLeftVal";
+	public lfLeftVal : RealPort := new RealPort(0.0);
+	-- @ interface: type = input, name="lfRightVal";
+	public lfRightVal : RealPort := new RealPort(0.0);
+	-- @ interface: type = input, name="lfLeftFailFlag";
+	public lfLeftFailFlag : BoolPort := new BoolPort(false);
+	-- @ interface: type = input, name="lfRightFailFlag";
+	public lfRightFailFlag : BoolPort := new BoolPort(false);
+
+instance variables
+	-- @ interface: type = output, name="servoLeftVal";
+	public servoLeftVal : RealPort := new RealPort(0.0);
+	-- @ interface: type = output, name="servoRightVal";
+	public servoRightVal : RealPort := new RealPort(0.0);
+  
+end HardwareInterface
