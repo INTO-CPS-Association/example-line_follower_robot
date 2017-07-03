@@ -1,19 +1,12 @@
 #!/bin/bash
 set -e
 
-###  WIP
-#rm -rf resources sources LFRController.zip modelDescription.xml main.c
-echo "Cleaning..."
-rm -rf resources sources modelDescription.xml main.c
-
 echo "Preparing..."
-###  WIP
-#mv LFRController.fmu LFRController.zip
-cp LFRController.fmu LFRController.zip
+
+mv LFRController.fmu LFRController.zip
 
 unzip LFRController.zip > /dev/null
 rm sources/main.c
-
 
 leftval=`grep 'name="lfLeftVal"' modelDescription.xml | awk -F \" '{print $4}'`
 forwardrotate=`grep 'name="forwardRotate"' modelDescription.xml | awk -F \" '{print $4}'`
@@ -33,7 +26,11 @@ sed -i "s/XX_forwardspeed_XX/$forwardspeed/g" main.c
 sed -i "s/XX_rightval_XX/$rightval/g" main.c
 sed -i "s/XX_backwardrotate_XX/$backwardrotate/g" main.c
 
+
+
+
 echo "Compiling..."
+
 cd sources
 
 for i in `find . -type f -name '*.c'`
@@ -55,7 +52,20 @@ avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex AURobot.elf  "AUR
 avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex AURobot.elf  "AURobot.eep"
 avr-size --format=avr --mcu=atmega1284p AURobot.elf
 
+
+
+
 echo "Deploying..."
 avrdude -pm1284p -cjtagmkII -Pusb:00B00000356C -Uflash:w:AURobot.hex:a
+
+
+
+
+echo "Cleaning..."
+cd ..
+rm -rf resources sources binaries LFRController.zip modelDescription.xml main.c AURobot.* *.c.d *.c.o
+
+
+
 
 echo "Done."
