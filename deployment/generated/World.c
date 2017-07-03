@@ -36,20 +36,20 @@ static void World_free(struct World *this)
  --------------------------------- */
  
 
- static  TVP _Z18fieldInitializer11EV()	{
+ static  TVP _Z18fieldInitializer16EV()	{
 
-TVP ret_16 = newInt(0)
+TVP ret_17 = newInt(0)
 ;
 
-return ret_16;
+return ret_17;
 }
 
 
 /* World.vdmrt 5:8 */
  static  void _Z3runEV(WorldCLASS this)	{
-/* World.vdmrt 7:5 */
+/* World.vdmrt 7:2 */
 ;
-/* World.vdmrt 8:5 */
+/* World.vdmrt 8:2 */
 CALL_FUNC_PTR(World, World, this, CLASS_World__Z5blockEV);
 }
 
@@ -67,7 +67,7 @@ CALL_FUNC_PTR(World, World, this, CLASS_World__Z5blockEV);
 
  void World_const_init()	{
 
-numFields_5 = _Z18fieldInitializer11EV();
+numFields_6 = _Z18fieldInitializer16EV();
 
 return ;
 }
@@ -76,7 +76,7 @@ return ;
 
  void World_const_shutdown()	{
 
-vdmFree(numFields_5);
+vdmFree(numFields_6);
 
 return ;
 }
@@ -163,7 +163,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* World.vdmrt 1:7 */
+/* World.vdmrt 1:7 */
  TVP _Z5WorldEV(WorldCLASS this)	{
 
 TVP __buf = NULL
@@ -192,5 +192,5 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_5 =  NULL ;
+	TVP numFields_6 =  NULL ;
 	

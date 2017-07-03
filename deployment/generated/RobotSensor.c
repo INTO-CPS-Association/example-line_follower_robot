@@ -37,29 +37,29 @@ static void RobotSensor_free(struct RobotSensor *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer1EV()	{
+ static  TVP _Z18fieldInitializer11EV()	{
 
-TVP ret_1 = newInt(1)
+TVP ret_11 = newInt(1)
 ;
 
-return ret_1;
+return ret_11;
 }
 
 
 /* RobotSensor.vdmrt 12:8 */
  static  TVP _Z10getReadingEV(RobotSensorCLASS this)	{
 /* RobotSensor.vdmrt 13:23 */
-TVP ret_2 = CALL_FUNC(RealPort, RealPort, GET_FIELD_PTR_GC(RobotSensor, RobotSensor, this, port), CLASS_RealPort__Z8getValueEV)
+TVP ret_12 = CALL_FUNC(RealPort, RealPort, GET_FIELD_PTR_GC(RobotSensor, RobotSensor, this, port), CLASS_RealPort__Z8getValueEV)
 ;
 /* RobotSensor.vdmrt 13:16 */
-return ret_2;
+return ret_12;
 }
 
 
 
  void RobotSensor_const_init()	{
 
-numFields_1 = _Z17fieldInitializer1EV();
+numFields_3 = _Z18fieldInitializer11EV();
 
 return ;
 }
@@ -68,7 +68,7 @@ return ;
 
  void RobotSensor_const_shutdown()	{
 
-vdmFree(numFields_1);
+vdmFree(numFields_3);
 
 return ;
 }
@@ -156,7 +156,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* RobotSensor.vdmrt 9:8 */
+/* RobotSensor.vdmrt 9:8 */
  TVP _Z11RobotSensorE8CRealPort(RobotSensorCLASS this, TVP p)	{
 
 TVP __buf = NULL
@@ -172,18 +172,18 @@ this = TO_CLASS_PTR(__buf, RobotSensor);
 }
 ;
 /* RobotSensor.vdmrt 10:27 */
-TVP field_tmp_1 = vdmCloneGC(p, NULL)
+TVP field_tmp_5 = vdmCloneGC(p, &field_tmp_5)
 ;
 
-SET_FIELD_PTR(RobotSensor, RobotSensor, this, port, field_tmp_1);
+SET_FIELD_PTR_GC(RobotSensor, RobotSensor, this, port, field_tmp_5);
 
-vdmFree(field_tmp_1);
+vdmFree(field_tmp_5);
 
 return __buf;
 }
 
 
-    /* RobotSensor.vdmrt 1:7 */
+/* RobotSensor.vdmrt 1:7 */
  TVP _Z11RobotSensorEV(RobotSensorCLASS this)	{
 
 TVP __buf = NULL
@@ -212,5 +212,5 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_1 =  NULL ;
+	TVP numFields_3 =  NULL ;
 		

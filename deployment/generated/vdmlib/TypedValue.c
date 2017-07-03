@@ -45,7 +45,6 @@
 TVP newTypeValue(vdmtype type, TypedValueType value)
 {
 	TVP ptr = malloc(sizeof(struct TypedValue));
-	assert(ptr != NULL);
 	ptr->type = type;
 	ptr->value = value;
 	ptr->ref_from = NULL;
@@ -107,22 +106,8 @@ TVP newToken(TVP x)
 TVP newCollection(size_t size, vdmtype type)
 {
 	struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-	assert(ptr != NULL);
 	ptr->size = size;
-	ptr->value = (TVP*) calloc(size != 0 ? size : 1, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
-	assert(ptr->value != NULL);
-	return newTypeValue(type, (TypedValueType
-	)
-			{ .ptr = ptr });
-}
-
-TVP newCollectionPrealloc(size_t size, size_t expected_size, vdmtype type)
-{
-	struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-	assert(ptr != NULL);
-	ptr->size = size;
-	ptr->value = (TVP*) calloc(expected_size, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
-	assert(ptr->value != NULL);
+	ptr->value = (TVP*) calloc(size, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
 	return newTypeValue(type, (TypedValueType
 	)
 			{ .ptr = ptr });
@@ -131,22 +116,8 @@ TVP newCollectionPrealloc(size_t size, size_t expected_size, vdmtype type)
 TVP newCollectionGC(size_t size, vdmtype type, TVP *from)
 {
 	struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-	assert(ptr != NULL);
 	ptr->size = size;
-	ptr->value = (TVP*) calloc(size != 0 ? size : 1, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
-	assert(ptr->value != NULL);
-	return newTypeValueGC(type, (TypedValueType
-	)
-			{ .ptr = ptr }, from);
-}
-
-TVP newCollectionPreallocGC(size_t size, size_t expected_size, vdmtype type, TVP *from)
-{
-	struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-	assert(ptr != NULL);
-	ptr->size = size;
-	ptr->value = (TVP*) calloc(expected_size, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
-	assert(ptr->value != NULL);
+	ptr->value = (TVP*) calloc(size, sizeof(TVP)); /* I know this is slower than malloc but better for products  */
 	return newTypeValueGC(type, (TypedValueType
 	)
 			{ .ptr = ptr }, from);
@@ -157,20 +128,6 @@ TVP newCollectionWithValues(size_t size, vdmtype type, TVP* elements)
 	int i;
 
 	TVP product = newCollection(size,type);
-	UNWRAP_COLLECTION(col,product);
-
-	for (i = 0; i < size; i++)
-	{
-		col->value[i]= vdmClone(elements[i]);
-	}
-	return product;
-}
-
-TVP newCollectionWithValuesPrealloc(size_t size, size_t expected_size, vdmtype type, TVP* elements)
-{
-	int i;
-
-	TVP product = newCollectionPrealloc(size, expected_size, type);
 	UNWRAP_COLLECTION(col,product);
 
 	for (i = 0; i < size; i++)
@@ -257,12 +214,10 @@ TVP vdmClone(TVP x)
 		UNWRAP_COLLECTION(cptr, tmp);
 
 		struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-		assert(ptr != NULL);
 
 		/* copy (size)  */
 		*ptr = *cptr;
 		ptr->value = (TVP*) malloc(sizeof(TVP) * ptr->size);
-		assert(ptr->value != NULL);
 
 		for (i = 0; i < cptr->size; i++)
 		{
@@ -281,12 +236,10 @@ TVP vdmClone(TVP x)
 		UNWRAP_COLLECTION(cptr, tmp);
 
 		struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-		assert(ptr != NULL);
 
 		/* copy (size)  */
 		*ptr = *cptr;
 		ptr->value = (TVP*) malloc(sizeof(TVP) * ptr->size);
-		assert(ptr->value != NULL);
 
 		for (i = 0; i < cptr->size; i++)
 		{
@@ -305,12 +258,10 @@ TVP vdmClone(TVP x)
 		UNWRAP_COLLECTION(cptr, tmp);
 
 		struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));
-		assert(ptr != NULL);
 
 		/* copy (size)  */
 		*ptr = *cptr;
 		ptr->value = (TVP*) malloc(sizeof(TVP) * ptr->size);
-		assert(ptr->value != NULL);
 
 		for (i = 0; i < cptr->size; i++)
 		{
@@ -350,7 +301,6 @@ TVP vdmClone(TVP x)
 
 		/* Allocate memory to be populated with the pointers pointing to the cloned fields.  */
 		((struct ClassType*)((tmp->value).ptr))->value = malloc(sizeof(struct VTable*) + sizeof(int) + sizeof(unsigned int) + sizeof(TVP) + sizeof(TVP) * numFields);
-		assert(((struct ClassType*)((tmp->value).ptr))->value != NULL);
 
 		for(i = 0; i <= numFields; i++)
 		{

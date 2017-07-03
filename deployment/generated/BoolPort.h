@@ -40,7 +40,7 @@
  
 
 /*  class id  */
-#define CLASS_ID_BoolPort_ID 3
+#define CLASS_ID_BoolPort_ID 8
 
 #define BoolPortCLASS struct BoolPort*
 
@@ -74,11 +74,11 @@ struct BoolPort
  *
  --------------------------------- */ 
  
-  
-  	/* Fmi.vdmrt 57:12 */
-	TVP _Z8BoolPortEB(BoolPortCLASS this_, TVP v); 
-  	/* Fmi.vdmrt 51:7 */
-	TVP _Z8BoolPortEV(BoolPortCLASS this_); 
+
+	/* Fmi.vdmrt 57:9 */
+	TVP _Z8BoolPortEB(BoolPortCLASS this_, TVP v);
+	/* Fmi.vdmrt 51:7 */
+	TVP _Z8BoolPortEV(BoolPortCLASS this_);
 
 
 /* -------------------------------

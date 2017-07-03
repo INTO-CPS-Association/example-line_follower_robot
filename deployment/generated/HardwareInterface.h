@@ -29,7 +29,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_6;
+extern TVP numFields_2;
 extern TVP g_HardwareInterface_forwardSpeed;
 extern TVP g_HardwareInterface_forwardRotate;
 extern TVP g_HardwareInterface_backwardRotate;
@@ -43,7 +43,7 @@ extern TVP g_HardwareInterface_backwardRotate;
  
 
 /*  class id  */
-#define CLASS_ID_HardwareInterface_ID 9
+#define CLASS_ID_HardwareInterface_ID 1
 
 #define HardwareInterfaceCLASS struct HardwareInterface*
 
@@ -72,9 +72,9 @@ struct HardwareInterface
  *
  --------------------------------- */ 
  
-  
-  	/* HardwareInterface.vdmrt 1:7 */
-	TVP _Z17HardwareInterfaceEV(HardwareInterfaceCLASS this_); 
+
+	/* HardwareInterface.vdmrt 9:7 */
+	TVP _Z17HardwareInterfaceEV(HardwareInterfaceCLASS this_);
 
 
 /* -------------------------------

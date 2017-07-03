@@ -40,7 +40,7 @@
  
 
 /*  class id  */
-#define CLASS_ID_IntPort_ID 2
+#define CLASS_ID_IntPort_ID 7
 
 #define IntPortCLASS struct IntPort*
 
@@ -74,11 +74,11 @@ struct IntPort
  *
  --------------------------------- */ 
  
-  
-  	/* Fmi.vdmrt 40:12 */
-	TVP _Z7IntPortEI(IntPortCLASS this_, TVP v); 
-  	/* Fmi.vdmrt 34:7 */
-	TVP _Z7IntPortEV(IntPortCLASS this_); 
+
+	/* Fmi.vdmrt 40:9 */
+	TVP _Z7IntPortEI(IntPortCLASS this_, TVP v);
+	/* Fmi.vdmrt 34:7 */
+	TVP _Z7IntPortEV(IntPortCLASS this_);
 
 
 /* -------------------------------

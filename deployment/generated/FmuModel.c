@@ -15,17 +15,17 @@
 #include "Fmu.h"
 #include "Vdm.h"
 
+#include "Controller.h"
+#include "HardwareInterface.h"
 #include "RobotSensor.h"
+#include "RobotServo.h"
+#include "System.h"
+#include "World.h"
 #include "Port.h"
 #include "IntPort.h"
 #include "BoolPort.h"
 #include "RealPort.h"
 #include "StringPort.h"
-#include "Controller.h"
-#include "System.h"
-#include "World.h"
-#include "HardwareInterface.h"
-#include "RobotServo.h"
 
 TVP sys = NULL;
 fmi2Boolean syncOutAllowed = fmi2True;
@@ -35,24 +35,23 @@ fmi2Real maxStepSize = 0.0;
 void syncInputsToModel(){
 	{
 		TVP newValue = newReal(fmiBuffer.realBuffer[0]);
-		SET_FIELD(RealPort,RealPort,g_HardwareInterface_forwardRotate,value,newValue);
-		vdmFree(newValue);
-	}
-	{
-		TVP newValue = newReal(fmiBuffer.realBuffer[1]);
 		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,leftVal);
 		SET_FIELD(RealPort,RealPort,p,value,newValue);
 		vdmFree(newValue);vdmFree(p);
 	}
 	{
-		TVP newValue = newReal(fmiBuffer.realBuffer[2]);
-		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,rightVal);
-		SET_FIELD(RealPort,RealPort,p,value,newValue);
-		vdmFree(newValue);vdmFree(p);
+		TVP newValue = newReal(fmiBuffer.realBuffer[1]);
+		SET_FIELD(RealPort,RealPort,g_HardwareInterface_forwardRotate,value,newValue);
+		vdmFree(newValue);
 	}
 	{
 		TVP newValue = newReal(fmiBuffer.realBuffer[4]);
-		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,total_energy_used);
+		SET_FIELD(RealPort,RealPort,g_HardwareInterface_forwardSpeed,value,newValue);
+		vdmFree(newValue);
+	}
+	{
+		TVP newValue = newReal(fmiBuffer.realBuffer[5]);
+		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,rightVal);
 		SET_FIELD(RealPort,RealPort,p,value,newValue);
 		vdmFree(newValue);vdmFree(p);
 	}
@@ -63,8 +62,9 @@ void syncInputsToModel(){
 	}
 	{
 		TVP newValue = newReal(fmiBuffer.realBuffer[7]);
-		SET_FIELD(RealPort,RealPort,g_HardwareInterface_forwardSpeed,value,newValue);
-		vdmFree(newValue);
+		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,total_energy_used);
+		SET_FIELD(RealPort,RealPort,p,value,newValue);
+		vdmFree(newValue);vdmFree(p);
 	}
 }
 void syncOutputsToBuffers(){
@@ -73,13 +73,13 @@ void syncOutputsToBuffers(){
 	{
 		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,servo_left_out);
 		TVP v = GET_FIELD(RealPort,RealPort,p,value);
-		fmiBuffer.realBuffer[3]=v->value.doubleVal;
+		fmiBuffer.realBuffer[2]=v->value.doubleVal;
 		vdmFree(v);vdmFree(p);
 	}
 	{
 		TVP p = GET_FIELD(HardwareInterface,HardwareInterface,g_System_hwi,servo_right_out);
 		TVP v = GET_FIELD(RealPort,RealPort,p,value);
-		fmiBuffer.realBuffer[5]=v->value.doubleVal;
+		fmiBuffer.realBuffer[3]=v->value.doubleVal;
 		vdmFree(v);vdmFree(p);
 	}
 }
@@ -103,29 +103,29 @@ void systemInit()
 
 	for(i = 0; i < PERIODIC_GENERATED_COUNT; i++) threads[i].period = threads[i].period / 1.0E9;
 
+	Controller_const_init();
+	HardwareInterface_const_init();
 	RobotSensor_const_init();
+	RobotServo_const_init();
+	System_const_init();
+	World_const_init();
 	Port_const_init();
 	IntPort_const_init();
 	BoolPort_const_init();
 	RealPort_const_init();
 	StringPort_const_init();
-	Controller_const_init();
-	System_const_init();
-	World_const_init();
-	HardwareInterface_const_init();
-	RobotServo_const_init();
 
+	Controller_static_init();
+	HardwareInterface_static_init();
 	RobotSensor_static_init();
+	RobotServo_static_init();
+	System_static_init();
+	World_static_init();
 	Port_static_init();
 	IntPort_static_init();
 	BoolPort_static_init();
 	RealPort_static_init();
 	StringPort_static_init();
-	Controller_static_init();
-	System_static_init();
-	World_static_init();
-	HardwareInterface_static_init();
-	RobotServo_static_init();
 
 	sys = _Z6SystemEV(NULL);
 
@@ -134,29 +134,29 @@ void systemInit()
 
 void systemDeInit()
 {
+	Controller_static_shutdown();
+	HardwareInterface_static_shutdown();
 	RobotSensor_static_shutdown();
+	RobotServo_static_shutdown();
+	System_static_shutdown();
+	World_static_shutdown();
 	Port_static_shutdown();
 	IntPort_static_shutdown();
 	BoolPort_static_shutdown();
 	RealPort_static_shutdown();
 	StringPort_static_shutdown();
-	Controller_static_shutdown();
-	System_static_shutdown();
-	World_static_shutdown();
-	HardwareInterface_static_shutdown();
-	RobotServo_static_shutdown();
 
+	Controller_const_shutdown();
+	HardwareInterface_const_shutdown();
 	RobotSensor_const_shutdown();
+	RobotServo_const_shutdown();
+	System_const_shutdown();
+	World_const_shutdown();
 	Port_const_shutdown();
 	IntPort_const_shutdown();
 	BoolPort_const_shutdown();
 	RealPort_const_shutdown();
 	StringPort_const_shutdown();
-	Controller_const_shutdown();
-	System_const_shutdown();
-	World_const_shutdown();
-	HardwareInterface_const_shutdown();
-	RobotServo_const_shutdown();
 
 	vdmFree(sys);
 
@@ -232,7 +232,7 @@ fmi2Status vdmStep(fmi2Real currentCommunicationPoint, fmi2Real communicationSte
 	*/
 	maxStepSize = INT_MAX * 1.0;
 
-	/*  g_fmiCallbackFunctions->logger((void*) 1, g_fmiInstanceName, fmi2OK, "logDebug", "NOW:  %f, TP: %f, LE:  %f, STEP:  %f, SYNC:  %d, RUNS:  %d\n", currentCommunicationPoint, threads[0].period, threads[0].lastExecuted, communicationStepSize, syncOutAllowed, threadRunCount);  */
+	g_fmiCallbackFunctions->logger((void*) 1, g_fmiInstanceName, fmi2OK, "logDebug", "NOW:  %f, TP: %f, LE:  %f, STEP:  %f, SYNC:  %d, RUNS:  %d\n", currentCommunicationPoint, threads[0].period, threads[0].lastExecuted, communicationStepSize, syncOutAllowed, threadRunCount);
 
 	return fmi2OK;
 }

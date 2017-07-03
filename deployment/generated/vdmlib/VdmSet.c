@@ -72,7 +72,6 @@ TVP newSetWithValues(size_t size, TVP* elements)
 	int count = 0;
 	int bufsize = DEFAULT_SET_COMP_BUFFER;
 	TVP* value = (TVP*)calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	for (i = 0; i < size; i++)
 	{
@@ -83,7 +82,6 @@ TVP newSetWithValues(size_t size, TVP* elements)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSetAdd(value, &count,v);
 	}
@@ -105,7 +103,6 @@ TVP newSetWithValuesGC(size_t size, TVP* elements, TVP *from)
 	int count = 0;
 	int bufsize = DEFAULT_SET_COMP_BUFFER;
 	TVP* value = (TVP*)calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	for (i = 0; i < size; i++)
 	{
@@ -116,7 +113,6 @@ TVP newSetWithValuesGC(size_t size, TVP* elements, TVP *from)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSetAdd(value, &count,v);
 	}
@@ -144,7 +140,6 @@ TVP newSetVar(size_t size, ...)
 
 	int bufsize = DEFAULT_SET_COMP_BUFFER;
 	TVP* value = (TVP*) calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	for (i = 0; i < size; i++)
 	{
@@ -160,7 +155,6 @@ TVP newSetVar(size_t size, ...)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSetAdd(value, &count, v);
 	}
@@ -168,8 +162,6 @@ TVP newSetVar(size_t size, ...)
 	va_end(ap);
 
 	TVP res = newCollectionWithValues(count, VDM_SET, value);
-	for(i = 0; i < count; i++)
-		vdmFree(value[i]);
 	free(value);
 	return res;
 }
@@ -186,7 +178,6 @@ TVP newSetVarGC(size_t size, TVP *from, ...)
 
 	int bufsize = DEFAULT_SET_COMP_BUFFER;
 	TVP* value = (TVP*) calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	for (i = 0; i < size; i++)
 	{
@@ -197,8 +188,7 @@ TVP newSetVarGC(size_t size, TVP *from, ...)
 		{
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
-			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
+			value = (TVP*)realloc(value,bufsize * sizeof(TVP));
 		}
 		vdmSetAdd(value,&count,v);
 	}
@@ -206,10 +196,6 @@ TVP newSetVarGC(size_t size, TVP *from, ...)
 	va_end(ap);
 
 	TVP res = newCollectionWithValuesGC(count, VDM_SET, value, from);
-	for(i = 0; i < count; i++)
-	{
-		vdmFree(value[i]);
-	}
 	free(value);
 	return res;
 }
@@ -230,7 +216,6 @@ TVP newSetVarToGrow(size_t size, size_t expected_size, ...)
 
 	int bufsize = expected_size;  /* DEFAULT_SET_COMP_BUFFER;  */
 	TVP* value = (TVP*) calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	TVP arg;
 	TVP v;
@@ -247,7 +232,6 @@ TVP newSetVarToGrow(size_t size, size_t expected_size, ...)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSetAdd(value,&count,v);
 	}
@@ -269,7 +253,6 @@ TVP newSetVarToGrowGC(size_t size, size_t expected_size, TVP *from, ...)
 
 	int bufsize = expected_size;  /* DEFAULT_SET_COMP_BUFFER;  */
 	TVP* value = (TVP*) calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	TVP arg;
 	TVP v;
@@ -286,7 +269,6 @@ TVP newSetVarToGrowGC(size_t size, size_t expected_size, TVP *from, ...)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SET_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSetAdd(value,&count,v);
 	}
@@ -316,7 +298,6 @@ void vdmSetGrow(TVP set, TVP element)
 /* 	}  */
 
 	col->value = (TVP *)realloc(col->value, (size + 1) * sizeof(TVP));
-	assert(col->value != NULL);
 
 	vdmSetAdd(col->value, &(col->size), vdmClone(element));
 }
@@ -329,7 +310,6 @@ void vdmSetFit(TVP set)
 
 	/* Assumes that more memory is allocated in the col->value array than there are elements.  */
 	col->value = (TVP*)realloc(col->value, col->size * sizeof(TVP));
-	assert(col->value != NULL);
 }
 
 
@@ -363,7 +343,6 @@ TVP vdmSetEnumerateSetOfInts(int lower, int upper)
 
 	/* The common case.  */
 	theset = (TVP*)calloc(upper - lower + 1, sizeof(TVP));
-	assert(theset != NULL);
 	count = 0;
 
 	for (i = lower; i <= upper; i++)
@@ -482,7 +461,6 @@ TVP vdmSetNotMemberOfGC(TVP set, TVP element, TVP *from)
 TVP vdmSetUnion(TVP set1, TVP set2)
 {
 	TVP *newvalues;
-	TVP resset;
 	int i;
 
 	ASSERT_CHECK(set1);
@@ -503,7 +481,6 @@ TVP vdmSetUnion(TVP set1, TVP set2)
 	/* newcol2 = (TVP*)malloc(col2->size * sizeof(TVP));  */
 
 	newvalues = (TVP*)malloc((col1->size + col2->size) * sizeof(TVP));
-	assert(newvalues != NULL);
 	for(i = 0; i < col1->size; i++)
 	{
 		newvalues[i] = vdmClone((col1->value)[i]);
@@ -514,13 +491,7 @@ TVP vdmSetUnion(TVP set1, TVP set2)
 		newvalues[i] = vdmClone((col2->value)[i - col1->size]);
 	}
 
-	resset = newSetWithValues(col1->size + col2->size, newvalues);
-
-	for(i = 0; i < col1->size + col2->size; i++)
-		vdmFree(newvalues[i]);
-	free(newvalues);
-
-	return resset;
+	return newSetWithValues(col1->size + col2->size, newvalues);
 }
 
 TVP vdmSetUnionGC(TVP set1, TVP set2, TVP *from)
@@ -528,7 +499,6 @@ TVP vdmSetUnionGC(TVP set1, TVP set2, TVP *from)
 	int i;
 
 	TVP *newvalues;
-	TVP resset;
 
 	ASSERT_CHECK(set1);
 	ASSERT_CHECK(set2);
@@ -548,7 +518,6 @@ TVP vdmSetUnionGC(TVP set1, TVP set2, TVP *from)
 	/* newcol2 = (TVP*)malloc(col2->size * sizeof(TVP));  */
 
 	newvalues = (TVP*)malloc((col1->size + col2->size) * sizeof(TVP));
-	assert(newvalues != NULL);
 	for(i = 0; i < col1->size; i++)
 	{
 		newvalues[i] = vdmClone((col1->value)[i]);
@@ -559,13 +528,7 @@ TVP vdmSetUnionGC(TVP set1, TVP set2, TVP *from)
 		newvalues[i] = vdmClone((col2->value)[i - col1->size]);
 	}
 
-	resset = newSetWithValuesGC(col1->size + col2->size, newvalues, from);
-
-	for(i = 0; i < col1->size + col2->size; i++)
-		vdmFree(newvalues[i]);
-	free(newvalues);
-
-	return resset;
+	return newSetWithValuesGC(col1->size + col2->size, newvalues, from);
 }
 
 

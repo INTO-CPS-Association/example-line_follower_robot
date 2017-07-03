@@ -40,19 +40,19 @@ static void Controller_free(struct Controller *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer7EV()	{
+ static  TVP _Z17fieldInitializer1EV()	{
 
-TVP ret_12 = newInt(4)
+TVP ret_1 = newInt(4)
 ;
 
-return ret_12;
+return ret_1;
 }
 
 
 /* Controller.vdmrt 20:12 */
  static  void _Z12control_loopEV(ControllerCLASS this)	{
 
-TVP andResult_1 = newBoolGC(false, NULL)
+TVP andResult_1 = newBoolGC(false, &andResult_1)
 ;
 
 if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
@@ -60,24 +60,24 @@ if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(C
 	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_1 = newBoolGC(true, NULL);;;
-/* Controller.vdmrt 23:9 */
+/* Controller.vdmrt 23:3 */
 if ( toBool(andResult_1) )
-	/* Controller.vdmrt 24:14 */
+	/* Controller.vdmrt 24:8 */
 	{
-/* Controller.vdmrt 25:33 */
-TVP embeding_1 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardSpeed, CLASS_RealPort__Z8getValueEV), NULL)
+/* Controller.vdmrt 25:24 */
+TVP embeding_1 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardSpeed, CLASS_RealPort__Z8getValueEV), &embeding_1)
 ;
-/* Controller.vdmrt 25:13 */
+/* Controller.vdmrt 25:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoRight), CLASS_RobotServo__Z8setServoER, embeding_1);
-/* Controller.vdmrt 26:32 */
+/* Controller.vdmrt 26:23 */
 TVP embeding_2 = CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardSpeed, CLASS_RealPort__Z8getValueEV)
 ;
-/* Controller.vdmrt 26:13 */
+/* Controller.vdmrt 26:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoLeft), CLASS_RobotServo__Z8setServoER, embeding_2);
 }
 ;
 
-TVP andResult_2 = newBoolGC(false, NULL)
+TVP andResult_2 = newBoolGC(false, &andResult_2)
 ;
 
 if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
@@ -85,24 +85,24 @@ if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(C
 	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_2 = newBoolGC(true, NULL);;;
-/* Controller.vdmrt 29:9 */
+/* Controller.vdmrt 29:3 */
 if ( toBool(andResult_2) )
-	/* Controller.vdmrt 30:14 */
+	/* Controller.vdmrt 30:8 */
 	{
-/* Controller.vdmrt 31:33 */
-TVP embeding_3 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardRotate, CLASS_RealPort__Z8getValueEV), NULL)
+/* Controller.vdmrt 31:24 */
+TVP embeding_3 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardRotate, CLASS_RealPort__Z8getValueEV), &embeding_3)
 ;
-/* Controller.vdmrt 31:13 */
+/* Controller.vdmrt 31:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoRight), CLASS_RobotServo__Z8setServoER, embeding_3);
-/* Controller.vdmrt 32:32 */
+/* Controller.vdmrt 32:23 */
 TVP embeding_4 = CALL_FUNC(RealPort, RealPort, g_HardwareInterface_backwardRotate, CLASS_RealPort__Z8getValueEV)
 ;
-/* Controller.vdmrt 32:13 */
+/* Controller.vdmrt 32:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoLeft), CLASS_RobotServo__Z8setServoER, embeding_4);
 }
 ;
 
-TVP andResult_3 = newBoolGC(false, NULL)
+TVP andResult_3 = newBoolGC(false, &andResult_3)
 ;
 
 if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
@@ -110,24 +110,24 @@ if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_G
 	if ( toBool(vdmLessThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_3 = newBoolGC(true, NULL);;;
-/* Controller.vdmrt 35:9 */
+/* Controller.vdmrt 35:3 */
 if ( toBool(andResult_3) )
-	/* Controller.vdmrt 36:14 */
+	/* Controller.vdmrt 36:8 */
 	{
-/* Controller.vdmrt 37:33 */
-TVP embeding_5 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_backwardRotate, CLASS_RealPort__Z8getValueEV), NULL)
+/* Controller.vdmrt 37:24 */
+TVP embeding_5 = vdmMinusGC(CALL_FUNC(RealPort, RealPort, g_HardwareInterface_backwardRotate, CLASS_RealPort__Z8getValueEV), &embeding_5)
 ;
-/* Controller.vdmrt 37:13 */
+/* Controller.vdmrt 37:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoRight), CLASS_RobotServo__Z8setServoER, embeding_5);
-/* Controller.vdmrt 38:32 */
+/* Controller.vdmrt 38:23 */
 TVP embeding_6 = CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardRotate, CLASS_RealPort__Z8getValueEV)
 ;
-/* Controller.vdmrt 38:13 */
+/* Controller.vdmrt 38:4 */
 CALL_FUNC(RobotServo, RobotServo, GET_FIELD_PTR_GC(Controller, Controller, this, servoLeft), CLASS_RobotServo__Z8setServoER, embeding_6);
 }
 ;
 
-TVP andResult_4 = newBoolGC(false, NULL)
+TVP andResult_4 = newBoolGC(false, &andResult_4)
 ;
 
 if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
@@ -135,9 +135,9 @@ if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_G
 	if ( toBool(vdmGreaterThanGC(CALL_FUNC(RobotSensor, RobotSensor, GET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal), CLASS_RobotSensor__Z10getReadingEV), newIntGC(400, NULL), NULL)) )
 	
 	andResult_4 = newBoolGC(true, NULL);;;
-/* Controller.vdmrt 41:9 */
+/* Controller.vdmrt 41:3 */
 if ( toBool(andResult_4) )
-	/* Controller.vdmrt 42:14 */
+	/* Controller.vdmrt 42:8 */
 	{
 /*  Skip  */
 }
@@ -148,7 +148,7 @@ if ( toBool(andResult_4) )
 
  void Controller_const_init()	{
 
-numFields_3 = _Z17fieldInitializer7EV();
+numFields_1 = _Z17fieldInitializer1EV();
 
 return ;
 }
@@ -157,7 +157,7 @@ return ;
 
  void Controller_const_shutdown()	{
 
-vdmFree(numFields_3);
+vdmFree(numFields_1);
 
 return ;
 }
@@ -248,7 +248,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* Controller.vdmrt 11:12 */
+/* Controller.vdmrt 11:9 */
  TVP _Z10ControllerE10CRobotServo10CRobotServo11CRobotSensor11CRobotSensor(ControllerCLASS this, TVP servL, TVP servR, TVP sensRightVal, TVP sensLeftVal)	{
 
 TVP __buf = NULL
@@ -265,46 +265,46 @@ this = TO_CLASS_PTR(__buf, Controller);
 ;
 
 {
-/* Controller.vdmrt 14:19 */
-TVP field_tmp_6 = vdmCloneGC(servL, NULL)
+/* Controller.vdmrt 14:16 */
+TVP field_tmp_1 = vdmCloneGC(servL, &field_tmp_1)
 ;
 
-SET_FIELD_PTR(Controller, Controller, this, servoLeft, field_tmp_6);
+SET_FIELD_PTR_GC(Controller, Controller, this, servoLeft, field_tmp_1);
 
-vdmFree(field_tmp_6);
+vdmFree(field_tmp_1);
 }
 ;
 
 {
-/* Controller.vdmrt 15:18 */
-TVP field_tmp_7 = vdmCloneGC(servR, NULL)
+/* Controller.vdmrt 15:17 */
+TVP field_tmp_2 = vdmCloneGC(servR, &field_tmp_2)
 ;
 
-SET_FIELD_PTR(Controller, Controller, this, servoRight, field_tmp_7);
+SET_FIELD_PTR_GC(Controller, Controller, this, servoRight, field_tmp_2);
 
-vdmFree(field_tmp_7);
+vdmFree(field_tmp_2);
 }
 ;
 
 {
-/* Controller.vdmrt 16:24 */
-TVP field_tmp_8 = vdmCloneGC(sensRightVal, NULL)
+/* Controller.vdmrt 16:21 */
+TVP field_tmp_3 = vdmCloneGC(sensRightVal, &field_tmp_3)
 ;
 
-SET_FIELD_PTR(Controller, Controller, this, sensorRightVal, field_tmp_8);
+SET_FIELD_PTR_GC(Controller, Controller, this, sensorRightVal, field_tmp_3);
 
-vdmFree(field_tmp_8);
+vdmFree(field_tmp_3);
 }
 ;
 
 {
-/* Controller.vdmrt 17:21 */
-TVP field_tmp_9 = vdmCloneGC(sensLeftVal, NULL)
+/* Controller.vdmrt 17:20 */
+TVP field_tmp_4 = vdmCloneGC(sensLeftVal, &field_tmp_4)
 ;
 
-SET_FIELD_PTR(Controller, Controller, this, sensorLeftVal, field_tmp_9);
+SET_FIELD_PTR_GC(Controller, Controller, this, sensorLeftVal, field_tmp_4);
 
-vdmFree(field_tmp_9);
+vdmFree(field_tmp_4);
 }
 ;
 
@@ -312,7 +312,7 @@ return __buf;
 }
 
 
-    /* Controller.vdmrt 1:7 */
+/* Controller.vdmrt 1:7 */
  TVP _Z10ControllerEV(ControllerCLASS this)	{
 
 TVP __buf = NULL
@@ -341,5 +341,5 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_3 =  NULL ;
+	TVP numFields_1 =  NULL ;
 					

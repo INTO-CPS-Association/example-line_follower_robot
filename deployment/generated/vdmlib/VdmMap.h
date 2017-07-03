@@ -32,7 +32,14 @@
 
 #include "Vdm.h"
 #include "VdmSet.h"
+
+#ifdef WITH_GLIB_HASH
+#include <glib.h>
+#else
 #include <limits.h>
+#endif
+
+
 #include <assert.h>
 
 #ifndef NO_MAPS
@@ -40,17 +47,31 @@
 #define UNWRAP_MAP(var, map) struct Map* var = (struct Map*)map->value.ptr
 
 
-struct KVPair{
+struct entry_s {
 	TVP key;
 	TVP value;
-	struct KVPair *next;
+	struct entry_s *next;
 };
+
+typedef struct entry_s entry_t;
+
+struct hashtable_s {
+	int size;
+	entry_t **chain;
+};
+
+typedef struct hashtable_s hashtable_t;
 
 struct Map
 {
-	struct KVPair *chain;
+#ifdef WITH_GLIB_HASH
+	GHashTable *table;
+#else
+	hashtable_t *table;
+#endif
 };
 
+hashtable_t *ht_create( int size );
 
 void freeMap(struct Map *m);
 struct Map* cloneMap(struct Map *m);
@@ -89,6 +110,13 @@ TVP vdmMapInverse(TVP map);
 TVP vdmMapInverseGC(TVP map, TVP *from);
 
 TVP vdmMapEquals(TVP map1, TVP map2);
+
+#ifdef WITH_GLIB_HASH
+guint vdm_typedvalue_hash(gconstpointer v);
+gboolean vdm_typedvalue_equal(gconstpointer v1, gconstpointer v2);
+void vdm_g_free(gpointer mem);
+#endif
+
 
 #endif /* NO_MAPS */
 #endif /* LIB_VDMMAP_H_ */

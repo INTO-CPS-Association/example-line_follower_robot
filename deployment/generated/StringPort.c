@@ -37,34 +37,34 @@ static void StringPort_free(struct StringPort *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer6EV(StringPortCLASS this)	{
-/* Fmi.vdmrt 88:20 */
-TVP ret_10 = newSeqVar(0, NULL)
+ static  TVP _Z18fieldInitializer21EV(StringPortCLASS this)	{
+/* Fmi.vdmrt 88:17 */
+TVP ret_25 = newSeqVar(0, NULL)
 ;
 
-return ret_10;
+return ret_25;
 }
 
 
-/* Fmi.vdmrt 94:12 */
+/* Fmi.vdmrt 94:9 */
  static  void _Z8setValueE1QC(StringPortCLASS this, TVP v)	{
-/* Fmi.vdmrt 95:27 */
-TVP field_tmp_5 = vdmCloneGC(v, NULL)
+/* Fmi.vdmrt 95:24 */
+TVP field_tmp_10 = vdmCloneGC(v, &field_tmp_10)
 ;
 
-SET_FIELD_PTR(StringPort, StringPort, this, value, field_tmp_5);
+SET_FIELD_PTR_GC(StringPort, StringPort, this, value, field_tmp_10);
 
-vdmFree(field_tmp_5);
+vdmFree(field_tmp_10);
 }
 
 
-/* Fmi.vdmrt 97:12 */
+/* Fmi.vdmrt 97:9 */
  static  TVP _Z8getValueEV(StringPortCLASS this)	{
-/* Fmi.vdmrt 98:26 */
-TVP ret_11 = vdmCloneGC(GET_FIELD_PTR_GC(StringPort, StringPort, this, value), NULL)
+/* Fmi.vdmrt 98:23 */
+TVP ret_26 = vdmCloneGC(GET_FIELD_PTR_GC(StringPort, StringPort, this, value), NULL)
 ;
-/* Fmi.vdmrt 98:19 */
-return ret_11;
+/* Fmi.vdmrt 98:16 */
+return ret_26;
 }
 
 
@@ -96,7 +96,7 @@ return ;
 }
 
 
-/* Fmi.vdmrt 29:12 */
+/* Fmi.vdmrt 29:9 */
  static  TVP Port__Z8getValueEV(PortCLASS base)	{
 
 StringPortCLASS this = CLASS_DOWNCAST(Port, StringPort, base)
@@ -168,7 +168,7 @@ StringPortCLASS StringPort_Constructor(StringPortCLASS this_ptr)
 		this_ptr->_StringPort_refs = 0;
 		this_ptr->_StringPort_pVTable=VTableArrayForStringPort;
 
-				this_ptr->m_StringPort_value= _Z17fieldInitializer6EV(this_ptr);
+				this_ptr->m_StringPort_value= _Z18fieldInitializer21EV(this_ptr);
 			}
 
 	return this_ptr;
@@ -192,7 +192,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* Fmi.vdmrt 91:12 */
+/* Fmi.vdmrt 91:9 */
  TVP _Z10StringPortE1QC(StringPortCLASS this, TVP v)	{
 
 TVP __buf = NULL
@@ -207,14 +207,14 @@ __buf = new();
 this = TO_CLASS_PTR(__buf, StringPort);
 }
 ;
-/* Fmi.vdmrt 92:20 */
+/* Fmi.vdmrt 92:17 */
 CALL_FUNC_PTR(StringPort, StringPort, this, CLASS_StringPort__Z8setValueE1QC, v);
 
 return __buf;
 }
 
 
-    /* Fmi.vdmrt 85:7 */
+/* Fmi.vdmrt 85:7 */
  TVP _Z10StringPortEV(StringPortCLASS this)	{
 
 TVP __buf = NULL

@@ -29,7 +29,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_7;
+extern TVP numFields_4;
 
 
 /* -------------------------------
@@ -40,7 +40,7 @@ extern TVP numFields_7;
  
 
 /*  class id  */
-#define CLASS_ID_RobotServo_ID 10
+#define CLASS_ID_RobotServo_ID 3
 
 #define RobotServoCLASS struct RobotServo*
 
@@ -67,11 +67,11 @@ struct RobotServo
  *
  --------------------------------- */ 
  
-  
-  	/* RobotServo.vdmrt 9:8 */
-	TVP _Z10RobotServoE8CRealPort(RobotServoCLASS this_, TVP p); 
-  	/* RobotServo.vdmrt 1:7 */
-	TVP _Z10RobotServoEV(RobotServoCLASS this_); 
+
+	/* RobotServo.vdmrt 9:8 */
+	TVP _Z10RobotServoE8CRealPort(RobotServoCLASS this_, TVP p);
+	/* RobotServo.vdmrt 1:7 */
+	TVP _Z10RobotServoEV(RobotServoCLASS this_);
 
 
 /* -------------------------------

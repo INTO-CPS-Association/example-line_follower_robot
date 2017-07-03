@@ -33,7 +33,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_4;
+extern TVP numFields_5;
 extern TVP g_System_hwi;
 extern TVP g_System_controller;
 
@@ -46,7 +46,7 @@ extern TVP g_System_controller;
  
 
 /*  class id  */
-#define CLASS_ID_System_ID 7
+#define CLASS_ID_System_ID 4
 
 #define SystemCLASS struct System*
 
@@ -70,9 +70,9 @@ struct System
  *
  --------------------------------- */ 
  
-  
-  	/* System.vdmrt 14:8 */
-	TVP _Z6SystemEV(SystemCLASS this_); 
+
+	/* System.vdmrt 14:8 */
+	TVP _Z6SystemEV(SystemCLASS this_);
 
 
 /* -------------------------------

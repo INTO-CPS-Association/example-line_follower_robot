@@ -36,23 +36,23 @@ static void Port_free(struct Port *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer2EV()	{
+ static  TVP _Z18fieldInitializer17EV()	{
 
-TVP ret_3 = newInt(0)
+TVP ret_18 = newInt(0)
 ;
 
-return ret_3;
+return ret_18;
 }
 
 
-/* Fmi.vdmrt 26:12 */
+/* Fmi.vdmrt 26:9 */
  static  void _Z8setValueE5X1QCBR(PortCLASS this, TVP v)	{
 
 return ;
 }
 
 
-/* Fmi.vdmrt 29:12 */
+/* Fmi.vdmrt 29:9 */
  static  TVP _Z8getValueEV(PortCLASS this)	{
 
 return NULL;
@@ -62,7 +62,7 @@ return NULL;
 
  void Port_const_init()	{
 
-numFields_2 = _Z17fieldInitializer2EV();
+numFields_7 = _Z18fieldInitializer17EV();
 
 return ;
 }
@@ -71,7 +71,7 @@ return ;
 
  void Port_const_shutdown()	{
 
-vdmFree(numFields_2);
+vdmFree(numFields_7);
 
 return ;
 }
@@ -158,7 +158,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* Fmi.vdmrt 18:7 */
+/* Fmi.vdmrt 18:7 */
  TVP _Z4PortEV(PortCLASS this)	{
 
 TVP __buf = NULL
@@ -187,5 +187,5 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_2 =  NULL ;
+	TVP numFields_7 =  NULL ;
 	

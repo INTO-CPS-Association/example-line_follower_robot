@@ -116,7 +116,6 @@ TVP newSeqVarToGrow(size_t size, size_t expected_size, ...)
 
 	int bufsize = expected_size;  /* DEFAULT_SEQ_COMP_BUFFER;  */
 	TVP* value = (TVP*) calloc(bufsize, sizeof(TVP));
-	assert(value != NULL);
 
 	for(i = 0; i < size; i++)
 	{
@@ -130,14 +129,13 @@ TVP newSeqVarToGrow(size_t size, size_t expected_size, ...)
 			/* buffer too small add memory chunk  */
 			bufsize += DEFAULT_SEQ_COMP_BUFFER_STEPSIZE;
 			value = (TVP*)realloc(value, bufsize * sizeof(TVP));
-			assert(value != NULL);
 		}
 		vdmSeqAdd(value,&count,v);
 	}
 
 	va_end(ap);
 
-	TVP res = newCollectionWithValuesPrealloc(count, expected_size, VDM_SEQ, value);
+	TVP res = newCollectionWithValues(count, VDM_SEQ, value);
 	free(value);
 	return res;
 }
@@ -153,7 +151,6 @@ void vdmSeqGrow(TVP seq, TVP element)
 		/* buffer too small add memory chunk  */
 		bufsize += DEFAULT_SEQ_COMP_BUFFER_STEPSIZE;
 		col->value = (TVP*)realloc(col->value, bufsize * sizeof(TVP));
-		assert(col->value != NULL);
 	}
 	vdmSeqAdd(col->value, &(col->size), element);
 }
@@ -164,7 +161,6 @@ void vdmSeqFit(TVP seq)
 
 	/* Assumes that more memory is allocated in the col->value array than there are elements.  */
 	col->value = (TVP*)realloc(col->value, col->size * sizeof(TVP));
-	assert(col->value != NULL);
 }
 
 TVP vdmSeqHd(TVP seq)
@@ -266,7 +262,6 @@ TVP vdmSeqInds(TVP seq)
 	UNWRAP_COLLECTION(col,seq);
 
 	TVP* value = (TVP*) calloc(col->size, sizeof(TVP));
-	assert(value != NULL);
 
 	/* copy  list  */
 	for (i = 0; i < col->size; i++)
@@ -288,7 +283,6 @@ TVP vdmSeqIndsGC(TVP seq, TVP *from)
 	UNWRAP_COLLECTION(col,seq);
 
 	TVP* value = (TVP*) calloc(col->size, sizeof(TVP));
-	assert(value != NULL);
 
 	/* copy  list  */
 	for (i = 0; i < col->size; i++)

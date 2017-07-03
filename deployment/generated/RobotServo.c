@@ -37,12 +37,12 @@ static void RobotServo_free(struct RobotServo *this)
  --------------------------------- */
  
 
- static  TVP _Z18fieldInitializer21EV()	{
+ static  TVP _Z18fieldInitializer12EV()	{
 
-TVP ret_26 = newInt(1)
+TVP ret_13 = newInt(1)
 ;
 
-return ret_26;
+return ret_13;
 }
 
 
@@ -56,7 +56,7 @@ CALL_FUNC(RealPort, RealPort, GET_FIELD_PTR_GC(RobotServo, RobotServo, this, por
 
  void RobotServo_const_init()	{
 
-numFields_7 = _Z18fieldInitializer21EV();
+numFields_4 = _Z18fieldInitializer12EV();
 
 return ;
 }
@@ -65,7 +65,7 @@ return ;
 
  void RobotServo_const_shutdown()	{
 
-vdmFree(numFields_7);
+vdmFree(numFields_4);
 
 return ;
 }
@@ -153,7 +153,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* RobotServo.vdmrt 9:8 */
+/* RobotServo.vdmrt 9:8 */
  TVP _Z10RobotServoE8CRealPort(RobotServoCLASS this, TVP p)	{
 
 TVP __buf = NULL
@@ -169,18 +169,18 @@ this = TO_CLASS_PTR(__buf, RobotServo);
 }
 ;
 /* RobotServo.vdmrt 10:26 */
-TVP field_tmp_10 = vdmCloneGC(p, NULL)
+TVP field_tmp_6 = vdmCloneGC(p, &field_tmp_6)
 ;
 
-SET_FIELD_PTR(RobotServo, RobotServo, this, port, field_tmp_10);
+SET_FIELD_PTR_GC(RobotServo, RobotServo, this, port, field_tmp_6);
 
-vdmFree(field_tmp_10);
+vdmFree(field_tmp_6);
 
 return __buf;
 }
 
 
-    /* RobotServo.vdmrt 1:7 */
+/* RobotServo.vdmrt 1:7 */
  TVP _Z10RobotServoEV(RobotServoCLASS this)	{
 
 TVP __buf = NULL
@@ -209,5 +209,5 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_7 =  NULL ;
+	TVP numFields_4 =  NULL ;
 		

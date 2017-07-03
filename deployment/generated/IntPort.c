@@ -37,34 +37,34 @@ static void IntPort_free(struct IntPort *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer3EV(IntPortCLASS this)	{
-/* Fmi.vdmrt 37:17 */
-TVP ret_4 = newInt(0)
+ static  TVP _Z18fieldInitializer18EV(IntPortCLASS this)	{
+/* Fmi.vdmrt 37:14 */
+TVP ret_19 = newInt(0)
 ;
 
-return ret_4;
+return ret_19;
 }
 
 
-/* Fmi.vdmrt 43:12 */
+/* Fmi.vdmrt 43:9 */
  static  void _Z8setValueEI(IntPortCLASS this, TVP v)	{
-/* Fmi.vdmrt 44:27 */
-TVP field_tmp_2 = vdmCloneGC(v, NULL)
+/* Fmi.vdmrt 44:24 */
+TVP field_tmp_7 = vdmCloneGC(v, &field_tmp_7)
 ;
 
-SET_FIELD_PTR(IntPort, IntPort, this, value, field_tmp_2);
+SET_FIELD_PTR_GC(IntPort, IntPort, this, value, field_tmp_7);
 
-vdmFree(field_tmp_2);
+vdmFree(field_tmp_7);
 }
 
 
-/* Fmi.vdmrt 46:12 */
+/* Fmi.vdmrt 46:9 */
  static  TVP _Z8getValueEV(IntPortCLASS this)	{
-/* Fmi.vdmrt 47:26 */
-TVP ret_5 = vdmCloneGC(GET_FIELD_PTR_GC(IntPort, IntPort, this, value), NULL)
+/* Fmi.vdmrt 47:23 */
+TVP ret_20 = vdmCloneGC(GET_FIELD_PTR_GC(IntPort, IntPort, this, value), NULL)
 ;
-/* Fmi.vdmrt 47:19 */
-return ret_5;
+/* Fmi.vdmrt 47:16 */
+return ret_20;
 }
 
 
@@ -96,7 +96,7 @@ return ;
 }
 
 
-/* Fmi.vdmrt 29:12 */
+/* Fmi.vdmrt 29:9 */
  static  TVP Port__Z8getValueEV(PortCLASS base)	{
 
 IntPortCLASS this = CLASS_DOWNCAST(Port, IntPort, base)
@@ -168,7 +168,7 @@ IntPortCLASS IntPort_Constructor(IntPortCLASS this_ptr)
 		this_ptr->_IntPort_refs = 0;
 		this_ptr->_IntPort_pVTable=VTableArrayForIntPort;
 
-				this_ptr->m_IntPort_value= _Z17fieldInitializer3EV(this_ptr);
+				this_ptr->m_IntPort_value= _Z18fieldInitializer18EV(this_ptr);
 			}
 
 	return this_ptr;
@@ -192,7 +192,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* Fmi.vdmrt 40:12 */
+/* Fmi.vdmrt 40:9 */
  TVP _Z7IntPortEI(IntPortCLASS this, TVP v)	{
 
 TVP __buf = NULL
@@ -207,14 +207,14 @@ __buf = new();
 this = TO_CLASS_PTR(__buf, IntPort);
 }
 ;
-/* Fmi.vdmrt 41:17 */
+/* Fmi.vdmrt 41:14 */
 CALL_FUNC_PTR(IntPort, IntPort, this, CLASS_IntPort__Z8setValueEI, v);
 
 return __buf;
 }
 
 
-    /* Fmi.vdmrt 34:7 */
+/* Fmi.vdmrt 34:7 */
  TVP _Z7IntPortEV(IntPortCLASS this)	{
 
 TVP __buf = NULL

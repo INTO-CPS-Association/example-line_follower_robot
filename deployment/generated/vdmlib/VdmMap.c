@@ -36,20 +36,425 @@
 
 #ifndef NO_MAPS
 
+#ifdef WITH_GLIB_HASH
+
+
+
+guint vdm_typedvalue_hash(gconstpointer v)
+{
+	TVP tv = (TVP)v;
+	switch(tv->type)
+	{
+	case VDM_INT:
+	case VDM_NAT1:
+	case VDM_NAT:
+		return g_int_hash(&tv->value.intVal);
+	case VDM_BOOL:
+		return g_int_hash(&tv->value.boolVal);
+	case VDM_CHAR:
+		return g_int_hash(&tv->value.charVal);
+	case VDM_REAL:
+	case VDM_RAT:
+		return g_double_hash(&tv->value.doubleVal);
+	case VDM_QUOTE:
+		return g_int_hash(&tv->value.quoteVal);
+	case VDM_MAP:
+		/* todo  */
+		break;
+	case VDM_PRODUCT:
+	case VDM_SEQ:
+	case VDM_SET:
+	{
+		/* 			UNWRAP_COLLECTION(cptr,tmp);  */
+		/*   */
+		/* 			struct Collection* ptr = (struct Collection*) malloc(sizeof(struct Collection));  */
+		/*   */
+		/* 			 copy (size)  */
+		/* 			*ptr = *cptr;  */
+		/* 			ptr->value = (TVP*) malloc(sizeof(struct TypedValue) * ptr->size);  */
+		/*   */
+		/* 			for (int i = 0; i < cptr->size; i++)  */
+		/* 			{  */
+		/* 				ptr->value[i] = vdmClone(cptr->value[i]);  */
+		/* 			}  */
+		/*   */
+		/* 			tmp->value.ptr = ptr;  */
+		break;
+	}
+	/* 		case VDM_OPTIONAL:  */
+	/* 		TODO  */
+	/* 		break;  */
+	case VDM_RECORD:
+	{
+		/* TODO duplicate (memcpy) and duplicate what ever any pointers points to except if a class  */
+		break;
+	}
+	case VDM_CLASS:
+	{
+		break;
+	}
+	}
+
+	return 0; /* really bad hash  */
+}
+
+gboolean vdm_typedvalue_equal(gconstpointer v1, gconstpointer v2)
+{
+	TVP a = (TVP)v1;
+	TVP b = (TVP)v2;
+
+	return equals(a,b);
+
+};
+
+void vdm_g_free(gpointer mem)
+{
+	TVP a = (TVP)mem;
+	vdmFree(a);
+}
+
+
 
 TVP newMap()
 {
 	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
-	assert(ptr != NULL);
-
-	ptr->chain = NULL;
+	ptr->table = g_hash_table_new_full(vdm_typedvalue_hash, vdm_typedvalue_equal, vdm_g_free, vdm_g_free);
 
 	return newTypeValue(VDM_MAP, (TypedValueType
 	)
 			{ .ptr = ptr });
 }
 
-void freeChain(struct KVPair *chain)
+TVP newMapGC(TVP *from)
+{
+	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
+	ptr->table = g_hash_table_new_full(vdm_typedvalue_hash, vdm_typedvalue_equal, vdm_g_free, vdm_g_free);
+
+	return newTypeValueGC(VDM_MAP, (TypedValueType
+	)
+			{ .ptr = ptr }, from);
+}
+
+void vdmMapAdd(TVP map, TVP key, TVP value)
+{
+	ASSERT_CHECK(map);
+
+	UNWRAP_MAP(m,map);
+
+	g_hash_table_insert(m->table, vdmClone(key), vdmClone(value));
+
+}
+
+
+/*  TODO: Apply does not work, if they key is not found  */
+TVP vdmMapApply(TVP map, TVP key)
+{
+	ASSERT_CHECK(map);
+	UNWRAP_MAP(m,map);
+
+	return (TVP) g_hash_table_lookup(m->table, key);
+}
+
+
+void print_iterator(gpointer item, gpointer prefix) {
+	TVP item2 = (TVP) item;
+	/* FIXME you cannot print a union type like this printf("%d \n", item2->value);  */
+}
+void print_iterator_short(gpointer item) {
+	printf("%s\n", item);
+}
+
+int getGreater(int a, int b){
+	if(a>b) return a;
+	else return b;
+}
+
+TVP vdmMapDom(TVP map)
+{
+	/* Assert map  */
+	ASSERT_CHECK(map);
+
+	/*  Get map size  */
+	UNWRAP_MAP(m,map);
+	int set_size = g_hash_table_size(m->table);
+
+	GList* dom = g_hash_table_get_keys(m->table), *iterator = NULL;;
+
+	TVP arr[set_size];
+
+	int i;
+	for (iterator = dom, i=0; iterator; iterator = iterator->next,i++)
+		arr[i]=(TVP) iterator->data;
+
+	TVP res = newSetWithValues(set_size, arr);
+
+	/* TODO: Free necessary variables  */
+	g_list_free(dom);
+
+	return res
+}
+
+TVP vdmMapDomGC(TVP map, TVP *from)
+{
+	/* Assert map  */
+	ASSERT_CHECK(map);
+
+	/*  Get map size  */
+	UNWRAP_MAP(m,map);
+	int set_size = g_hash_table_size(m->table);
+
+	GList* dom = g_hash_table_get_keys(m->table), *iterator = NULL;;
+
+	TVP arr[set_size];
+
+	int i;
+	for (iterator = dom, i=0; iterator; iterator = iterator->next,i++)
+		arr[i]=(TVP) iterator->data;
+
+	TVP res = newSetWithValuesGC(set_size, arr, from);
+
+	/* TODO: Free necessary variables  */
+	g_list_free(dom);
+
+	return res
+}
+
+TVP vdmMapRng(TVP map)
+{
+	/* Assert map  */
+	ASSERT_CHECK(map);
+
+	/*  Get map size  */
+	UNWRAP_MAP(m,map);
+	int set_size = g_hash_table_size(m->table);
+
+	GList* dom = g_hash_table_get_values(m->table), *iterator = NULL;;
+
+	TVP arr[set_size];
+
+	int i;
+	for (iterator = dom, i=0; iterator; iterator = iterator->next,i++)
+		arr[i]=(TVP) iterator->data;
+
+	TVP res = newSetWithValues(set_size, arr);
+
+	/* TODO: Free necessary variables  */
+	g_list_free(dom);
+
+	return newSetWithValues(set_size, arr);
+}
+
+TVP vdmMapRngGC(TVP map, TVP *from)
+{
+	/* Assert map  */
+	ASSERT_CHECK(map);
+
+	/*  Get map size  */
+	UNWRAP_MAP(m,map);
+	int set_size = g_hash_table_size(m->table);
+
+	GList* dom = g_hash_table_get_values(m->table), *iterator = NULL;;
+
+	TVP arr[set_size];
+
+	int i;
+	for (iterator = dom, i=0; iterator; iterator = iterator->next,i++)
+		arr[i]=(TVP) iterator->data;
+
+	TVP res = newSetWithValuesGC(set_size, arr, from);
+
+	/* TODO: Free necessary variables  */
+	g_list_free(dom);
+
+	return res;
+}
+
+#else
+
+
+hashtable_t *ht_create( int size ) {
+
+	hashtable_t *hashtable = NULL;
+	int i;
+
+	if( size < 1 ) return NULL;
+
+	/* Allocate the table itself. */
+	if( ( hashtable = malloc( sizeof( hashtable_t ) ) ) == NULL ) {
+		return NULL;
+	}
+
+	/* Allocate pointers to the head nodes. */
+	if( ( hashtable->chain = malloc( sizeof( entry_t * ) * size ) ) == NULL ) {
+		return NULL;
+	}
+	for( i = 0; i < size; i++ ) {
+		hashtable->chain[i] = NULL;
+	}
+
+	hashtable->size = size;
+
+	return hashtable;
+}
+
+
+
+/* Hash a string for a particular hash table. */
+int ht_hash( hashtable_t *hashtable, TVP key ) {
+
+
+	/*
+	 * Create hash
+	while( hashval < ULONG_MAX && i < strlen( key ) ) {
+		hashval = hashval << 8;
+		hashval += key[ i ];
+		i++;
+	}
+	return hashval % hashtable->size;
+	 */
+
+	/* TODO:  Figure out hash function for TVP  */
+	return 0;
+}
+
+
+
+/* Create a key-value pair. */
+entry_t *ht_newpair( TVP key, TVP value ) {
+	entry_t *newpair;
+
+	if( ( newpair = malloc( sizeof( entry_t ) ) ) == NULL ) {
+		return NULL;
+	}
+
+	if( ( newpair->key = vdmClone(key) ) == NULL ) {
+		return NULL;
+	}
+
+	if( ( newpair->value = vdmClone(value) ) == NULL ) {
+		return NULL;
+	}
+
+	newpair->next = NULL;
+
+	return newpair;
+}
+
+
+
+/* Insert a key-value pair into a hash table. */
+void ht_set( hashtable_t *hashtable, TVP key, TVP value ) {
+	int bin = 0;
+	entry_t *newpair = NULL;
+	entry_t *next = NULL;
+	entry_t *last = NULL;
+	TVP compres;
+
+	bin = ht_hash( hashtable, key );
+
+	next = hashtable->chain[ bin ];
+
+	if(next != NULL && next->key != NULL)
+	{
+		compres = vdmEquals(key, next->key);
+	}
+	while( next != NULL && next->key != NULL && !compres->value.boolVal ) {
+		last = next;
+		next = next->next;
+
+		if(next != NULL && next->key != NULL)
+		{
+			vdmFree(compres);
+			compres = vdmEquals(key, next->key);
+		}
+	}
+
+	/* There's already a pair.  Let's replace that string. */
+
+	if( next != NULL && next->key != NULL)
+	{
+		compres = vdmEquals(key, next->key);
+
+		if(compres->value.boolVal) {
+
+			vdmFree( next->value );
+			next->value = vdmClone(value);
+
+			/* Nope, could't find it.  Time to grow a pair. */
+		}
+
+		vdmFree(compres);
+	} else {
+		newpair = ht_newpair( key, value );
+
+		/* We're at the start of the linked list in this bin. */
+		if( next == hashtable->chain[ bin ] ) {
+			newpair->next = next;
+			hashtable->chain[ bin ] = newpair;
+
+			/* We're at the end of the linked list in this bin. */
+		} else if ( next == NULL ) {
+			last->next = newpair;
+
+			/* We're in the middle of the list. */
+		} else  {
+			newpair->next = next;
+			last->next = newpair;
+		}
+	}
+}
+
+
+TVP ht_get( hashtable_t *hashtable, TVP key ) {
+	int bin = 0;
+	entry_t *pair;
+	TVP compres;
+
+	bin = ht_hash( hashtable, key );
+
+	/* Step through the bin, looking for our value. */
+	pair = hashtable->chain[ bin ];
+
+	if(pair != NULL && pair->key != NULL)
+	{
+		compres = vdmEquals(key, pair->key);
+	}
+	while( pair != NULL && pair->key != NULL && !compres->value.boolVal )
+	{
+		pair = pair->next;
+		if(pair != NULL && pair->key != NULL)
+		{
+			vdmFree(compres);
+			compres = vdmEquals(key, pair->key);
+		}
+	}
+
+	/* Did we actually find anything? */
+	if( pair == NULL || pair->key == NULL || !compres->value.boolVal ) {
+		vdmFree(compres);
+		return NULL;
+
+	} else {
+		vdmFree(compres);
+		return pair->value;
+	}
+
+}
+
+
+
+TVP newMap()
+{
+	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
+	/* TODO:  work out initial size.  */
+	ptr->table =  ht_create(10);
+
+	return newTypeValue(VDM_MAP, (TypedValueType
+	)
+			{ .ptr = ptr });
+}
+
+void freeChain(entry_t *chain)
 {
 	if(chain == NULL)
 		return;
@@ -64,21 +469,25 @@ void freeChain(struct KVPair *chain)
 
 void freeMap(struct Map *m)
 {
-	freeChain(m->chain);
+	int i;
+	for(i = 0; i < m->table->size; i++)
+	{
+		freeChain(m->table->chain[i]);
+	}
 
+	free(m->table->chain);
+	free(m->table);
 	free(m);
 }
 
-struct KVPair* cloneChain(struct KVPair *chain)
+entry_t* cloneChain(entry_t *chain)
 {
-	struct KVPair *entry;
+	entry_t *entry;
 
 	if(chain == NULL)
 		return NULL;
 
-	entry = (struct KVPair *)malloc(sizeof(struct KVPair));
-	assert(entry != NULL);
-
+	entry = (entry_t *)malloc(sizeof(entry_t));
 	entry->key = vdmClone(chain->key);
 	entry->value = vdmClone(chain->value);
 	entry->next = cloneChain(chain->next);
@@ -88,10 +497,15 @@ struct KVPair* cloneChain(struct KVPair *chain)
 
 struct Map* cloneMap(struct Map *m)
 {
-	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
-	assert(ptr != NULL);
+	int i;
 
-	ptr->chain = cloneChain(m->chain);
+	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
+
+	ptr->table = ht_create(m->table->size);
+	for(i = 0; i < ptr->table->size; i++)
+	{
+		ptr->table->chain[i] = cloneChain(m->table->chain[i]);
+	}
 
 	return ptr;
 }
@@ -100,9 +514,8 @@ struct Map* cloneMap(struct Map *m)
 TVP newMapGC(TVP *from)
 {
 	struct Map* ptr = (struct Map*) malloc(sizeof(struct Map));
-	assert(ptr != NULL);
-
-	ptr->chain = NULL;
+	/* TODO:  work out initial size.  */
+	ptr->table =  ht_create(10);
 
 	return newTypeValueGC(VDM_MAP, (TypedValueType
 	)
@@ -125,9 +538,7 @@ TVP newMapVarToGrow(size_t size, size_t expected_size, ...)
 	}
 
 	ptr = (struct Map*) malloc(sizeof(struct Map));
-	assert(ptr != NULL);
-	ptr->chain = NULL;
-
+	ptr->table =  ht_create(expected_size);
 	theMap = newTypeValue(VDM_MAP, (TypedValueType){ .ptr = ptr });
 
 	va_list argList;
@@ -159,14 +570,11 @@ TVP newMapVarToGrowGC(size_t size, size_t expected_size, TVP *from, ...)
 
 	if(size == 0)
 	{
-		return newMap();
+		return newMapGC(from);
 	}
 
 	ptr = (struct Map*) malloc(sizeof(struct Map));
-	assert(ptr != NULL);
-
-	ptr->chain = NULL;
-
+	ptr->table =  ht_create(expected_size);
 	theMap = newTypeValueGC(VDM_MAP, (TypedValueType){ .ptr = ptr }, from);
 
 	va_list argList;
@@ -202,45 +610,11 @@ void vdmMapFit(TVP theMap)
 
 void vdmMapAdd(TVP map, TVP key, TVP value)
 {
-	struct KVPair *pair, *prev;
-
 	ASSERT_CHECK(map);
 
-	UNWRAP_MAP(m, map);
+	UNWRAP_MAP(m,map);
 
-	/*  Check whether this is a new map.  */
-	if(m->chain == NULL)
-	{
-		m->chain = (struct KVPair*) malloc(sizeof(struct KVPair));
-		assert(m->chain != NULL);
-
-		m->chain->key = vdmClone(key);
-		m->chain->value = vdmClone(value);
-		m->chain->next = NULL;
-
-		return;
-	}
-
-	pair = m->chain;
-
-	while(pair != NULL)
-	{
-		if(equals(pair->key, key))
-		{
-			vdmFree(pair->value);
-			pair->value = vdmClone(value);
-			return;
-		}
-		prev = pair;
-		pair = pair->next;
-	}
-
-	prev->next = (struct KVPair*) malloc(sizeof(struct KVPair));
-	assert(prev->next != NULL);
-
-	prev->next->key = vdmClone(key);
-	prev->next->value = vdmClone(value);
-	prev->next->next = NULL;
+	ht_set(m->table, key, value);
 }
 
 
@@ -254,44 +628,20 @@ void vdmMapUpdate(TVP map, TVP key, TVP value)
 /*  TODO: Apply does not work if the key is not found  */
 TVP vdmMapApply(TVP map, TVP key)
 {
-	struct KVPair *pair;
-
 	ASSERT_CHECK(map);
-	UNWRAP_MAP(m, map);
+	UNWRAP_MAP(m,map);
 
-	pair = m->chain;
-
-	while(pair != NULL)
-	{
-		if(equals(pair->key, key))
-			return vdmClone(pair->value);
-
-		pair = pair->next;
-	}
-
-	return NULL;
+	return vdmClone(ht_get(m->table, key));
 }
 
 
 /*  TODO: Apply does not work if the key is not found  */
 TVP vdmMapApplyGC(TVP map, TVP key, TVP *from)
 {
-	struct KVPair *pair;
-
 	ASSERT_CHECK(map);
-	UNWRAP_MAP(m, map);
+	UNWRAP_MAP(m,map);
 
-	pair = m->chain;
-
-	while(pair != NULL)
-	{
-		if(equals(pair->key, key))
-			return vdmCloneGC(pair->value, from);
-
-		pair = pair->next;
-	}
-
-	return NULL;
+	return vdmCloneGC(ht_get(m->table, key), from);
 }
 
 
@@ -304,30 +654,36 @@ TVP vdmMapDom(TVP map)
 	/*  Get map size  */
 	UNWRAP_MAP(m,map);
 
+	int i;
 	int mapsize = 0;
-	struct KVPair *currentry;
+	entry_t *currentry;
 
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP arr[mapsize];
 
 	/* Reusing this variable.  */
 	mapsize = 0;
-
 	/* Get keys.  */
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		arr[mapsize] = currentry->key;
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			arr[mapsize] = currentry->key;
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP res = newSetWithValues(mapsize, arr);
@@ -343,30 +699,36 @@ TVP vdmMapDomGC(TVP map, TVP *from)
 	/*  Get map size  */
 	UNWRAP_MAP(m,map);
 
+	int i;
 	int mapsize = 0;
-	struct KVPair *currentry;
+	entry_t *currentry;
 
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP arr[mapsize];
 
 	/* Reusing this variable.  */
 	mapsize = 0;
-
 	/* Get keys.  */
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		arr[mapsize] = currentry->key;
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			arr[mapsize] = currentry->key;
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP res = newSetWithValuesGC(mapsize, arr, from);
@@ -383,30 +745,36 @@ TVP vdmMapRng(TVP map)
 	/*  Get map size  */
 	UNWRAP_MAP(m,map);
 
+	int i;
 	int mapsize = 0;
-	struct KVPair *currentry;
+	entry_t *currentry;
 
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP arr[mapsize];
 
 	/* Reusing this variable.  */
 	mapsize = 0;
-
-	/* Get values.  */
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	/* Get keys.  */
+	for(i = 0; i < m->table->size; i++)
 	{
-		arr[mapsize] = currentry->value;
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			arr[mapsize] = currentry->value;
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP res = newSetWithValues(mapsize, arr);
@@ -422,35 +790,43 @@ TVP vdmMapRngGC(TVP map, TVP *from)
 	/*  Get map size  */
 	UNWRAP_MAP(m,map);
 
+	int i;
 	int mapsize = 0;
-	struct KVPair *currentry;
+	entry_t *currentry;
 
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	for(i = 0; i < m->table->size; i++)
 	{
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP arr[mapsize];
 
 	/* Reusing this variable.  */
 	mapsize = 0;
-
-	/* Get values.  */
-	currentry = m->chain;
-
-	while(currentry != NULL)
+	/* Get keys.  */
+	for(i = 0; i < m->table->size; i++)
 	{
-		arr[mapsize] = currentry->value;
-		mapsize += 1;
-		currentry = currentry->next;
+		currentry = (m->table->chain)[i];
+
+		while(currentry != NULL)
+		{
+			arr[mapsize] = currentry->value;
+			mapsize += 1;
+			currentry = currentry->next;
+		}
 	}
 
 	TVP res = newSetWithValuesGC(mapsize, arr, from);
 	return res;
 }
+
+#endif
 
 
 

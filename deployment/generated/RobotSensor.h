@@ -29,7 +29,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_1;
+extern TVP numFields_3;
 
 
 /* -------------------------------
@@ -40,7 +40,7 @@ extern TVP numFields_1;
  
 
 /*  class id  */
-#define CLASS_ID_RobotSensor_ID 0
+#define CLASS_ID_RobotSensor_ID 2
 
 #define RobotSensorCLASS struct RobotSensor*
 
@@ -67,11 +67,11 @@ struct RobotSensor
  *
  --------------------------------- */ 
  
-  
-  	/* RobotSensor.vdmrt 9:8 */
-	TVP _Z11RobotSensorE8CRealPort(RobotSensorCLASS this_, TVP p); 
-  	/* RobotSensor.vdmrt 1:7 */
-	TVP _Z11RobotSensorEV(RobotSensorCLASS this_); 
+
+	/* RobotSensor.vdmrt 9:8 */
+	TVP _Z11RobotSensorE8CRealPort(RobotSensorCLASS this_, TVP p);
+	/* RobotSensor.vdmrt 1:7 */
+	TVP _Z11RobotSensorEV(RobotSensorCLASS this_);
 
 
 /* -------------------------------

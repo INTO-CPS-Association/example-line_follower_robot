@@ -40,7 +40,7 @@
  
 
 /*  class id  */
-#define CLASS_ID_RealPort_ID 4
+#define CLASS_ID_RealPort_ID 9
 
 #define RealPortCLASS struct RealPort*
 
@@ -74,11 +74,11 @@ struct RealPort
  *
  --------------------------------- */ 
  
-  
-  	/* Fmi.vdmrt 74:12 */
-	TVP _Z8RealPortER(RealPortCLASS this_, TVP v); 
-  	/* Fmi.vdmrt 68:7 */
-	TVP _Z8RealPortEV(RealPortCLASS this_); 
+
+	/* Fmi.vdmrt 74:9 */
+	TVP _Z8RealPortER(RealPortCLASS this_, TVP v);
+	/* Fmi.vdmrt 68:7 */
+	TVP _Z8RealPortEV(RealPortCLASS this_);
 
 
 /* -------------------------------

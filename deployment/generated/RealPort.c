@@ -37,34 +37,34 @@ static void RealPort_free(struct RealPort *this)
  --------------------------------- */
  
 
- static  TVP _Z17fieldInitializer5EV(RealPortCLASS this)	{
-/* Fmi.vdmrt 71:18 */
-TVP ret_8 = newReal(0.0)
+ static  TVP _Z18fieldInitializer20EV(RealPortCLASS this)	{
+/* Fmi.vdmrt 71:15 */
+TVP ret_23 = newReal(0.0)
 ;
 
-return ret_8;
+return ret_23;
 }
 
 
-/* Fmi.vdmrt 77:12 */
+/* Fmi.vdmrt 77:9 */
  static  void _Z8setValueER(RealPortCLASS this, TVP v)	{
-/* Fmi.vdmrt 78:27 */
-TVP field_tmp_4 = vdmCloneGC(v, NULL)
+/* Fmi.vdmrt 78:24 */
+TVP field_tmp_9 = vdmCloneGC(v, &field_tmp_9)
 ;
 
-SET_FIELD_PTR(RealPort, RealPort, this, value, field_tmp_4);
+SET_FIELD_PTR_GC(RealPort, RealPort, this, value, field_tmp_9);
 
-vdmFree(field_tmp_4);
+vdmFree(field_tmp_9);
 }
 
 
-/* Fmi.vdmrt 80:12 */
+/* Fmi.vdmrt 80:9 */
  static  TVP _Z8getValueEV(RealPortCLASS this)	{
-/* Fmi.vdmrt 81:26 */
-TVP ret_9 = vdmCloneGC(GET_FIELD_PTR_GC(RealPort, RealPort, this, value), NULL)
+/* Fmi.vdmrt 81:23 */
+TVP ret_24 = vdmCloneGC(GET_FIELD_PTR_GC(RealPort, RealPort, this, value), NULL)
 ;
-/* Fmi.vdmrt 81:19 */
-return ret_9;
+/* Fmi.vdmrt 81:16 */
+return ret_24;
 }
 
 
@@ -96,7 +96,7 @@ return ;
 }
 
 
-/* Fmi.vdmrt 29:12 */
+/* Fmi.vdmrt 29:9 */
  static  TVP Port__Z8getValueEV(PortCLASS base)	{
 
 RealPortCLASS this = CLASS_DOWNCAST(Port, RealPort, base)
@@ -168,7 +168,7 @@ RealPortCLASS RealPort_Constructor(RealPortCLASS this_ptr)
 		this_ptr->_RealPort_refs = 0;
 		this_ptr->_RealPort_pVTable=VTableArrayForRealPort;
 
-				this_ptr->m_RealPort_value= _Z17fieldInitializer5EV(this_ptr);
+				this_ptr->m_RealPort_value= _Z18fieldInitializer20EV(this_ptr);
 			}
 
 	return this_ptr;
@@ -192,7 +192,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* Fmi.vdmrt 74:12 */
+/* Fmi.vdmrt 74:9 */
  TVP _Z8RealPortER(RealPortCLASS this, TVP v)	{
 
 TVP __buf = NULL
@@ -207,14 +207,14 @@ __buf = new();
 this = TO_CLASS_PTR(__buf, RealPort);
 }
 ;
-/* Fmi.vdmrt 75:18 */
+/* Fmi.vdmrt 75:15 */
 CALL_FUNC_PTR(RealPort, RealPort, this, CLASS_RealPort__Z8setValueER, v);
 
 return __buf;
 }
 
 
-    /* Fmi.vdmrt 68:7 */
+/* Fmi.vdmrt 68:7 */
  TVP _Z8RealPortEV(RealPortCLASS this)	{
 
 TVP __buf = NULL

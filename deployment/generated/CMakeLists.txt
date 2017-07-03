@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8.5)
-project (LFRController-Standalone C CXX)
+project (LFRController C CXX)
 
 
 add_definitions(-DPERIODIC_GENERATED -DFMI_COSIMULATION)

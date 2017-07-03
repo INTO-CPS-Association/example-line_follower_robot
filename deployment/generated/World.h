@@ -30,7 +30,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_5;
+extern TVP numFields_6;
 
 
 /* -------------------------------
@@ -41,7 +41,7 @@ extern TVP numFields_5;
  
 
 /*  class id  */
-#define CLASS_ID_World_ID 8
+#define CLASS_ID_World_ID 5
 
 #define WorldCLASS struct World*
 
@@ -67,9 +67,9 @@ struct World
  *
  --------------------------------- */ 
  
-  
-  	/* World.vdmrt 1:7 */
-	TVP _Z5WorldEV(WorldCLASS this_); 
+
+	/* World.vdmrt 1:7 */
+	TVP _Z5WorldEV(WorldCLASS this_);
 
 
 /* -------------------------------

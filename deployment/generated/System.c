@@ -36,19 +36,9 @@ static void System_free(struct System *this)
  --------------------------------- */
  
 
- static  TVP _Z18fieldInitializer10EV()	{
+ static  TVP _Z18fieldInitializer15EV()	{
 /* System.vdmrt 8:46 */
-TVP ret_13 = NULL
-;
-
-return ret_13;
-}
-
-
-
- static  TVP _Z17fieldInitializer9EV()	{
-/* System.vdmrt 6:43 */
-TVP ret_14 = _Z17HardwareInterfaceEV(NULL)
+TVP ret_14 = NULL
 ;
 
 return ret_14;
@@ -56,9 +46,9 @@ return ret_14;
 
 
 
- static  TVP _Z17fieldInitializer8EV()	{
-
-TVP ret_15 = newInt(2)
+ static  TVP _Z18fieldInitializer14EV()	{
+/* System.vdmrt 6:43 */
+TVP ret_15 = _Z17HardwareInterfaceEV(NULL)
 ;
 
 return ret_15;
@@ -66,9 +56,19 @@ return ret_15;
 
 
 
+ static  TVP _Z18fieldInitializer13EV()	{
+
+TVP ret_16 = newInt(2)
+;
+
+return ret_16;
+}
+
+
+
  void System_const_init()	{
 
-numFields_4 = _Z17fieldInitializer8EV();
+numFields_5 = _Z18fieldInitializer13EV();
 
 return ;
 }
@@ -77,7 +77,7 @@ return ;
 
  void System_const_shutdown()	{
 
-vdmFree(numFields_4);
+vdmFree(numFields_5);
 
 return ;
 }
@@ -86,9 +86,9 @@ return ;
 
  void System_static_init()	{
 
-g_System_hwi = _Z17fieldInitializer9EV();
+g_System_hwi = _Z18fieldInitializer14EV();
 
-g_System_controller = _Z18fieldInitializer10EV();
+g_System_controller = _Z18fieldInitializer15EV();
 
 return ;
 }
@@ -170,7 +170,7 @@ static TVP new()
  --------------------------------- */ 
  
 
-    /* System.vdmrt 14:8 */
+/* System.vdmrt 14:8 */
  TVP _Z6SystemEV(SystemCLASS this)	{
 
 TVP __buf = NULL
@@ -185,19 +185,19 @@ __buf = new();
 this = TO_CLASS_PTR(__buf, System);
 }
 ;
-/* System.vdmrt 16:9 */
+/* System.vdmrt 16:6 */
 TVP servoLeft = _Z10RobotServoE8CRealPort(NULL, GET_FIELD_GC(HardwareInterface, HardwareInterface, vdmCloneGC(g_System_hwi, NULL), servo_left_out))
 ;
-/* System.vdmrt 17:9 */
+/* System.vdmrt 17:6 */
 TVP servoRight = _Z10RobotServoE8CRealPort(NULL, GET_FIELD_GC(HardwareInterface, HardwareInterface, vdmCloneGC(g_System_hwi, NULL), servo_right_out))
 ;
-/* System.vdmrt 18:9 */
+/* System.vdmrt 18:6 */
 TVP sensorRightVal = _Z11RobotSensorE8CRealPort(NULL, GET_FIELD_GC(HardwareInterface, HardwareInterface, vdmCloneGC(g_System_hwi, NULL), rightVal))
 ;
-/* System.vdmrt 19:9 */
+/* System.vdmrt 19:6 */
 TVP sensorLeftVal = _Z11RobotSensorE8CRealPort(NULL, GET_FIELD_GC(HardwareInterface, HardwareInterface, vdmCloneGC(g_System_hwi, NULL), leftVal))
 ;
-/* System.vdmrt 21:13 */
+/* System.vdmrt 21:4 */
 g_System_controller = _Z10ControllerE10CRobotServo10CRobotServo11CRobotSensor11CRobotSensor(NULL, servoLeft, servoRight, sensorRightVal, sensorLeftVal);
 
 return __buf;
@@ -213,7 +213,7 @@ return __buf;
  --------------------------------- */
  
 /*  initialize globals - this is done last since they are declared in the header but uses init functions which are printet in any order  */
-	TVP numFields_4 =  NULL ;
+	TVP numFields_5 =  NULL ;
 		TVP g_System_hwi =  NULL ;
 		TVP g_System_controller =  NULL ;
 	

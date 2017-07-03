@@ -28,7 +28,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_2;
+extern TVP numFields_7;
 
 
 /* -------------------------------
@@ -39,7 +39,7 @@ extern TVP numFields_2;
  
 
 /*  class id  */
-#define CLASS_ID_Port_ID 1
+#define CLASS_ID_Port_ID 6
 
 #define PortCLASS struct Port*
 
@@ -65,9 +65,9 @@ struct Port
  *
  --------------------------------- */ 
  
-  
-  	/* Fmi.vdmrt 18:7 */
-	TVP _Z4PortEV(PortCLASS this_); 
+
+	/* Fmi.vdmrt 18:7 */
+	TVP _Z4PortEV(PortCLASS this_);
 
 
 /* -------------------------------

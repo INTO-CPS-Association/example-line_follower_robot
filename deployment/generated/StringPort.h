@@ -40,7 +40,7 @@
  
 
 /*  class id  */
-#define CLASS_ID_StringPort_ID 5
+#define CLASS_ID_StringPort_ID 10
 
 #define StringPortCLASS struct StringPort*
 
@@ -74,11 +74,11 @@ struct StringPort
  *
  --------------------------------- */ 
  
-  
-  	/* Fmi.vdmrt 91:12 */
-	TVP _Z10StringPortE1QC(StringPortCLASS this_, TVP v); 
-  	/* Fmi.vdmrt 85:7 */
-	TVP _Z10StringPortEV(StringPortCLASS this_); 
+
+	/* Fmi.vdmrt 91:9 */
+	TVP _Z10StringPortE1QC(StringPortCLASS this_, TVP v);
+	/* Fmi.vdmrt 85:7 */
+	TVP _Z10StringPortEV(StringPortCLASS this_);
 
 
 /* -------------------------------

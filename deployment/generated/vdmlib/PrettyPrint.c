@@ -27,13 +27,11 @@ char* printBool(TVP val)
 	if(val->value.boolVal)
 	{
 		str = (char*)malloc(5 * sizeof(char));
-		assert(str != NULL);
 		sprintf(str, "true");
 	}
 	else
 	{
 		str = (char*)malloc(6 * sizeof(char));
-		assert(str != NULL);
 		sprintf(str, "false");
 	}
 
@@ -49,7 +47,6 @@ char* printChar(TVP val)
 	char* str;
 
 	str = (char*)malloc(4 * sizeof(char));
-	assert(str != NULL);
 
 	str[0] = '\'';
 	str[1] = val->value.charVal;
@@ -78,7 +75,6 @@ char* printInt(TVP val)
 
 	/* Allow one extra space for negative numbers.  */
 	str = (char*)malloc((numdigits + 2) * sizeof(char));
-	assert(str != NULL);
 	sprintf(str, "%d", val->value.intVal);
 
 	return str;
@@ -95,7 +91,6 @@ char* printDouble(TVP val)
 	/* Rounding behaviour for doubles in the less significant digits  */
 	/* makes it impossible to count digits using subtraction and multiplication by 10.  */
 	str = (char*)malloc(1000 * sizeof(char));
-	assert(str != NULL);
 	sprintf(str, "%f", val->value.doubleVal);
 
 	return str;
@@ -164,7 +159,6 @@ char* toString(TVP val)
 		/* Can not use UNWRAP_COLLECTION here because it includes a declaration.  */
 		col = (struct Collection*)val->value.ptr;
 		strcol = (char**)malloc(col->size * sizeof(char*));
-		assert(strcol != NULL);
 		totallen = 0;
 
 		/* Get pretty printed representations of contents recursively.  */
@@ -176,7 +170,6 @@ char* toString(TVP val)
 
 		/* Compose full string.  */
 		str = (char*)malloc((2 + 1 + col->size * 2 + totallen));
-		assert(str != NULL);
 		strtmp = str;
 		sprintf(str, "%c", ldelim);
 		str += sizeof(char);
@@ -202,7 +195,6 @@ char* toString(TVP val)
 		/* Can not use UNWRAP_COLLECTION here because it includes a declaration.  */
 		col = (struct Collection*)val->value.ptr;
 		strcol = (char**)malloc(col->size * sizeof(char*));
-		assert(strcol != NULL);
 		totallen = 0;
 
 		/* Get pretty printed representations of contents recursively.  */
@@ -214,7 +206,6 @@ char* toString(TVP val)
 
 		/* Compose full string.  */
 		str = (char*)malloc((2 + 1 + col->size * 2 + totallen));
-		assert(str != NULL);
 		strtmp = str;
 		sprintf(str, "%c", ldelim);
 		str += sizeof(char);
@@ -240,7 +231,6 @@ char* toString(TVP val)
 		/* Can not use UNWRAP_COLLECTION here because it includes a declaration.  */
 		col = (struct Collection*)val->value.ptr;
 		strcol = (char**)malloc(col->size * sizeof(char*));
-		assert(strcol != NULL);
 		totallen = 0;
 
 		/* Get pretty printed representations of contents recursively.  */
@@ -252,7 +242,6 @@ char* toString(TVP val)
 
 		/* Compose full string.  */
 		str = (char*)malloc(3 * sizeof(char) + 2 + 1 + col->size * 2 + totallen);
-		assert(str != NULL);
 		strtmp = str;
 		sprintf(str, "mk_%c", ldelim);
 		str += 3 * sizeof(char) + sizeof(char);
@@ -276,7 +265,6 @@ char* toString(TVP val)
 	default:
 		/* Must return a valid pointer.  */
 		str = (char*)malloc(1);
-		assert(str != NULL);
 		str[0] = 0;
 		break;
 	}

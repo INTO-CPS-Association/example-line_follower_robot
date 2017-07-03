@@ -32,7 +32,7 @@
  *
  --------------------------------- */ 
  
-extern TVP numFields_3;
+extern TVP numFields_1;
 
 
 /* -------------------------------
@@ -43,7 +43,7 @@ extern TVP numFields_3;
  
 
 /*  class id  */
-#define CLASS_ID_Controller_ID 6
+#define CLASS_ID_Controller_ID 0
 
 #define ControllerCLASS struct Controller*
 
@@ -73,11 +73,11 @@ struct Controller
  *
  --------------------------------- */ 
  
-  
-  	/* Controller.vdmrt 11:12 */
-	TVP _Z10ControllerE10CRobotServo10CRobotServo11CRobotSensor11CRobotSensor(ControllerCLASS this_, TVP servL, TVP servR, TVP sensRightVal, TVP sensLeftVal); 
-  	/* Controller.vdmrt 1:7 */
-	TVP _Z10ControllerEV(ControllerCLASS this_); 
+
+	/* Controller.vdmrt 11:9 */
+	TVP _Z10ControllerE10CRobotServo10CRobotServo11CRobotSensor11CRobotSensor(ControllerCLASS this_, TVP servL, TVP servR, TVP sensRightVal, TVP sensLeftVal);
+	/* Controller.vdmrt 1:7 */
+	TVP _Z10ControllerEV(ControllerCLASS this_);
 
 
 /* -------------------------------
