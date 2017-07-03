@@ -37,9 +37,8 @@ void fmuLoggerCache(void *componentEnvironment, fmi2String instanceName,
 
 void uart_initialization()
 {
-	unsigned int c;
-    char buffer[7];
     int  num=134;
+	char buffer[20];
 
     
     /*
@@ -88,7 +87,6 @@ void uart_initialization()
 void do_one_serial_echo()
 {
 	unsigned int c;
-	char buffer[7];
 
 	c = uart_getc();
         if ( c & UART_NO_DATA )
@@ -168,7 +166,6 @@ int main()
 	double now = 0;
 	double step = 0.01;
 
-	char buffer[20];
 	int lm, rm, alive;
 
 	alive = 0;
