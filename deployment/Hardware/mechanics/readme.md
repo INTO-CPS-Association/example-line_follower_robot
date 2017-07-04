@@ -12,6 +12,7 @@
    -  each sensor can be offset laterally by 5 mm
 -  height of sensors from map:  9.44 mm
 -  weight:  436 g
+-  Wheel radius:  33 mm
 
 
 ## Design
