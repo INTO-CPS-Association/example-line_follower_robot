@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Document>
- <Model version="4.6" build="4.6.2.7245">
+ <Model version="4.6" build="4.6.3.7711">
   <Sidops><![CDATA[model 128.1 184
  description '<Information>
  <Description>
     <Version>4.6</Version>
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
-    <LibraryPath>C:\Users\Richard\Documents\INTO-CPS\INTO_Git\case-study_line_follower_robot\Models\R2G2P_Body_Only.emx</LibraryPath>
-  <TimeStamp>2016-11-24 16:06:41</TimeStamp>
+    <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\Body.emx</LibraryPath>
+  <TimeStamp>2017-7-4 15:42:16</TimeStamp>
 </Description>
 </Information>';
  type 'Mainmodel-5S'
@@ -662,7 +662,7 @@ implementation_end;
          wheel_right => Fr\p;
         end;
        implementation_end;
-      Demux 318 139.5
+      Demux 318 136
 						specifications active 'outputs_4'
 							specification 'default'
 description '<Description>
@@ -1399,8 +1399,8 @@ parameters
    /* robot design */
 	real global wheel_radius = 0.03325;
 	real global encoder_resolution = 44;
-	real global axle_offset = 0.0185;
-   real global axle_half_width = 0.049;
+	real global axle_offset = 0.04;
+   real global axle_half_width = 0.053;
    real global mu = 1332;
 
    /* power usage */
@@ -1499,7 +1499,7 @@ equations
 	equal (collect (p.f));
 	flow = first (p.f);
 implementation_end;
-         EnergyIntoLeftMotor 584 199.6
+         EnergyIntoLeftMotor 584 199.8
           description '<Description>
  <Version>4.0</Version>
  <IsMainModel>1</IsMainModel>
@@ -1678,7 +1678,7 @@ equations
           end;
           implementation eq
 parameters
-	real K = 5.18;		//maximum rotational velocity of one wheel
+	real K = 3.83;		//maximum rotational velocity of one wheel
 equations
 	//pwm input is in [-1..1], velocity is in [-5.18..5.18], so a gain of 5.18 is applied to the pwm signal
 	output = K * input;
@@ -1865,7 +1865,7 @@ equations
 	equal (collect (p.f));
 	flow = first (p.f);
 implementation_end;
-         EnergyIntoRightMotor 504 207.6
+         EnergyIntoRightMotor 504 207.8
           description '<Description>
  <Version>4.0</Version>
  <IsMainModel>1</IsMainModel>
@@ -2044,7 +2044,7 @@ equations
           end;
           implementation eq
 parameters
-	real K = 5.18;		//maximum rotational velocity of one wheel
+	real K = 3.83;		//maximum rotational velocity of one wheel
 equations
 	//pwm input is in [-1..1], velocity is in [-5.18..5.18], so a gain of 5.18 is applied to the pwm signal
 	output = K * input;
@@ -2224,7 +2224,7 @@ implementation_end;
         submodels
          plug y 72 216;
          plug to_body 448 216;
-         powermux_left 336.1 216
+         powermux_left 336 216
           description '<Description>
  <Version>4.0</Version>
  <LibraryPath>Template\Submodel-Equation.emx</LibraryPath>
@@ -2245,7 +2245,7 @@ implementation_end;
           end;
           icon bg
            figures
-            text 'name' 336.1 216 color 0;
+            text 'name' 336 216 color 0;
           end;
           implementation eq
 equations 
@@ -8553,44 +8553,13 @@ variables
 	real sensorRightVal;
 	real sensorLeftVal;
 initialequations
-	servoLeft = 0.1;
-	servoRight = -0.1;
+	servoLeft = 0;
+	servoRight = 0;
 
 code
-   // energy used
-	//energy_used = energyUsed;
-	// encoders
-   //encoder_left = encLeft;
-	//encoder_right = encRight;
-   // send line-following sensor values	
-   sensorLeftVal = lfSensor1;
-   //lf[2] = lfSensor2;
-   sensorRightVal = lfSensor2;
-   //lf[4] = lfSensor4;
-   //lf[5] = lfSensor5;
-
-		if (sensorRightVal < 150) then
-			if (sensorLeftVal < 150) then
-				servoRight = -0.4;
-				servoLeft = 0.4;
-			else if (sensorLeftVal > 150) then
-				servoRight = -0.5;
-				servoLeft = 0.1;
-			end; end;
-		else if (sensorRightVal > 150) then
-			if (sensorLeftVal < 150) then
-				servoRight = -0.1;
-				servoLeft = 0.5;
-			else if (sensorLeftVal > 150) then
-				servoRight = -0.4;
-				servoLeft = 0.4;
-			end; end;			
-		end;
-		end;
-		
 	// just drive forward
-	//servoLeft = 0.1;
-	//servoRight = -0.1;implementation_end;
+	servoLeft = 1;
+	servoRight = 1;implementation_end;
 specification_end;
 			end;
    plug wheel_right_rotation 520 216;
@@ -8604,7 +8573,7 @@ specification_end;
    plug servoRight 512 320;
    plug servoLeft 512 328;
    plug wheel_left_rotation 512 224;
-   Sensors_Block 208.8 64
+   Sensors_Block 208.7 64
     description '<Description>
  <Version>4.5</Version>
  <IsMainModel>1</IsMainModel>
@@ -8670,7 +8639,7 @@ specification_end;
     icon bg right shadow 11776947
      figures
       rectangle 124.1 40 293.4 88 color 0 fill 15132390;
-      text 'name' 174.7 72 color 0 16;
+      text 'name' 176 72 color 0 16;
      terminals
       robot_x 247.8 88 fixed;
       robot_y 255.8 88 fixed;
@@ -8694,7 +8663,7 @@ specification_end;
     end;
     implementation bg
      submodels
-      Demux 634 224
+      Demux 631.5 224
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9040,7 +9009,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux1 634 168
+      Demux1 631.5 168
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9386,7 +9355,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux2 634 120
+      Demux2 631.5 120
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -9732,7 +9701,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux3 242 152
+      Demux3 239.5 152
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -10078,7 +10047,7 @@ equations
 	[output1; output2; output3; output4; output5; output6; output7; output8; output9] = input;implementation_end;
 specification_end;
 						end;
-      Demux4 242 208
+      Demux4 239.5 208
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -13231,7 +13200,7 @@ equations
 implementation_end;
 specification_end;
 						end;
-      Mux 422.5 431
+      Mux 422.5 418.5
 						specifications active 'inputs_4'
 							specification 'default'
 description '<Description>
@@ -14313,8 +14282,8 @@ specification_end;
      <Name>lf_positions</Name>
      <Rows>5</Rows>
      <Columns>2</Columns>
-     <Value>0.01 0.065
--0.01 0.065
+     <Value>0.019 0.109
+-0.019 0.109
 0 0
 0 0
 0 0</Value>
@@ -14322,47 +14291,49 @@ specification_end;
    </Parameters>
    <Initials>
     <Variable>
-     <Name>Body_Block\body\inertia\state_initial</Name>
+     <Name>Body\body\inertia\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\mass\state_initial</Name>
+     <Name>Body\body\mass\state_initial</Name>
      <Rows>2</Rows>
      <Columns>1</Columns>
      <Value>0 0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\position\velocity_int_initial</Name>
+     <Name>Body\body\position\velocity_int_initial</Name>
      <Rows>2</Rows>
      <Columns>1</Columns>
      <Value>0 0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\body\theta\input_int_initial</Name>
+     <Name>Body\body\theta\input_int_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\EnergyIntoLeftMotor\E_initial</Name>
+     <Name>Body\servo_left\EnergyIntoLeftMotor\E_initial</Name>
+     <Unit>J</Unit>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\inductance\state_initial</Name>
+     <Name>Body\servo_left\inductance\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_left\internal_controller\error_int_initial</Name>
+     <Name>Body\servo_left\internal_controller\error_int_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\EnergyIntoRightMotor\E_initial</Name>
+     <Name>Body\servo_right\EnergyIntoRightMotor\E_initial</Name>
+     <Unit>J</Unit>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\inductance\state_initial</Name>
+     <Name>Body\servo_right\inductance\state_initial</Name>
      <Value>0</Value>
     </Variable>
     <Variable>
-     <Name>Body_Block\servo_right\internal_controller\error_int_initial</Name>
+     <Name>Body\servo_right\internal_controller\error_int_initial</Name>
      <Value>0</Value>
     </Variable>
    </Initials>
@@ -14375,20 +14346,15 @@ specification_end;
     <VarName>Body\Battery\servo_right_j</VarName>
     <VarName>Body\Battery\sensorEnergyUsed</VarName>
     <VarName>Body\Battery\controllerEnergyUsed</VarName>
-    <VarName>Body\Battery\batteryPercentage</VarName>
-    <VarName>Body\Battery\batteryMeterOffset</VarName>
-    <VarName>Body\Battery\batteryColour[1]</VarName>
-    <VarName>Body\Battery\batteryColour[2]</VarName>
-    <VarName>Body\Battery\batteryColour[3]</VarName>
     <VarName>lf_positions[1,1]</VarName>
     <VarName>lf_positions[2,1]</VarName>
+    <VarName>lf_positions[1,2]</VarName>
+    <VarName>lf_positions[2,2]</VarName>
     <VarName>Body\servo_left_input</VarName>
     <VarName>Body\robot_x</VarName>
     <VarName>Body\robot_y</VarName>
     <VarName>Body\robot_theta</VarName>
-    <VarName>0</VarName>
     <VarName>Environment\Sensors_Block\lf_1_sensor_reading</VarName>
-    <VarName>Environment\Sensors_Block\lf_2_sensor_reading</VarName>
     <VarName>Body\wheel_left_rotation</VarName>
     <VarName>Body\wheel_right_rotation</VarName>
     <VarName>Body\encoder_left_output</VarName>
@@ -14460,7 +14426,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -15123,11 +15089,11 @@ specification_end;
       <Position>
        <X>
         <VariableName>Body\robot_x</VariableName>
-        <Value>0.0400985948498869</Value>
+        <Value>0.132128482964929</Value>
        </X>
        <Y>
         <VariableName>Body\robot_y</VariableName>
-        <Value>-0.227919134449787</Value>
+        <Value>-0.0806941467265628</Value>
        </Y>
        <Z>
         <Value>0.05</Value>
@@ -15137,7 +15103,7 @@ specification_end;
        <Angles>
         <Z>
          <VariableName>Body\robot_theta</VariableName>
-         <Value>17.5216228806029</Value>
+         <Value>-31.1768627301409</Value>
         </Z>
        </Angles>
        <OrientationType>Bryant</OrientationType>
@@ -15187,10 +15153,10 @@ specification_end;
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.07</Value>
+       <Value>0.084</Value>
       </X>
       <Y>
-       <Value>0.1</Value>
+       <Value>0.126</Value>
       </Y>
       <Z>
        <Value>1</Value>
@@ -15241,7 +15207,7 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <Texture>
-      <Filename><![CDATA[textures\robot_top.jpg]]>
+      <Filename><![CDATA[textures\metal.jpg]]>
 </Filename>
       <WrapStyle>0</WrapStyle>
       <YWrap>
@@ -15267,7 +15233,7 @@ specification_end;
      <Name>Top Panel</Name>
      <Position>
       <Z>
-       <Value>0.025</Value>
+       <Value>-0.001</Value>
       </Z>
      </Position>
      <Orientation>
@@ -15298,10 +15264,10 @@ specification_end;
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.07</Value>
+       <Value>0.084</Value>
       </X>
       <Y>
-       <Value>0.05</Value>
+       <Value>0.031</Value>
       </Y>
       <Z>
        <Value>1</Value>
@@ -15352,7 +15318,7 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <Texture>
-      <Filename><![CDATA[textures\robot_front.jpg]]>
+      <Filename><![CDATA[textures\metal.jpg]]>
 </Filename>
       <WrapStyle>0</WrapStyle>
       <YWrap>
@@ -15378,8 +15344,11 @@ specification_end;
      <Name>Front Panel</Name>
      <Position>
       <Y>
-       <Value>0.05</Value>
+       <Value>0.063</Value>
       </Y>
+      <Z>
+       <Value>-0.016</Value>
+      </Z>
      </Position>
      <Orientation>
       <Angles>
@@ -15406,10 +15375,10 @@ specification_end;
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.07</Value>
+       <Value>0.084</Value>
       </X>
       <Y>
-       <Value>0.025</Value>
+       <Value>0.031</Value>
       </Y>
       <Z>
        <Value>1</Value>
@@ -15460,7 +15429,7 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <Texture>
-      <Filename><![CDATA[textures\robot_back.jpg]]>
+      <Filename><![CDATA[textures\metal.jpg]]>
 </Filename>
       <WrapStyle>0</WrapStyle>
       <YWrap>
@@ -15486,10 +15455,10 @@ specification_end;
      <Name>Back Panel</Name>
      <Position>
       <Y>
-       <Value>-0.05</Value>
+       <Value>-0.063</Value>
       </Y>
       <Z>
-       <Value>0.0125</Value>
+       <Value>-0.016</Value>
       </Z>
      </Position>
      <Orientation>
@@ -15520,10 +15489,10 @@ specification_end;
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.05</Value>
+       <Value>0.031</Value>
       </X>
       <Y>
-       <Value>0.1</Value>
+       <Value>0.126</Value>
       </Y>
       <Z>
        <Value>1</Value>
@@ -15574,7 +15543,7 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <Texture>
-      <Filename><![CDATA[textures\robot_right.jpg]]>
+      <Filename><![CDATA[textures\metal.jpg]]>
 </Filename>
       <WrapStyle>0</WrapStyle>
       <YWrap>
@@ -15600,8 +15569,11 @@ specification_end;
      <Name>Right Panel</Name>
      <Position>
       <X>
-       <Value>0.035</Value>
+       <Value>0.042</Value>
       </X>
+      <Z>
+       <Value>-0.016</Value>
+      </Z>
      </Position>
      <Orientation>
       <Angles>
@@ -15631,10 +15603,10 @@ specification_end;
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.05</Value>
+       <Value>0.031</Value>
       </X>
       <Y>
-       <Value>0.1</Value>
+       <Value>0.126</Value>
       </Y>
       <Z>
        <Value>1</Value>
@@ -15685,7 +15657,7 @@ specification_end;
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
      <Texture>
-      <Filename><![CDATA[textures\robot_left.jpg]]>
+      <Filename><![CDATA[textures\metal.jpg]]>
 </Filename>
       <WrapStyle>0</WrapStyle>
       <YWrap>
@@ -15711,8 +15683,11 @@ specification_end;
      <Name>Left Panel</Name>
      <Position>
       <X>
-       <Value>-0.035</Value>
+       <Value>-0.042</Value>
       </X>
+      <Z>
+       <Value>-0.016</Value>
+      </Z>
      </Position>
      <Orientation>
       <Angles>
@@ -15722,117 +15697,6 @@ specification_end;
        <Z>
         <Value>3.14159</Value>
        </Z>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-     </Childs>
-         </Square>
-         <Square>
-     <CornerInOrigin>false</CornerInOrigin>
-     <XLength>1</XLength>
-     <YLength>1</YLength>
-     <BothSides>true</BothSides>
-     <Accuracy>4</Accuracy>
-     <ScaleValue>
-      <X>
-       <Value>0.07</Value>
-      </X>
-      <Y>
-       <Value>0.027</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </ScaleValue>
-     <OverrideColor>true</OverrideColor>
-     <MeshColor>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColor>
-     <Alpha>1</Alpha>
-     <MeshColorMultipliers>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColorMultipliers>
-     <MeshColorOffsets>
-     </MeshColorOffsets>
-     <Direct3DColorRange>true</Direct3DColorRange>
-     <SpecularColor>
-      <X>
-       <Value>0.498039215686275</Value>
-      </X>
-      <Y>
-       <Value>0.498039215686275</Value>
-      </Y>
-      <Z>
-       <Value>0.498039215686275</Value>
-      </Z>
-     </SpecularColor>
-     <EmissiveColor>
-     </EmissiveColor>
-     <ShininessPower>
-      <Value>1.220703125</Value>
-     </ShininessPower>
-     <OverrideQuality>false</OverrideQuality>
-     <Texture>
-      <Filename><![CDATA[textures\scoop.jpg]]>
-</Filename>
-      <WrapStyle>0</WrapStyle>
-      <YWrap>
-       <Y>
-        <Value>1</Value>
-       </Y>
-      </YWrap>
-      <ZWrap>
-       <Z>
-        <Value>-1</Value>
-       </Z>
-      </ZWrap>
-      <XOrigin>
-       <Value>0.5</Value>
-      </XOrigin>
-      <YOrigin>
-       <Value>0.5</Value>
-      </YOrigin>
-     </Texture>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>Scoop</Name>
-     <Position>
-      <Y>
-       <Value>0.0555</Value>
-      </Y>
-      <Z>
-       <Value>-0.037</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-       <X>
-        <Value>2</Value>
-       </X>
       </Angles>
       <OrientationType>Bryant</OrientationType>
      </Orientation>
@@ -17106,7 +16970,7 @@ specification_end;
        <Value>0.028</Value>
       </Y>
       <Z>
-       <Value>100.0336</Value>
+       <Value>100.035</Value>
       </Z>
      </Position>
      <Orientation>
@@ -17227,902 +17091,6 @@ specification_end;
       </Cube>
      </Childs>
          </Frame>
-         <Cube>
-     <Center>Center</Center>
-     <RibLength>1</RibLength>
-     <ShowInnerSide>true</ShowInnerSide>
-     <Accuracy>4</Accuracy>
-     <ScaleValue>
-      <X>
-       <Value>0.009</Value>
-      </X>
-      <Y>
-       <Value>0.034</Value>
-      </Y>
-      <Z>
-       <Value>0.01</Value>
-      </Z>
-     </ScaleValue>
-     <OverrideColor>true</OverrideColor>
-     <MeshColor>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColor>
-     <Alpha>1</Alpha>
-     <MeshColorMultipliers>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColorMultipliers>
-     <MeshColorOffsets>
-     </MeshColorOffsets>
-     <Direct3DColorRange>true</Direct3DColorRange>
-     <SpecularColor>
-      <X>
-       <Value>0.498039215686275</Value>
-      </X>
-      <Y>
-       <Value>0.498039215686275</Value>
-      </Y>
-      <Z>
-       <Value>0.498039215686275</Value>
-      </Z>
-     </SpecularColor>
-     <EmissiveColor>
-     </EmissiveColor>
-     <ShininessPower>
-      <Value>2.98023223876953</Value>
-     </ShininessPower>
-     <OverrideQuality>false</OverrideQuality>
-     <Texture>
-      <Filename><![CDATA[textures\dist_left.jpg]]>
-</Filename>
-      <WrapStyle>0</WrapStyle>
-      <YWrap>
-       <Y>
-        <Value>1</Value>
-       </Y>
-      </YWrap>
-      <ZWrap>
-       <Z>
-        <Value>-1</Value>
-       </Z>
-      </ZWrap>
-      <XOrigin>
-       <Value>0.5</Value>
-      </XOrigin>
-      <YOrigin>
-       <Value>0.5</Value>
-      </YOrigin>
-     </Texture>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>Left Distance IR</Name>
-     <Position>
-      <X>
-       <Value>0.024</Value>
-      </X>
-      <Y>
-       <Value>0.055</Value>
-      </Y>
-      <Z>
-       <Value>0.0005</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-       <X>
-        <Value>1.57</Value>
-       </X>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-     </Childs>
-         </Cube>
-         <Cube>
-     <Center>Center</Center>
-     <RibLength>1</RibLength>
-     <ShowInnerSide>true</ShowInnerSide>
-     <Accuracy>4</Accuracy>
-     <ScaleValue>
-      <X>
-       <Value>0.009</Value>
-      </X>
-      <Y>
-       <Value>0.034</Value>
-      </Y>
-      <Z>
-       <Value>0.01</Value>
-      </Z>
-     </ScaleValue>
-     <OverrideColor>true</OverrideColor>
-     <MeshColor>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColor>
-     <Alpha>1</Alpha>
-     <MeshColorMultipliers>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </MeshColorMultipliers>
-     <MeshColorOffsets>
-     </MeshColorOffsets>
-     <Direct3DColorRange>true</Direct3DColorRange>
-     <SpecularColor>
-      <X>
-       <Value>0.498039215686275</Value>
-      </X>
-      <Y>
-       <Value>0.498039215686275</Value>
-      </Y>
-      <Z>
-       <Value>0.498039215686275</Value>
-      </Z>
-     </SpecularColor>
-     <EmissiveColor>
-     </EmissiveColor>
-     <ShininessPower>
-      <Value>2.98023223876953</Value>
-     </ShininessPower>
-     <OverrideQuality>false</OverrideQuality>
-     <Texture>
-      <Filename><![CDATA[textures\dist_right.jpg]]>
-</Filename>
-      <WrapStyle>0</WrapStyle>
-      <YWrap>
-       <Y>
-        <Value>1</Value>
-       </Y>
-      </YWrap>
-      <ZWrap>
-       <Z>
-        <Value>-1</Value>
-       </Z>
-      </ZWrap>
-      <XOrigin>
-       <Value>0.5</Value>
-      </XOrigin>
-      <YOrigin>
-       <Value>0.5</Value>
-      </YOrigin>
-     </Texture>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>Right Distance IR</Name>
-     <Position>
-      <X>
-       <Value>-0.024</Value>
-      </X>
-      <Y>
-       <Value>0.055</Value>
-      </Y>
-      <Z>
-       <Value>0.0005</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-       <X>
-        <Value>1.57</Value>
-       </X>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-     </Childs>
-         </Cube>
-         <Frame>
-     <ScaleValue>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </ScaleValue>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>Right Encoder</Name>
-     <Position>
-      <X>
-       <Value>0.04</Value>
-      </X>
-      <Y>
-       <Value>-0.017</Value>
-      </Y>
-      <Z>
-       <Value>0.017</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-       <Y>
-        <Value>-1.57</Value>
-       </Y>
-       <Z>
-        <Value>-1.57</Value>
-       </Z>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-      <Cube>
-       <Center>Center</Center>
-       <RibLength>1</RibLength>
-       <ShowInnerSide>true</ShowInnerSide>
-       <Accuracy>4</Accuracy>
-       <ScaleValue>
-        <X>
-         <Value>0.044</Value>
-        </X>
-        <Y>
-         <Value>0.025</Value>
-        </Y>
-        <Z>
-         <Value>0.001</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>0.0762939453125</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <Texture>
-        <Filename><![CDATA[textures\encoder_right.jpg]]>
-</Filename>
-        <WrapStyle>0</WrapStyle>
-        <YWrap>
-         <Y>
-     <Value>1</Value>
-         </Y>
-        </YWrap>
-        <ZWrap>
-         <Z>
-     <Value>-1</Value>
-         </Z>
-        </ZWrap>
-        <XOrigin>
-         <Value>0.5</Value>
-        </XOrigin>
-        <YOrigin>
-         <Value>0.5</Value>
-        </YOrigin>
-       </Texture>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Board</Name>
-       <Position>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cube>
-      <Cylinder>
-       <CircleElements>6</CircleElements>
-       <LowerRadius>0.5</LowerRadius>
-       <UpperRadius>0.5</UpperRadius>
-       <Height>1</Height>
-       <Closed>true</Closed>
-       <LowerClosed>true</LowerClosed>
-       <UpperClosed>true</UpperClosed>
-       <CenterInOrigin>true</CenterInOrigin>
-       <ShowInnerSide>false</ShowInnerSide>
-       <ShowOuterSide>true</ShowOuterSide>
-       <ScaleValue>
-        <X>
-         <Value>0.004</Value>
-        </X>
-        <Y>
-         <Value>0.004</Value>
-        </Y>
-        <Z>
-         <Value>0.005</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>0.733333333333333</Value>
-        </X>
-        <Y>
-         <Value>0.733333333333333</Value>
-        </Y>
-        <Z>
-         <Value>0.733333333333333</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>0.95</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>1.220703125</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Spacer</Name>
-       <Position>
-        <X>
-         <Value>-0.019</Value>
-        </X>
-        <Z>
-         <Value>0.0025</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cylinder>
-      <Cylinder>
-       <CircleElements>6</CircleElements>
-       <LowerRadius>0.5</LowerRadius>
-       <UpperRadius>0.5</UpperRadius>
-       <Height>1</Height>
-       <Closed>true</Closed>
-       <LowerClosed>true</LowerClosed>
-       <UpperClosed>true</UpperClosed>
-       <CenterInOrigin>true</CenterInOrigin>
-       <ShowInnerSide>false</ShowInnerSide>
-       <ShowOuterSide>true</ShowOuterSide>
-       <ScaleValue>
-        <X>
-         <Value>0.004</Value>
-        </X>
-        <Y>
-         <Value>0.004</Value>
-        </Y>
-        <Z>
-         <Value>0.005</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>0.733333333333333</Value>
-        </X>
-        <Y>
-         <Value>0.733333333333333</Value>
-        </Y>
-        <Z>
-         <Value>0.733333333333333</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>0.95</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>1.220703125</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Spacer</Name>
-       <Position>
-        <X>
-         <Value>0.019</Value>
-        </X>
-        <Y>
-         <Value>-0.001</Value>
-        </Y>
-        <Z>
-         <Value>0.0025</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cylinder>
-     </Childs>
-         </Frame>
-         <Frame>
-     <ScaleValue>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </ScaleValue>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>Left Encoder</Name>
-     <Position>
-      <X>
-       <Value>-0.04</Value>
-      </X>
-      <Y>
-       <Value>-0.017</Value>
-      </Y>
-      <Z>
-       <Value>0.017</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-       <Y>
-        <Value>1.57</Value>
-       </Y>
-       <Z>
-        <Value>1.57</Value>
-       </Z>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-      <Cube>
-       <Center>Center</Center>
-       <RibLength>1</RibLength>
-       <ShowInnerSide>true</ShowInnerSide>
-       <Accuracy>4</Accuracy>
-       <ScaleValue>
-        <X>
-         <Value>0.044</Value>
-        </X>
-        <Y>
-         <Value>0.025</Value>
-        </Y>
-        <Z>
-         <Value>0.001</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>0.440369129180908</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <Texture>
-        <Filename><![CDATA[textures\encoder_left.jpg]]>
-</Filename>
-        <WrapStyle>0</WrapStyle>
-        <YWrap>
-         <Y>
-     <Value>1</Value>
-         </Y>
-        </YWrap>
-        <ZWrap>
-         <Z>
-     <Value>-1</Value>
-         </Z>
-        </ZWrap>
-        <XOrigin>
-         <Value>0.5</Value>
-        </XOrigin>
-        <YOrigin>
-         <Value>0.5</Value>
-        </YOrigin>
-       </Texture>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Board</Name>
-       <Position>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cube>
-      <Cylinder>
-       <CircleElements>6</CircleElements>
-       <LowerRadius>0.5</LowerRadius>
-       <UpperRadius>0.5</UpperRadius>
-       <Height>1</Height>
-       <Closed>true</Closed>
-       <LowerClosed>true</LowerClosed>
-       <UpperClosed>true</UpperClosed>
-       <CenterInOrigin>true</CenterInOrigin>
-       <ShowInnerSide>false</ShowInnerSide>
-       <ShowOuterSide>true</ShowOuterSide>
-       <ScaleValue>
-        <X>
-         <Value>0.004</Value>
-        </X>
-        <Y>
-         <Value>0.004</Value>
-        </Y>
-        <Z>
-         <Value>0.005</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>0.733333333333333</Value>
-        </X>
-        <Y>
-         <Value>0.733333333333333</Value>
-        </Y>
-        <Z>
-         <Value>0.733333333333333</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>0.95</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>1.220703125</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Spacer</Name>
-       <Position>
-        <X>
-         <Value>-0.019</Value>
-        </X>
-        <Z>
-         <Value>0.0025</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cylinder>
-      <Cylinder>
-       <CircleElements>6</CircleElements>
-       <LowerRadius>0.5</LowerRadius>
-       <UpperRadius>0.5</UpperRadius>
-       <Height>1</Height>
-       <Closed>true</Closed>
-       <LowerClosed>true</LowerClosed>
-       <UpperClosed>true</UpperClosed>
-       <CenterInOrigin>true</CenterInOrigin>
-       <ShowInnerSide>false</ShowInnerSide>
-       <ShowOuterSide>true</ShowOuterSide>
-       <ScaleValue>
-        <X>
-         <Value>0.004</Value>
-        </X>
-        <Y>
-         <Value>0.004</Value>
-        </Y>
-        <Z>
-         <Value>0.005</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>0.733333333333333</Value>
-        </X>
-        <Y>
-         <Value>0.733333333333333</Value>
-        </Y>
-        <Z>
-         <Value>0.733333333333333</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>0.95</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>1.220703125</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Spacer</Name>
-       <Position>
-        <X>
-         <Value>0.019</Value>
-        </X>
-        <Y>
-         <Value>-0.001</Value>
-        </Y>
-        <Z>
-         <Value>0.0025</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cylinder>
-     </Childs>
-         </Frame>
          <Frame>
      <ScaleValue>
       <X>
@@ -18141,10 +17109,10 @@ specification_end;
      <Name>Right Servo</Name>
      <Position>
       <X>
-       <Value>0.026</Value>
+       <Value>0.027</Value>
       </X>
       <Y>
-       <Value>-0.009</Value>
+       <Value>-0.028</Value>
       </Y>
       <Z>
        <Value>-0.0144</Value>
@@ -18470,10 +17438,10 @@ specification_end;
      <Name>Left Servo</Name>
      <Position>
       <X>
-       <Value>-0.026</Value>
+       <Value>-0.027</Value>
       </X>
       <Y>
-       <Value>-0.009</Value>
+       <Value>-0.028</Value>
       </Y>
       <Z>
        <Value>-0.0144</Value>
@@ -18781,21 +17749,20 @@ specification_end;
       </Cylinder>
      </Childs>
          </Frame>
-         <Square>
-     <CornerInOrigin>false</CornerInOrigin>
-     <XLength>1</XLength>
-     <YLength>1</YLength>
-     <BothSides>true</BothSides>
+         <Cube>
+     <Center>Center</Center>
+     <RibLength>1</RibLength>
+     <ShowInnerSide>true</ShowInnerSide>
      <Accuracy>4</Accuracy>
      <ScaleValue>
       <X>
-       <Value>0.07</Value>
+       <Value>0.014</Value>
       </X>
       <Y>
-       <Value>0.12</Value>
+       <Value>0.16</Value>
       </Y>
       <Z>
-       <Value>1</Value>
+       <Value>0.003</Value>
       </Z>
      </ScaleValue>
      <OverrideColor>true</OverrideColor>
@@ -18810,7 +17777,7 @@ specification_end;
        <Value>1</Value>
       </Z>
      </MeshColor>
-     <Alpha>1</Alpha>
+     <Alpha>0.5</Alpha>
      <MeshColorMultipliers>
       <X>
        <Value>1</Value>
@@ -18827,60 +17794,32 @@ specification_end;
      <Direct3DColorRange>true</Direct3DColorRange>
      <SpecularColor>
       <X>
-       <Value>0.5</Value>
+       <Value>0.498039215686275</Value>
       </X>
       <Y>
-       <Value>0.5</Value>
+       <Value>0.498039215686275</Value>
       </Y>
       <Z>
-       <Value>0.5</Value>
+       <Value>0.498039215686275</Value>
       </Z>
      </SpecularColor>
      <EmissiveColor>
      </EmissiveColor>
      <ShininessPower>
-      <Value>15</Value>
+      <Value>14.298713684082</Value>
      </ShininessPower>
      <OverrideQuality>false</OverrideQuality>
-     <Texture>
-      <Filename><![CDATA[textures\grid.png]]>
-</Filename>
-      <WrapStyle>0</WrapStyle>
-      <YWrap>
-       <Y>
-        <Value>1</Value>
-       </Y>
-      </YWrap>
-      <ZWrap>
-       <Z>
-        <Value>-1</Value>
-       </Z>
-      </ZWrap>
-      <XOrigin>
-       <Value>0.5</Value>
-      </XOrigin>
-      <YOrigin>
-       <Value>0.5</Value>
-      </YOrigin>
-     </Texture>
      <ShowReferenceFrame>false</ShowReferenceFrame>
      <ShowCOM>false</ShowCOM>
      <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <DrawHidden>true</DrawHidden>
-     <Name>Grid</Name>
+     <Name>TMountY</Name>
      <Position>
       <Y>
-       <Value>0.01</Value>
+       <Value>0.082</Value>
       </Y>
-      <Z>
-       <Value>0.026</Value>
-      </Z>
      </Position>
      <Orientation>
       <Angles>
-       <Y>
-        <Value>3.14159</Value>
-       </Y>
       </Angles>
       <OrientationType>Bryant</OrientationType>
      </Orientation>
@@ -18892,7 +17831,7 @@ specification_end;
      <LockZRoll>false</LockZRoll>
      <Childs>
      </Childs>
-         </Square>
+         </Cube>
          <Frame>
      <ScaleValue>
       <X>
@@ -18902,26 +17841,28 @@ specification_end;
        <Value>1</Value>
       </Y>
       <Z>
-       <Value>0.07</Value>
+       <Value>1</Value>
       </Z>
      </ScaleValue>
      <ShowReferenceFrame>false</ShowReferenceFrame>
      <ShowCOM>false</ShowCOM>
      <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>BatteryMeter</Name>
+     <Name>Left LF Frame</Name>
      <Position>
+      <X>
+       <VariableName>lf_positions[1,1]</VariableName>
+       <Value>0.019</Value>
+      </X>
       <Y>
-       <Value>-0.058</Value>
+       <VariableName>lf_positions[1,2]</VariableName>
+       <Value>0.109</Value>
       </Y>
       <Z>
-       <Value>0.025</Value>
+       <Value>-0.03196</Value>
       </Z>
      </Position>
      <Orientation>
       <Angles>
-       <Y>
-        <Value>-1.574</Value>
-       </Y>
       </Angles>
       <OrientationType>Bryant</OrientationType>
      </Orientation>
@@ -18939,29 +17880,108 @@ specification_end;
        <Accuracy>4</Accuracy>
        <ScaleValue>
         <X>
-         <Value>0.001</Value>
+         <Value>0.018</Value>
         </X>
         <Y>
-         <Value>0.01</Value>
+         <Value>0.004</Value>
         </Y>
         <Z>
-         <VariableName>Body\Battery\batteryPercentage</VariableName>
-         <Value>0.608710468510532</Value>
+         <Value>0.015</Value>
         </Z>
        </ScaleValue>
        <OverrideColor>true</OverrideColor>
        <MeshColor>
         <X>
-         <VariableName>Body\Battery\batteryColour[1]</VariableName>
-         <Value>0</Value>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
         </X>
         <Y>
-         <VariableName>Body\Battery\batteryColour[2]</VariableName>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
+        </Y>
+        <Z>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
          <Value>1</Value>
         </Y>
         <Z>
-         <VariableName>Body\Battery\batteryColour[3]</VariableName>
-         <Value>0</Value>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>false</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Sensor</Name>
+       <Position>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cube>
+      <Cube>
+       <Center>Center</Center>
+       <RibLength>1</RibLength>
+       <ShowInnerSide>true</ShowInnerSide>
+       <Accuracy>4</Accuracy>
+       <ScaleValue>
+        <X>
+         <Value>0.018</Value>
+        </X>
+        <Y>
+         <Value>0.025</Value>
+        </Y>
+        <Z>
+         <Value>0.0015</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
         </Z>
        </MeshColor>
        <Alpha>1</Alpha>
@@ -18994,220 +18014,10 @@ specification_end;
        </EmissiveColor>
        <ShininessPower>
         <Value>15</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Meter Value</Name>
-       <Position>
-        <Z>
-         <VariableName>Body\Battery\batteryMeterOffset</VariableName>
-         <Value>-0.195644765744734</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cube>
-      <Cube>
-       <Center>Center</Center>
-       <RibLength>1</RibLength>
-       <ShowInnerSide>true</ShowInnerSide>
-       <Accuracy>4</Accuracy>
-       <ScaleValue>
-        <X>
-         <Value>0.001</Value>
-        </X>
-        <Y>
-         <Value>0.014</Value>
-        </Y>
-        <Z>
-         <Value>1.04</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>0</Value>
-        </X>
-        <Y>
-         <Value>0</Value>
-        </Y>
-        <Z>
-         <Value>0</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.5</Value>
-        </X>
-        <Y>
-         <Value>0.5</Value>
-        </Y>
-        <Z>
-         <Value>0.5</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>15</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Meter</Name>
-       <Position>
-        <X>
-         <Value>-0.001</Value>
-        </X>
-        <Z>
-         <VariableName>0</VariableName>
-         <Value>0</Value>
-        </Z>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Cube>
-     </Childs>
-         </Frame>
-         <Frame>
-     <ScaleValue>
-      <X>
-       <Value>1</Value>
-      </X>
-      <Y>
-       <Value>1</Value>
-      </Y>
-      <Z>
-       <Value>1</Value>
-      </Z>
-     </ScaleValue>
-     <ShowReferenceFrame>false</ShowReferenceFrame>
-     <ShowCOM>false</ShowCOM>
-     <ShowCOMOnSelection>false</ShowCOMOnSelection>
-     <Name>ScoopReference</Name>
-     <Position>
-      <Y>
-       <Value>0.0555</Value>
-      </Y>
-      <Z>
-       <Value>-0.037</Value>
-      </Z>
-     </Position>
-     <Orientation>
-      <Angles>
-      </Angles>
-      <OrientationType>Bryant</OrientationType>
-     </Orientation>
-     <LockX>false</LockX>
-     <LockY>false</LockY>
-     <LockZ>false</LockZ>
-     <LockXPitch>false</LockXPitch>
-     <LockYYaw>false</LockYYaw>
-     <LockZRoll>false</LockZRoll>
-     <Childs>
-      <Square>
-       <CornerInOrigin>false</CornerInOrigin>
-       <XLength>1</XLength>
-       <YLength>1</YLength>
-       <BothSides>true</BothSides>
-       <Accuracy>4</Accuracy>
-       <ScaleValue>
-        <X>
-         <Value>0.07</Value>
-        </X>
-        <Y>
-         <Value>0.027</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>true</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.498039215686275</Value>
-        </X>
-        <Y>
-         <Value>0.498039215686275</Value>
-        </Y>
-        <Z>
-         <Value>0.498039215686275</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>1.220703125</Value>
        </ShininessPower>
        <OverrideQuality>false</OverrideQuality>
        <Texture>
-        <Filename><![CDATA[textures\scoop.jpg]]>
+        <Filename><![CDATA[textures\protoboard.jpg]]>
 </Filename>
         <WrapStyle>0</WrapStyle>
         <YWrap>
@@ -19230,187 +18040,14 @@ specification_end;
        <ShowReferenceFrame>false</ShowReferenceFrame>
        <ShowCOM>false</ShowCOM>
        <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Scoop</Name>
+       <Name>Protoboard</Name>
        <Position>
-       </Position>
-       <Orientation>
-        <Angles>
-         <X>
-     <Value>2</Value>
-         </X>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Square>
-      <Sphere>
-       <InsideOutside>0</InsideOutside>
-       <Accuracy>30</Accuracy>
-       <SphereAdvanced>false</SphereAdvanced>
-       <ScaleValue>
-        <X>
-         <Value>0.01</Value>
-        </X>
         <Y>
-         <Value>0.01</Value>
-        </Y>
-        <Z>
-         <Value>0.01</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>153</Value>
-        </X>
-        <Y>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>153</Value>
-        </Y>
-        <Z>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>153</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>false</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.5</Value>
-        </X>
-        <Y>
-         <Value>0.5</Value>
-        </Y>
-        <Z>
-         <Value>0.5</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>15</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Left LF Sensor</Name>
-       <Position>
-        <X>
-         <VariableName>lf_positions[1,1]</VariableName>
-         <Value>0.01</Value>
-        </X>
-       </Position>
-       <Orientation>
-        <Angles>
-        </Angles>
-        <OrientationType>Bryant</OrientationType>
-       </Orientation>
-       <LockX>false</LockX>
-       <LockY>false</LockY>
-       <LockZ>false</LockZ>
-       <LockXPitch>false</LockXPitch>
-       <LockYYaw>false</LockYYaw>
-       <LockZRoll>false</LockZRoll>
-       <Childs>
-       </Childs>
-      </Sphere>
-      <Sphere>
-       <InsideOutside>0</InsideOutside>
-       <Accuracy>30</Accuracy>
-       <SphereAdvanced>false</SphereAdvanced>
-       <ScaleValue>
-        <X>
-         <Value>0.01</Value>
-        </X>
-        <Y>
-         <Value>0.01</Value>
-        </Y>
-        <Z>
-         <Value>0.01</Value>
-        </Z>
-       </ScaleValue>
-       <OverrideColor>true</OverrideColor>
-       <MeshColor>
-        <X>
-         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
-         <Value>95</Value>
-        </X>
-        <Y>
-         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
-         <Value>95</Value>
-        </Y>
-        <Z>
-         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
-         <Value>95</Value>
-        </Z>
-       </MeshColor>
-       <Alpha>1</Alpha>
-       <MeshColorMultipliers>
-        <X>
-         <Value>1</Value>
-        </X>
-        <Y>
-         <Value>1</Value>
-        </Y>
-        <Z>
-         <Value>1</Value>
-        </Z>
-       </MeshColorMultipliers>
-       <MeshColorOffsets>
-       </MeshColorOffsets>
-       <Direct3DColorRange>false</Direct3DColorRange>
-       <SpecularColor>
-        <X>
-         <Value>0.5</Value>
-        </X>
-        <Y>
-         <Value>0.5</Value>
-        </Y>
-        <Z>
-         <Value>0.5</Value>
-        </Z>
-       </SpecularColor>
-       <EmissiveColor>
-       </EmissiveColor>
-       <ShininessPower>
-        <Value>15</Value>
-       </ShininessPower>
-       <OverrideQuality>false</OverrideQuality>
-       <ShowReferenceFrame>false</ShowReferenceFrame>
-       <ShowCOM>false</ShowCOM>
-       <ShowCOMOnSelection>false</ShowCOMOnSelection>
-       <Name>Right LF Sensor</Name>
-       <Position>
-        <X>
-         <VariableName>lf_positions[2,1]</VariableName>
          <Value>-0.01</Value>
-        </X>
-        <Y>
-         <VariableName>0</VariableName>
-         <Value>0</Value>
         </Y>
+        <Z>
+         <Value>0.008</Value>
+        </Z>
        </Position>
        <Orientation>
         <Angles>
@@ -19425,7 +18062,820 @@ specification_end;
        <LockZRoll>false</LockZRoll>
        <Childs>
        </Childs>
-      </Sphere>
+      </Cube>
+      <Cylinder>
+       <CircleElements>6</CircleElements>
+       <LowerRadius>0.5</LowerRadius>
+       <UpperRadius>0.5</UpperRadius>
+       <Height>1</Height>
+       <Closed>true</Closed>
+       <LowerClosed>true</LowerClosed>
+       <UpperClosed>true</UpperClosed>
+       <CenterInOrigin>true</CenterInOrigin>
+       <ShowInnerSide>false</ShowInnerSide>
+       <ShowOuterSide>true</ShowOuterSide>
+       <ScaleValue>
+        <X>
+         <Value>0.005</Value>
+        </X>
+        <Y>
+         <Value>0.005</Value>
+        </Y>
+        <Z>
+         <Value>0.076</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <Texture>
+        <Filename><![CDATA[textures\metal.jpg]]>
+</Filename>
+        <WrapStyle>0</WrapStyle>
+        <YWrap>
+         <Y>
+     <Value>1</Value>
+         </Y>
+        </YWrap>
+        <ZWrap>
+         <Z>
+     <Value>-1</Value>
+         </Z>
+        </ZWrap>
+        <XOrigin>
+         <Value>0.5</Value>
+        </XOrigin>
+        <YOrigin>
+         <Value>0.5</Value>
+        </YOrigin>
+       </Texture>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Spacer</Name>
+       <Position>
+        <Y>
+         <Value>-0.014</Value>
+        </Y>
+        <Z>
+         <Value>0.02</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cylinder>
+     </Childs>
+         </Frame>
+         <Frame>
+     <ScaleValue>
+      <X>
+       <Value>1</Value>
+      </X>
+      <Y>
+       <Value>1</Value>
+      </Y>
+      <Z>
+       <Value>1</Value>
+      </Z>
+     </ScaleValue>
+     <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
+     <Name>Right LF Frame</Name>
+     <Position>
+      <X>
+       <VariableName>lf_positions[2,1]</VariableName>
+       <Value>-0.019</Value>
+      </X>
+      <Y>
+       <VariableName>lf_positions[2,2]</VariableName>
+       <Value>0.109</Value>
+      </Y>
+      <Z>
+       <Value>-0.03196</Value>
+      </Z>
+     </Position>
+     <Orientation>
+      <Angles>
+      </Angles>
+      <OrientationType>Bryant</OrientationType>
+     </Orientation>
+     <LockX>false</LockX>
+     <LockY>false</LockY>
+     <LockZ>false</LockZ>
+     <LockXPitch>false</LockXPitch>
+     <LockYYaw>false</LockYYaw>
+     <LockZRoll>false</LockZRoll>
+     <Childs>
+      <Cube>
+       <Center>Center</Center>
+       <RibLength>1</RibLength>
+       <ShowInnerSide>true</ShowInnerSide>
+       <Accuracy>4</Accuracy>
+       <ScaleValue>
+        <X>
+         <Value>0.018</Value>
+        </X>
+        <Y>
+         <Value>0.004</Value>
+        </Y>
+        <Z>
+         <Value>0.015</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
+        </X>
+        <Y>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
+        </Y>
+        <Z>
+         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
+         <Value>254</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>false</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Sensor</Name>
+       <Position>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cube>
+      <Cube>
+       <Center>Center</Center>
+       <RibLength>1</RibLength>
+       <ShowInnerSide>true</ShowInnerSide>
+       <Accuracy>4</Accuracy>
+       <ScaleValue>
+        <X>
+         <Value>0.018</Value>
+        </X>
+        <Y>
+         <Value>0.025</Value>
+        </Y>
+        <Z>
+         <Value>0.0015</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <Texture>
+        <Filename><![CDATA[textures\protoboard.jpg]]>
+</Filename>
+        <WrapStyle>0</WrapStyle>
+        <YWrap>
+         <Y>
+     <Value>1</Value>
+         </Y>
+        </YWrap>
+        <ZWrap>
+         <Z>
+     <Value>-1</Value>
+         </Z>
+        </ZWrap>
+        <XOrigin>
+         <Value>0.5</Value>
+        </XOrigin>
+        <YOrigin>
+         <Value>0.5</Value>
+        </YOrigin>
+       </Texture>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Protoboard</Name>
+       <Position>
+        <Y>
+         <Value>-0.01</Value>
+        </Y>
+        <Z>
+         <Value>0.008</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cube>
+      <Cylinder>
+       <CircleElements>6</CircleElements>
+       <LowerRadius>0.5</LowerRadius>
+       <UpperRadius>0.5</UpperRadius>
+       <Height>1</Height>
+       <Closed>true</Closed>
+       <LowerClosed>true</LowerClosed>
+       <UpperClosed>true</UpperClosed>
+       <CenterInOrigin>true</CenterInOrigin>
+       <ShowInnerSide>false</ShowInnerSide>
+       <ShowOuterSide>true</ShowOuterSide>
+       <ScaleValue>
+        <X>
+         <Value>0.005</Value>
+        </X>
+        <Y>
+         <Value>0.005</Value>
+        </Y>
+        <Z>
+         <Value>0.076</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <Texture>
+        <Filename><![CDATA[textures\metal.jpg]]>
+</Filename>
+        <WrapStyle>0</WrapStyle>
+        <YWrap>
+         <Y>
+     <Value>1</Value>
+         </Y>
+        </YWrap>
+        <ZWrap>
+         <Z>
+     <Value>-1</Value>
+         </Z>
+        </ZWrap>
+        <XOrigin>
+         <Value>0.5</Value>
+        </XOrigin>
+        <YOrigin>
+         <Value>0.5</Value>
+        </YOrigin>
+       </Texture>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Spacer</Name>
+       <Position>
+        <Y>
+         <Value>-0.014</Value>
+        </Y>
+        <Z>
+         <Value>0.02</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cylinder>
+     </Childs>
+         </Frame>
+         <Frame>
+     <ScaleValue>
+      <X>
+       <Value>1</Value>
+      </X>
+      <Y>
+       <Value>1</Value>
+      </Y>
+      <Z>
+       <Value>1</Value>
+      </Z>
+     </ScaleValue>
+     <ShowReferenceFrame>false</ShowReferenceFrame>
+     <ShowCOM>false</ShowCOM>
+     <ShowCOMOnSelection>false</ShowCOMOnSelection>
+     <Name>Crossbar</Name>
+     <Position>
+      <Y>
+       <VariableName>lf_positions[1,2]</VariableName>
+       <Value>0.109</Value>
+      </Y>
+     </Position>
+     <Orientation>
+      <Angles>
+      </Angles>
+      <OrientationType>Bryant</OrientationType>
+     </Orientation>
+     <LockX>false</LockX>
+     <LockY>false</LockY>
+     <LockZ>false</LockZ>
+     <LockXPitch>false</LockXPitch>
+     <LockYYaw>false</LockYYaw>
+     <LockZRoll>false</LockZRoll>
+     <Childs>
+      <Cube>
+       <Center>Center</Center>
+       <RibLength>1</RibLength>
+       <ShowInnerSide>true</ShowInnerSide>
+       <Accuracy>4</Accuracy>
+       <ScaleValue>
+        <X>
+         <Value>0.114</Value>
+        </X>
+        <Y>
+         <Value>0.014</Value>
+        </Y>
+        <Z>
+         <Value>0.003</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>0.5</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.498039215686275</Value>
+        </X>
+        <Y>
+         <Value>0.498039215686275</Value>
+        </Y>
+        <Z>
+         <Value>0.498039215686275</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>14.298713684082</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Block</Name>
+       <Position>
+        <Y>
+         <Value>-0.014</Value>
+        </Y>
+        <Z>
+         <Value>-0.026</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cube>
+      <Cylinder>
+       <CircleElements>6</CircleElements>
+       <LowerRadius>0.5</LowerRadius>
+       <UpperRadius>0.5</UpperRadius>
+       <Height>1</Height>
+       <Closed>true</Closed>
+       <LowerClosed>true</LowerClosed>
+       <UpperClosed>true</UpperClosed>
+       <CenterInOrigin>true</CenterInOrigin>
+       <ShowInnerSide>false</ShowInnerSide>
+       <ShowOuterSide>true</ShowOuterSide>
+       <ScaleValue>
+        <X>
+         <Value>0.005</Value>
+        </X>
+        <Y>
+         <Value>0.005</Value>
+        </Y>
+        <Z>
+         <Value>0.035</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <Texture>
+        <Filename><![CDATA[textures\metal.jpg]]>
+</Filename>
+        <WrapStyle>0</WrapStyle>
+        <YWrap>
+         <Y>
+     <Value>1</Value>
+         </Y>
+        </YWrap>
+        <ZWrap>
+         <Z>
+     <Value>-1</Value>
+         </Z>
+        </ZWrap>
+        <XOrigin>
+         <Value>0.5</Value>
+        </XOrigin>
+        <YOrigin>
+         <Value>0.5</Value>
+        </YOrigin>
+       </Texture>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Spacer</Name>
+       <Position>
+        <X>
+         <Value>0.0025</Value>
+        </X>
+        <Y>
+         <Value>-0.014</Value>
+        </Y>
+        <Z>
+         <Value>-0.013</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cylinder>
+      <Cylinder>
+       <CircleElements>6</CircleElements>
+       <LowerRadius>0.5</LowerRadius>
+       <UpperRadius>0.5</UpperRadius>
+       <Height>1</Height>
+       <Closed>true</Closed>
+       <LowerClosed>true</LowerClosed>
+       <UpperClosed>true</UpperClosed>
+       <CenterInOrigin>true</CenterInOrigin>
+       <ShowInnerSide>false</ShowInnerSide>
+       <ShowOuterSide>true</ShowOuterSide>
+       <ScaleValue>
+        <X>
+         <Value>0.005</Value>
+        </X>
+        <Y>
+         <Value>0.005</Value>
+        </Y>
+        <Z>
+         <Value>0.035</Value>
+        </Z>
+       </ScaleValue>
+       <OverrideColor>true</OverrideColor>
+       <MeshColor>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColor>
+       <Alpha>1</Alpha>
+       <MeshColorMultipliers>
+        <X>
+         <Value>1</Value>
+        </X>
+        <Y>
+         <Value>1</Value>
+        </Y>
+        <Z>
+         <Value>1</Value>
+        </Z>
+       </MeshColorMultipliers>
+       <MeshColorOffsets>
+       </MeshColorOffsets>
+       <Direct3DColorRange>true</Direct3DColorRange>
+       <SpecularColor>
+        <X>
+         <Value>0.5</Value>
+        </X>
+        <Y>
+         <Value>0.5</Value>
+        </Y>
+        <Z>
+         <Value>0.5</Value>
+        </Z>
+       </SpecularColor>
+       <EmissiveColor>
+       </EmissiveColor>
+       <ShininessPower>
+        <Value>15</Value>
+       </ShininessPower>
+       <OverrideQuality>false</OverrideQuality>
+       <Texture>
+        <Filename><![CDATA[textures\metal.jpg]]>
+</Filename>
+        <WrapStyle>0</WrapStyle>
+        <YWrap>
+         <Y>
+     <Value>1</Value>
+         </Y>
+        </YWrap>
+        <ZWrap>
+         <Z>
+     <Value>-1</Value>
+         </Z>
+        </ZWrap>
+        <XOrigin>
+         <Value>0.5</Value>
+        </XOrigin>
+        <YOrigin>
+         <Value>0.5</Value>
+        </YOrigin>
+       </Texture>
+       <ShowReferenceFrame>false</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
+       <Name>Spacer</Name>
+       <Position>
+        <X>
+         <Value>-0.0025</Value>
+        </X>
+        <Y>
+         <Value>-0.014</Value>
+        </Y>
+        <Z>
+         <Value>-0.013</Value>
+        </Z>
+       </Position>
+       <Orientation>
+        <Angles>
+        </Angles>
+        <OrientationType>Bryant</OrientationType>
+       </Orientation>
+       <LockX>false</LockX>
+       <LockY>false</LockY>
+       <LockZ>false</LockZ>
+       <LockXPitch>false</LockXPitch>
+       <LockYYaw>false</LockYYaw>
+       <LockZRoll>false</LockZRoll>
+       <Childs>
+       </Childs>
+      </Cylinder>
      </Childs>
          </Frame>
         </Childs>
@@ -19448,10 +18898,10 @@ specification_end;
         <Name>Left Wheel</Name>
         <Position>
          <X>
-     <Value>-0.049</Value>
+     <Value>-0.053</Value>
          </X>
          <Y>
-     <Value>-0.0185</Value>
+     <Value>-0.04</Value>
          </Y>
          <Z>
      <Value>-0.0155</Value>
@@ -19464,7 +18914,7 @@ specification_end;
      </Y>
      <Z>
       <VariableName>Body\wheel_left_rotation</VariableName>
-      <Value>82.7619162637085</Value>
+      <Value>49.6956526065301</Value>
      </Z>
          </Angles>
          <OrientationType>Bryant</OrientationType>
@@ -19713,10 +19163,10 @@ specification_end;
         <Name>Right Wheel</Name>
         <Position>
          <X>
-     <Value>0.049</Value>
+     <Value>0.053</Value>
          </X>
          <Y>
-     <Value>-0.0185</Value>
+     <Value>-0.04</Value>
          </Y>
          <Z>
      <Value>-0.0155</Value>
@@ -19729,7 +19179,7 @@ specification_end;
      </Y>
      <Z>
       <VariableName>Body\wheel_right_rotation</VariableName>
-      <Value>-134.404594227593</Value>
+      <Value>49.6952481271443</Value>
      </Z>
          </Angles>
          <OrientationType>Bryant</OrientationType>
@@ -19966,14 +19416,8 @@ specification_end;
         <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Top Down RobotCam</Name>
         <Position>
-         <X>
-     <Value>5.30717958646676e-006</Value>
-         </X>
-         <Y>
-     <Value>2.77555756156289e-017</Value>
-         </Y>
          <Z>
-     <Value>0.500000000007041</Value>
+     <Value>0.199999734649118</Value>
          </Z>
         </Position>
         <Orientation>
@@ -20021,36 +19465,36 @@ specification_end;
         <Name>RobotCam</Name>
         <Position>
          <X>
-     <Value>-0.162397969669142</Value>
+     <Value>-0.234283392399155</Value>
          </X>
          <Y>
-     <Value>0.733565389281057</Value>
+     <Value>0.29163317277591</Value>
          </Y>
          <Z>
-     <Value>0.376850585625193</Value>
+     <Value>0.172510851741514</Value>
          </Z>
         </Position>
         <Orientation>
          <ZAxis>
      <X>
-      <Value>-0.000857828468321134</Value>
+      <Value>0.557775807199846</Value>
      </X>
      <Y>
-      <Value>-0.871339241775118</Value>
+      <Value>-0.707702574786358</Value>
      </Y>
      <Z>
-      <Value>-0.490680333693008</Value>
+      <Value>-0.433639498366234</Value>
      </Z>
          </ZAxis>
          <YAxis>
      <X>
-      <Value>-0.000483071730186409</Value>
+      <Value>0.268424435821128</Value>
      </X>
      <Y>
-      <Value>-0.490680095902397</Value>
+      <Value>-0.340575302682723</Value>
      </Y>
      <Z>
-      <Value>0.87133966403861</Value>
+      <Value>0.901086447271671</Value>
      </Z>
          </YAxis>
          <OrientationType>Direct3D</OrientationType>
@@ -20075,13 +19519,13 @@ specification_end;
         <UseLookatPosition>true</UseLookatPosition>
         <LookatPosition>
          <X>
-     <Value>-0.1630996475989</Value>
+     <Value>-0.00509002554174896</Value>
          </X>
          <Y>
-     <Value>0.0208360525147593</Value>
+     <Value>0.000834013408953884</Value>
          </Y>
          <Z>
-     <Value>-0.0245111940701861</Value>
+     <Value>-0.00567417412373391</Value>
          </Z>
         </LookatPosition>
         <UseAlwaysLookUp>true</UseAlwaysLookUp>
@@ -20092,7 +19536,7 @@ specification_end;
         </LookUpVector>
         <RightHand>true</RightHand>
         <Perspective>true</Perspective>
-        <IsSelectedCamera>true</IsSelectedCamera>
+        <IsSelectedCamera>false</IsSelectedCamera>
        </Camera>
       </Childs>
      </Frame>
@@ -20508,36 +19952,36 @@ specification_end;
      <Name>Table Cam</Name>
      <Position>
       <X>
-       <Value>-0.312566824930533</Value>
+       <Value>-0.267142123528167</Value>
       </X>
       <Y>
-       <Value>0.567453683207454</Value>
+       <Value>0.471230361193981</Value>
       </Y>
       <Z>
-       <Value>0.457526131432792</Value>
+       <Value>0.57647600085128</Value>
       </Z>
      </Position>
      <Orientation>
       <ZAxis>
        <X>
-        <Value>0.416488145771185</Value>
+        <Value>0.358269732769078</Value>
        </X>
        <Y>
-        <Value>-0.696031749601663</Value>
+        <Value>-0.572707458445767</Value>
        </Y>
        <Z>
-        <Value>-0.584873856466955</Value>
+        <Value>-0.737325549280752</Value>
        </Z>
       </ZAxis>
       <YAxis>
        <X>
-        <Value>0.300315301529571</Value>
+        <Value>0.391038828542887</Value>
        </X>
        <Y>
-        <Value>-0.50188459594386</Value>
+        <Value>-0.625090073664564</Value>
        </Y>
        <Z>
-        <Value>0.811124264229268</Value>
+        <Value>0.675537589167203</Value>
        </Z>
       </YAxis>
       <OrientationType>Direct3D</OrientationType>
@@ -20579,7 +20023,7 @@ specification_end;
      </LookUpVector>
      <RightHand>true</RightHand>
      <Perspective>true</Perspective>
-     <IsSelectedCamera>false</IsSelectedCamera>
+     <IsSelectedCamera>true</IsSelectedCamera>
          </Camera>
          <Cylinder>
      <CircleElements>16</CircleElements>
@@ -21177,7 +20621,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21185,8 +20629,8 @@ specification_end;
      </XAxes>
      <YAxes>
       <Axis>
-       <Minimum>-200</Minimum>
-       <Maximum>800</Maximum>
+       <Minimum>-100</Minimum>
+       <Maximum>400</Maximum>
        <Linear>true</Linear>
        <Scaling>2</Scaling>
        <Label>encoder_left_output</Label>
@@ -21278,7 +20722,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21379,7 +20823,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21387,8 +20831,8 @@ specification_end;
      </XAxes>
      <YAxes>
       <Axis>
-       <Minimum>-1000</Minimum>
-       <Maximum>0</Maximum>
+       <Minimum>-100</Minimum>
+       <Maximum>400</Maximum>
        <Linear>true</Linear>
        <Scaling>2</Scaling>
        <Label>encoder_right_output</Label>
@@ -21480,7 +20924,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21488,8 +20932,8 @@ specification_end;
      </XAxes>
      <YAxes>
       <Axis>
-       <Minimum>1500</Minimum>
-       <Maximum>2500</Maximum>
+       <Minimum>2150</Minimum>
+       <Maximum>2650</Maximum>
        <Linear>true</Linear>
        <Scaling>1</Scaling>
        <Label>Remaining Battery Energy</Label>
@@ -21581,7 +21025,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21589,8 +21033,8 @@ specification_end;
      </XAxes>
      <YAxes>
       <Axis>
-       <Minimum>-50</Minimum>
-       <Maximum>450</Maximum>
+       <Minimum>-60</Minimum>
+       <Maximum>140</Maximum>
        <Linear>true</Linear>
        <Scaling>1</Scaling>
        <Label>Left Servo Engery Usage</Label>
@@ -21760,7 +21204,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21861,7 +21305,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -21962,7 +21406,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -22063,7 +21507,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -22164,7 +21608,7 @@ specification_end;
      <XAxes>
       <Axis>
        <Minimum>0</Minimum>
-       <Maximum>60.0009999999509</Maximum>
+       <Maximum>13.0009999999982</Maximum>
        <Linear>true</Linear>
        <Scaling>3</Scaling>
        <Label>time</Label>
@@ -22257,25 +21701,25 @@ specification_end;
      <ToggleState>Base</ToggleState>
     </PlotPanel>
    </PlotPanels>
-   <WindowRectangles virtualDesktopWidth="1707" virtualDesktopHeight="1067">
-     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="1067" plotpanelid="1">
-0.0743995 0.022493 0.512009 0.622306
+   <WindowRectangles virtualDesktopWidth="1707" virtualDesktopHeight="960">
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="1">
+0.0743995 0.025 0.512009 0.691667
      </WindowRectangle>
-     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="1067" plotpanelid="2">
-0.461629 0.139644 0.960164 0.73477
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="2">
+0.461629 0.155208 0.960164 0.816667
      </WindowRectangle>
-     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="1067" plotpanelid="3">
-0.212654 0.133083 0.635618 0.690722
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="3">
+0.212654 0.147917 0.635618 0.767708
      </WindowRectangle>
-     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="1067" plotpanelid="4">
-0.00937317 0.514527 0.452841 0.867854
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="4">
+0.0421793 0.475 0.485647 0.867708
      </WindowRectangle>
    </WindowRectangles>
   </PlotSpecs>
   <RunSpecs>
    <SimulatorSettings>
     <StartTime>0</StartTime>
-    <FinishTime>60</FinishTime>
+    <FinishTime>13</FinishTime>
     <Warp>true</Warp>
     <UseOutputAfterEach>false</UseOutputAfterEach>
     <OutputAfterEach>0.1</OutputAfterEach>
