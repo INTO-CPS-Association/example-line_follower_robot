@@ -22,6 +22,8 @@ const int RS_RIGHT_PIN = 24;
 const int SERVO_LEFT_PIN = 5;
 //right servo 6
 const int SERVO_RIGHT_PIN = 6;
+//Stop-go button pin
+const int STOP_GO_PIN = 2;
 
 //IO
 //8 is connected to ATMega1284p pin 17 D3
@@ -41,27 +43,61 @@ SoftwareSerial mySerial(SW_SERIAL_RX_PIN, SW_SERIAL_TX_PIN); // RX, TX
 //const int fullSpeedClockwise = 1300;
 //1530
 //const int fullSpeedCounterclockwise = 1700;
-const int deadStill = 1528;
+const int deadStill = 1529;
 
-const int fullSpeedClockwise = deadStill-10;
-const int fullSpeedCounterclockwise = deadStill+15;
+const int leftCW = deadStill - 15;
+const int rightCW = deadStill - 15;
+const int leftCCW = deadStill + 15;
+const int rightCCW = deadStill + 15;
+
+const int fullSpeedClockwise = deadStill - 15;
+const int fullSpeedCounterclockwise = deadStill + 15;
+
+volatile bool go;
+
+uint8_t leftServoState = 4;
+uint8_t rightServoState = 4;
+
+int leftSensorValue = 0;
+int rightSensorValue = 0;
+
+//left servo still 1528
 
 
 
-//left servi still 1528
+void go_or_halt()
+{
+	noInterrupts();
+	delay(1000);
 
-void setup() {
+	if(!go)
+		go = true;
+	else
+		go = false;
+
+	Serial.println("Interrupt!\n");
+
+	interrupts();
+}
+
+
+void setup()
+{
 	pinMode(SERVO_LEFT_ENABLE_PIN, INPUT);
 	pinMode(SERVO_RIGHT_ENABLE_PIN, INPUT);
 
 	pinMode(RS_LEFT_PIN, INPUT);
 	pinMode(RS_RIGHT_PIN, INPUT);
 
+//	pinMode(STOP_GO_PIN, INPUT_PULLUP);
+	//attachInterrupt(digitalPinToInterrupt(2), go_or_halt, RISING);
+
 	leftServo.attach(SERVO_LEFT_PIN);
 	rightServo.attach(SERVO_RIGHT_PIN);
 
 	Serial.begin(57600);
-	while (!Serial) {
+	while (!Serial)
+	{
 		; // wait for serial port to connect. Needed for native USB port only
 	}
 
@@ -70,64 +106,105 @@ void setup() {
 	// set the data rate for the SoftwareSerial port
 	mySerial.begin(19200);
 	//mySerial.println("Hello, world?");
+
+	go = true;
+
+//	noInterrupts();
 }
 
-uint8_t leftServoState = 4;
-uint8_t rightServoState = 4;
-int leftSensorValue = 0;
-int rightSensorValue = 0;
-
-void loop() {
 
 
-	uint8_t lServoCmd = digitalRead(SERVO_LEFT_ENABLE_PIN);
-	uint8_t rServoCmd = digitalRead(SERVO_RIGHT_ENABLE_PIN);
+void loop()
+{
+	uint8_t lServoCmd;
+	uint8_t rServoCmd;
+
+	/*
+	go = digitalRead(STOP_GO_PIN) == HIGH ? true : false;
+
+	if(!go)
+	{
+		leftServo.writeMicroseconds(deadStill);
+		rightServo.writeMicroseconds(deadStill);
+
+		return;
+	}
+
+	go = true;
+*/
+
+
+	lServoCmd = digitalRead(SERVO_LEFT_ENABLE_PIN);
+	rServoCmd = digitalRead(SERVO_RIGHT_ENABLE_PIN);
 
 	//rServoCmd=!lServoCmd;
 
-	if (leftServoState != lServoCmd) {
+	if (leftServoState != lServoCmd)
+	{
 
-		if (lServoCmd == 0) {
-			Serial.println("Servo Left = CCW");
+		if (lServoCmd == 0)
+		{
+//			Serial.println("Servo Left = CCW");
 			leftServo.writeMicroseconds(fullSpeedCounterclockwise);
-		} else if (lServoCmd > 0) {
-			Serial.println("Servo Left = CW");
+		}
+		else if (lServoCmd > 0) {
+//			Serial.println("Servo Left = CW");
 			leftServo.writeMicroseconds(fullSpeedClockwise);
 		}
+
 		leftServoState = lServoCmd;
 	}
 
-	if (rightServoState != rServoCmd) {
-		if (rServoCmd == 0) {
-			Serial.println("Servo Right = CCW");
+	if (rightServoState != rServoCmd)
+	{
+		if (rServoCmd == 0)
+		{
+			//Serial.println("Servo Right = CCW");
 			rightServo.writeMicroseconds(fullSpeedCounterclockwise);
-		} else if (rServoCmd > 0) {
-			Serial.println("Servo Right = CW");
+		}
+		else if (rServoCmd > 0)
+		{
+//			Serial.println("Servo Right = CW");
 			rightServo.writeMicroseconds(fullSpeedClockwise);
 		}
+
 		rightServoState = rServoCmd;
 	}
 
 	leftSensorValue = analogRead(RS_LEFT_PIN);
 	rightSensorValue = analogRead(RS_RIGHT_PIN);
+
 //	Serial.print("Sensor Left = ");
 //	Serial.println(leftSensorValue);
 //	Serial.print("Sensor Right = ");
 //	Serial.println(leftSensorValue);
 
-	if (mySerial.available()) {
-		int d = mySerial.read();
-		Serial.write(d);
-		if(d=='X')
-		{
-			Serial.write("\r\n");
-		}
+//	if (mySerial.available())
+//	{
+//		int d = mySerial.read();
+//		Serial.write(d);
+//
+//		if(d=='X')
+//		{
+//			Serial.write("\r\n");
+//		}
+//	}
 
-	}
 //	if (Serial.available()) {
 //		mySerial.write(Serial.read());
 //	}
 
 	delay(15);                           // waits for the servo to get there
 }
+
+
+/*
+void loop()
+{
+	leftServo.writeMicroseconds(leftCCW);
+	rightServo.writeMicroseconds(rightCW);
+
+	delay(15);
+}
+*/
 
