@@ -16,13 +16,12 @@
 
 ## Design
 
-![](./IMG_3927.jpg =250x)
+<img src="IMG_3927.jpg" alt="Drawing" style="width: 100px;"/>
+<img src="IMG_3928.jpg" alt="Drawing" style="width: 100px;"/>
+<img src="IMG_3929.jpg" alt="Drawing" style="width: 100px;"/>
+<img src="IMG_3930.jpg" alt="Drawing" style="width: 100px;"/>
 
-![](./IMG_3928.jpg =250x)
 
-![](./IMG_3929.jpg =250x)
-
-![](./IMG_3930.jpg =250x)
 
 
 
