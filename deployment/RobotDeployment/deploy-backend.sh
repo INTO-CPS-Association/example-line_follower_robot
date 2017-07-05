@@ -29,6 +29,7 @@ servoright=`grep 'name="servoRightVal"' modelDescription.xml | awk -F \" '{print
 forwardspeed=`grep 'name="forwardSpeed"' modelDescription.xml | awk -F \" '{print $4}'`
 rightval=`grep 'name="lfRightVal"' modelDescription.xml | awk -F \" '{print $4}'`
 backwardrotate=`grep 'name="backwardRotate"' modelDescription.xml | awk -F \" '{print $4}'`
+threshold=`grep 'name="threshold"' modelDescription.xml | awk -F \" '{print $4}'`
 
 cp ../main-template.c main.c
 
@@ -39,6 +40,7 @@ sed -i'.original' "s/XX_servoright_XX/$servoright/g" main.c
 sed -i'.original' "s/XX_forwardspeed_XX/$forwardspeed/g" main.c
 sed -i'.original' "s/XX_rightval_XX/$rightval/g" main.c
 sed -i'.original' "s/XX_backwardrotate_XX/$backwardrotate/g" main.c
+sed -i'.original' "s/XX_threshold_XX/$threshold/g" main.c
 
 echo "Copying libraries in place"
 
@@ -78,8 +80,8 @@ avrdude -pm1284p -cjtagmkII -Pusb:00B00000356C -Uflash:w:AURobot.hex:a
 
 
 echo "Cleaning..."
-cd ..
-#rm -rf resources sources binaries LFRController.zip modelDescription.xml main.c AURobot.* *.c.d *.c.o
+cd ../..
+rm -rf build
 
 
 

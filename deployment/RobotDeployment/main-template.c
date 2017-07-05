@@ -26,6 +26,7 @@
 #define FMI_SERVORIGHTOUT XX_servoright_XX
 #define FMI_BACKWARDROTATE XX_backwardrotate_XX
 #define FMI_FORWARDSPEED XX_forwardspeed_XX
+#define FMI_THRESHOLD XX_threshold_XX
 
 #define UART_BAUD_RATE      19200      
 
@@ -143,19 +144,20 @@ int main()
 
 	fmi2CallbackFunctions callback = {&fmuLoggerCache, NULL, NULL, NULL, NULL};
 
-	//systemInit();
+	fmi2Component instReturn = fmi2Instantiate("this system", fmi2CoSimulation, _FMU_GUID, "", &callback, fmi2True, fmi2True);
 
 	//Initialize rest of the buffer.
-
+	//Variables
 	fmiBuffer.realBuffer[FMI_LEFTVAL] = 0.0;
 	fmiBuffer.realBuffer[FMI_RIGHTVAL] = 0.0;
-	fmiBuffer.realBuffer[FMI_FORWARDROTATE] = 5.0;
 	fmiBuffer.realBuffer[FMI_SERVOLEFTOUT] = 0.0;
 	fmiBuffer.realBuffer[FMI_SERVORIGHTOUT] = 0.0;
-	fmiBuffer.realBuffer[FMI_BACKWARDROTATE] = 1.0;
-	fmiBuffer.realBuffer[FMI_FORWARDSPEED] = 4.0;
 
-	fmi2Component instReturn = fmi2Instantiate("this system", fmi2CoSimulation, _FMU_GUID, "", &callback, fmi2True, fmi2True);
+	//Parameters
+	fmiBuffer.realBuffer[FMI_FORWARDROTATE] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardRotate, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
+	fmiBuffer.realBuffer[FMI_BACKWARDROTATE] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_backwardRotate, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
+	fmiBuffer.realBuffer[FMI_FORWARDSPEED] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardSpeed, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
+	fmiBuffer.realBuffer[FMI_THRESHOLD] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_threshold, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
 
 	if(instReturn == NULL)
 		return 1;
