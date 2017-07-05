@@ -145,6 +145,8 @@ int main()
 	fmi2CallbackFunctions callback = {&fmuLoggerCache, NULL, NULL, NULL, NULL};
 
 	fmi2Component instReturn = fmi2Instantiate("this system", fmi2CoSimulation, _FMU_GUID, "", &callback, fmi2True, fmi2True);
+	if(instReturn == NULL)
+		return 1;
 
 	//Initialize rest of the buffer.
 	//Variables
@@ -159,11 +161,8 @@ int main()
 	fmiBuffer.realBuffer[FMI_FORWARDSPEED] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_forwardSpeed, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
 	fmiBuffer.realBuffer[FMI_THRESHOLD] = (CALL_FUNC(RealPort, RealPort, g_HardwareInterface_threshold, CLASS_RealPort__Z8getValueEV))->value.doubleVal;
 
-	if(instReturn == NULL)
-		return 1;
-
 	double now = 0;
-	double step = 0.01;
+	double step = 0.001;
 
 	int lm, rm, alive;
 
@@ -178,6 +177,8 @@ int main()
 		fmi2DoStep(NULL, now, step, false);
 
 		now = now + step;
+		//Introduce approximate delay corresponding to thread period.
+		_delay_ms(1);
 
 		// sync buffer with hardware
 
