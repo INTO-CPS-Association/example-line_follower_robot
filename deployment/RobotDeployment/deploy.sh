@@ -3,7 +3,8 @@ set -e
 
 echo "Preparing..."
 
-mv LFRController.fmu LFRController.zip
+#mv LFRController.fmu LFRController.zip
+cp LFRController.fmu LFRController.zip
 
 unzip LFRController.zip > /dev/null
 rm sources/main.c
@@ -56,6 +57,7 @@ avr-size --format=avr --mcu=atmega1284p AURobot.elf
 
 
 echo "Deploying..."
+#Fuse settings:  High:  1D, Low:  C2
 avrdude -pm1284p -cjtagmkII -Pusb:00B00000356C -Uflash:w:AURobot.hex:a
 
 
@@ -64,7 +66,6 @@ avrdude -pm1284p -cjtagmkII -Pusb:00B00000356C -Uflash:w:AURobot.hex:a
 echo "Cleaning..."
 cd ..
 rm -rf resources sources binaries LFRController.zip modelDescription.xml main.c AURobot.* *.c.d *.c.o
-
 
 
 
