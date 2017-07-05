@@ -8,7 +8,7 @@
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
     <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\Body.emx</LibraryPath>
-  <TimeStamp>2017-7-4 15:42:16</TimeStamp>
+  <TimeStamp>2017-7-4 21:21:29</TimeStamp>
 </Description>
 </Information>';
  type 'Mainmodel-5S'
@@ -14365,6 +14365,7 @@ specification_end;
     <VarName>Environment\Sensors_Block\lf_3\sensor_reading</VarName>
     <VarName>Environment\Sensors_Block\lf_4\sensor_reading</VarName>
     <VarName>Environment\Sensors_Block\lf_5\sensor_reading</VarName>
+    <VarName>Environment\Sensors_Block\lf_2_sensor_reading</VarName>
    </VarNames>
    <Plots>
     <Plot>
@@ -15089,11 +15090,11 @@ specification_end;
       <Position>
        <X>
         <VariableName>Body\robot_x</VariableName>
-        <Value>0.132128482964929</Value>
+        <Value>0.132359139734956</Value>
        </X>
        <Y>
         <VariableName>Body\robot_y</VariableName>
-        <Value>-0.0806941467265628</Value>
+        <Value>-0.0806391028967137</Value>
        </Y>
        <Z>
         <Value>0.05</Value>
@@ -15103,7 +15104,7 @@ specification_end;
        <Angles>
         <Z>
          <VariableName>Body\robot_theta</VariableName>
-         <Value>-31.1768627301409</Value>
+         <Value>-31.1864738622121</Value>
         </Z>
        </Angles>
        <OrientationType>Bryant</OrientationType>
@@ -18238,16 +18239,16 @@ specification_end;
        <OverrideColor>true</OverrideColor>
        <MeshColor>
         <X>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>254</Value>
+         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
+         <Value>0</Value>
         </X>
         <Y>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>254</Value>
+         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
+         <Value>0</Value>
         </Y>
         <Z>
-         <VariableName>Environment\Sensors_Block\lf_1_sensor_reading</VariableName>
-         <Value>254</Value>
+         <VariableName>Environment\Sensors_Block\lf_2_sensor_reading</VariableName>
+         <Value>0</Value>
         </Z>
        </MeshColor>
        <Alpha>1</Alpha>
@@ -18914,7 +18915,7 @@ specification_end;
      </Y>
      <Z>
       <VariableName>Body\wheel_left_rotation</VariableName>
-      <Value>49.6956526065301</Value>
+      <Value>49.7109726065234</Value>
      </Z>
          </Angles>
          <OrientationType>Bryant</OrientationType>
@@ -19179,7 +19180,7 @@ specification_end;
      </Y>
      <Z>
       <VariableName>Body\wheel_right_rotation</VariableName>
-      <Value>49.6952481271443</Value>
+      <Value>49.7105681271375</Value>
      </Z>
          </Angles>
          <OrientationType>Bryant</OrientationType>
@@ -19410,134 +19411,6 @@ specification_end;
          </Cylinder>
         </Childs>
        </Frame>
-       <Camera>
-        <ShowReferenceFrame>false</ShowReferenceFrame>
-        <ShowCOM>false</ShowCOM>
-        <ShowCOMOnSelection>false</ShowCOMOnSelection>
-        <Name>Top Down RobotCam</Name>
-        <Position>
-         <Z>
-     <Value>0.199999734649118</Value>
-         </Z>
-        </Position>
-        <Orientation>
-         <Angles>
-     <Y>
-      <Value>3.14159</Value>
-     </Y>
-         </Angles>
-         <OrientationType>Bryant</OrientationType>
-        </Orientation>
-        <LockX>false</LockX>
-        <LockY>false</LockY>
-        <LockZ>false</LockZ>
-        <LockXPitch>false</LockXPitch>
-        <LockYYaw>false</LockYYaw>
-        <LockZRoll>false</LockZRoll>
-        <Childs>
-        </Childs>
-        <FrontPlane>0.01</FrontPlane>
-        <BackPlane>100</BackPlane>
-        <AutoFrontBack>true</AutoFrontBack>
-        <Field>0.00392699081698724</Field>
-        <Fieldy>45</Fieldy>
-        <PlaneLeft>-10</PlaneLeft>
-        <PlaneRight>10</PlaneRight>
-        <PlaneTop>10</PlaneTop>
-        <PlaneBottom>-10</PlaneBottom>
-        <UseLookatPosition>false</UseLookatPosition>
-        <LookatPosition>
-        </LookatPosition>
-        <UseAlwaysLookUp>true</UseAlwaysLookUp>
-        <LookUpVector>
-         <Z>
-     <Value>1</Value>
-         </Z>
-        </LookUpVector>
-        <RightHand>true</RightHand>
-        <Perspective>true</Perspective>
-        <IsSelectedCamera>false</IsSelectedCamera>
-       </Camera>
-       <Camera>
-        <ShowReferenceFrame>false</ShowReferenceFrame>
-        <ShowCOM>false</ShowCOM>
-        <ShowCOMOnSelection>false</ShowCOMOnSelection>
-        <Name>RobotCam</Name>
-        <Position>
-         <X>
-     <Value>-0.234283392399155</Value>
-         </X>
-         <Y>
-     <Value>0.29163317277591</Value>
-         </Y>
-         <Z>
-     <Value>0.172510851741514</Value>
-         </Z>
-        </Position>
-        <Orientation>
-         <ZAxis>
-     <X>
-      <Value>0.557775807199846</Value>
-     </X>
-     <Y>
-      <Value>-0.707702574786358</Value>
-     </Y>
-     <Z>
-      <Value>-0.433639498366234</Value>
-     </Z>
-         </ZAxis>
-         <YAxis>
-     <X>
-      <Value>0.268424435821128</Value>
-     </X>
-     <Y>
-      <Value>-0.340575302682723</Value>
-     </Y>
-     <Z>
-      <Value>0.901086447271671</Value>
-     </Z>
-         </YAxis>
-         <OrientationType>Direct3D</OrientationType>
-        </Orientation>
-        <LockX>false</LockX>
-        <LockY>false</LockY>
-        <LockZ>false</LockZ>
-        <LockXPitch>false</LockXPitch>
-        <LockYYaw>false</LockYYaw>
-        <LockZRoll>false</LockZRoll>
-        <Childs>
-        </Childs>
-        <FrontPlane>0.01</FrontPlane>
-        <BackPlane>100</BackPlane>
-        <AutoFrontBack>true</AutoFrontBack>
-        <Field>0.00392699081698724</Field>
-        <Fieldy>45</Fieldy>
-        <PlaneLeft>-10</PlaneLeft>
-        <PlaneRight>10</PlaneRight>
-        <PlaneTop>10</PlaneTop>
-        <PlaneBottom>-10</PlaneBottom>
-        <UseLookatPosition>true</UseLookatPosition>
-        <LookatPosition>
-         <X>
-     <Value>-0.00509002554174896</Value>
-         </X>
-         <Y>
-     <Value>0.000834013408953884</Value>
-         </Y>
-         <Z>
-     <Value>-0.00567417412373391</Value>
-         </Z>
-        </LookatPosition>
-        <UseAlwaysLookUp>true</UseAlwaysLookUp>
-        <LookUpVector>
-         <Z>
-     <Value>1</Value>
-         </Z>
-        </LookUpVector>
-        <RightHand>true</RightHand>
-        <Perspective>true</Perspective>
-        <IsSelectedCamera>false</IsSelectedCamera>
-       </Camera>
       </Childs>
      </Frame>
      <Frame>
@@ -19952,36 +19825,36 @@ specification_end;
      <Name>Table Cam</Name>
      <Position>
       <X>
-       <Value>-0.267142123528167</Value>
+       <Value>-0.249696452399954</Value>
       </X>
       <Y>
-       <Value>0.471230361193981</Value>
+       <Value>0.452959189944393</Value>
       </Y>
       <Z>
-       <Value>0.57647600085128</Value>
+       <Value>0.422237764401943</Value>
       </Z>
      </Position>
      <Orientation>
       <ZAxis>
        <X>
-        <Value>0.358269732769078</Value>
+        <Value>0.387182582169441</Value>
        </X>
        <Y>
-        <Value>-0.572707458445767</Value>
+        <Value>-0.63420182366442</Value>
        </Y>
        <Z>
-        <Value>-0.737325549280752</Value>
+        <Value>-0.669236650913059</Value>
        </Z>
       </ZAxis>
       <YAxis>
        <X>
-        <Value>0.391038828542887</Value>
+        <Value>0.348720824485448</Value>
        </X>
        <Y>
-        <Value>-0.625090073664564</Value>
+        <Value>-0.571201787020591</Value>
        </Y>
        <Z>
-        <Value>0.675537589167203</Value>
+        <Value>0.743049328829972</Value>
        </Z>
       </YAxis>
       <OrientationType>Direct3D</OrientationType>
@@ -20006,13 +19879,13 @@ specification_end;
      <UseLookatPosition>true</UseLookatPosition>
      <LookatPosition>
       <X>
-       <Value>0.0123965102705995</Value>
+       <Value>0.00462009853440688</Value>
       </X>
       <Y>
-       <Value>0.0243774851139315</Value>
+       <Value>0.0363908115661685</Value>
       </Y>
       <Z>
-       <Value>0.00118046829867467</Value>
+       <Value>-0.0173428486138294</Value>
       </Z>
      </LookatPosition>
      <UseAlwaysLookUp>true</UseAlwaysLookUp>
@@ -20505,57 +20378,6 @@ specification_end;
       <Childs>
       </Childs>
      </Square>
-     <Camera>
-      <ShowReferenceFrame>false</ShowReferenceFrame>
-      <ShowCOM>false</ShowCOM>
-      <ShowCOMOnSelection>false</ShowCOMOnSelection>
-      <Name>Top Down</Name>
-      <Position>
-       <X>
-        <Value>3.71502571069382e-006</Value>
-       </X>
-       <Z>
-        <Value>1.10000000000493</Value>
-       </Z>
-      </Position>
-      <Orientation>
-       <Angles>
-        <Y>
-         <Value>3.14159</Value>
-        </Y>
-       </Angles>
-       <OrientationType>Bryant</OrientationType>
-      </Orientation>
-      <LockX>false</LockX>
-      <LockY>false</LockY>
-      <LockZ>false</LockZ>
-      <LockXPitch>false</LockXPitch>
-      <LockYYaw>false</LockYYaw>
-      <LockZRoll>false</LockZRoll>
-      <Childs>
-      </Childs>
-      <FrontPlane>0.01</FrontPlane>
-      <BackPlane>100</BackPlane>
-      <AutoFrontBack>true</AutoFrontBack>
-      <Field>0.00392699081698724</Field>
-      <Fieldy>45</Fieldy>
-      <PlaneLeft>-10</PlaneLeft>
-      <PlaneRight>10</PlaneRight>
-      <PlaneTop>10</PlaneTop>
-      <PlaneBottom>-10</PlaneBottom>
-      <UseLookatPosition>false</UseLookatPosition>
-      <LookatPosition>
-      </LookatPosition>
-      <UseAlwaysLookUp>true</UseAlwaysLookUp>
-      <LookUpVector>
-       <Z>
-        <Value>1</Value>
-       </Z>
-      </LookUpVector>
-      <RightHand>true</RightHand>
-      <Perspective>true</Perspective>
-      <IsSelectedCamera>false</IsSelectedCamera>
-     </Camera>
          </Childs>
         </Frame>
        </Childs>

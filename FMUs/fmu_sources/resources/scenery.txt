@@ -1,0 +1,11 @@
+Body\robot_x
+Body\robot_y
+Body\robot_theta
+lf_positions[1,1]
+lf_positions[1,2]
+Environment\Sensors_Block\lf_1_sensor_reading
+lf_positions[2,1]
+lf_positions[2,2]
+Environment\Sensors_Block\lf_2_sensor_reading
+Body\wheel_left_rotation
+Body\wheel_right_rotation

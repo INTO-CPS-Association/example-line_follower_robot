@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Document>
- <Model version="4.6" build="4.6.0.6684">
+ <Model version="4.6" build="4.6.3.7711">
   <Sidops><![CDATA[model 128 184
  description '<Information>
  <Description>
     <Version>4.6</Version>
 <IsMainModel>0</IsMainModel>
   <KeepParameterValues>False</KeepParameterValues>
-    <LibraryPath>C:\Users\Richard\Documents\INTO-CPS\INTO_Git\case-study_line_follower_robot\Models\R2G2P_Single_Sensor.emx</LibraryPath>
-  <TimeStamp>2016-9-1 11:00:42</TimeStamp>
+    <LibraryPath>C:\Users\ken\Documents\Repositories\intocps-pilots\case-study_line_follower_robot\Models\20-sim_Sensor.emx</LibraryPath>
+  <TimeStamp>2017-7-4 20:43:46</TimeStamp>
 </Description>
 </Information>';
- type Mainmodel
+ type 'Mainmodel-sim_Sensor'
  end;
  implementation bg
   submodels
-   Sensor_Block 216.4 72
+   Sensor_Block 216.3 72
     description '<Information><Description><Version>4.5</Version><IsMainModel>1</IsMainModel><KeepParameterValues>False</KeepParameterValues><AllowLibraryUpdate>True</AllowLibraryUpdate><Configuration><struct><member><name>DocumentationMask</name><value><struct></struct></value></member></struct></Configuration></Description></Information>';
     type Submodel
      ports
@@ -26,11 +26,13 @@
       signal out lf_1_sensor_reading;
       signal out lf_1_sensor_position_x;
       signal out lf_1_sensor_position_y;
+      signal out offset_x;
+      signal out offset_y;
     end;
     icon bg right shadow 11776947
      figures
       rectangle 129.7 48 303 96 color 0 fill 15132390;
-      text 'name' 181.5 80 color 0 16;
+      text 'name' 184 80 color 0 16;
      terminals
       robot_x 256.4 96 fixed;
       robot_y 264.5 96 fixed;
@@ -42,7 +44,7 @@
     end;
     implementation bg
      submodels
-      Demux4 482.5 224
+      Demux4 480 224
 						specifications active 'outputs_2'
 							specification 'default'
 description '<Description>
@@ -398,6 +400,9 @@ specification_end;
  <AllowLibraryUpdate>False</AllowLibraryUpdate>
 </Description>';
        type 'Submodel-Equation'
+        ports
+         signal out offset_x;
+         signal out offset_y;
        end;
        icon bg
         figures
@@ -423,7 +428,10 @@ parameters
    /* realistic and faulty behaviour */
 	real global ambient_light = 0.0 {W};		// ambient light level in Watts
 	integer global noise_level = 0;   			// number of lsb's that are noisy
-	
+
+equations
+	offset_x = lf_position_x;
+	offset_y = lf_position_y;
 //variables
 //	real global lf_used[5];
 
@@ -1071,7 +1079,7 @@ equations
 implementation_end;
 specification_end;
 						end;
-      Mux 422.5 431
+      Mux 422.5 418.5
 						specifications active 'inputs_4'
 							specification 'default'
 description '<Description>
@@ -1416,13 +1424,15 @@ equations
 	output = [input1; input2; input3; input4; input5; input6; input7; input8; input9];implementation_end;
 specification_end;
 						end;
-      plug lf_1_sensor_position_y 568 232;
+      plug lf_1_sensor_position_x 568 216;
+      plug robot_x 352 504;
       plug lf_1_sensor_reading 312 288;
       plug robot_theta 488 504;
       plug robot_z 440 504;
       plug robot_y 392 504;
-      plug lf_1_sensor_position_x 568 216;
-      plug robot_x 352 504;
+      plug lf_1_sensor_position_y 568 232;
+      plug offset_x 208 184;
+      plug offset_y 208 216;
       Splitter6 440 224
        description '<Description><Version>4.0</Version>
    <LibraryPath>Signal\Block Diagram\Splitter.emx</LibraryPath>
@@ -1450,6 +1460,8 @@ implementation_end;
      connections
       Demux4\output1 -> lf_1_sensor_position_x;
       Demux4\output2 -> lf_1_sensor_position_y;
+      globals\offset_x -> offset_x;
+      globals\offset_y -> offset_y;
       id_1\output -> lf_1\id;
       lf_1\lf_1_sensor_reading -> lf_1_sensor_reading;
       lf_1\raw_map_reading <- map\sensor_value1;
@@ -1977,6 +1989,8 @@ z = 0;
         </Z>
        </ScaleValue>
        <ShowReferenceFrame>true</ShowReferenceFrame>
+       <ShowCOM>false</ShowCOM>
+       <ShowCOMOnSelection>false</ShowCOMOnSelection>
        <Name>Reference Frame</Name>
        <Position>
        </Position>
@@ -2005,6 +2019,8 @@ z = 0;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Default Lights and Cameras</Name>
          <Position>
          </Position>
@@ -2022,6 +2038,8 @@ z = 0;
          <Childs>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Ambient</Name>
       <Position>
       </Position>
@@ -2107,6 +2125,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Parallel</Name>
       <Position>
        <X>
@@ -2251,6 +2271,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Spot Light 1</Name>
       <Position>
        <X>
@@ -2401,6 +2423,8 @@ z = 0;
      </Light>
      <Light>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Spot Light 2</Name>
       <Position>
        <X>
@@ -2551,6 +2575,8 @@ z = 0;
      </Light>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Camera Looking at Origin</Name>
       <Position>
        <X>
@@ -2620,6 +2646,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Front(XY)-Camera</Name>
       <Position>
        <Z>
@@ -2671,6 +2699,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Side(YZ)-Camera</Name>
       <Position>
        <X>
@@ -2722,6 +2752,8 @@ z = 0;
      </Camera>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Top(XZ)-Camera</Name>
       <Position>
        <Y>
@@ -2786,6 +2818,8 @@ z = 0;
      </Z>
          </ScaleValue>
          <ShowReferenceFrame>false</ShowReferenceFrame>
+         <ShowCOM>false</ShowCOM>
+         <ShowCOMOnSelection>false</ShowCOMOnSelection>
          <Name>Scenery</Name>
          <Position>
          </Position>
@@ -2884,6 +2918,8 @@ z = 0;
        </YOrigin>
       </Texture>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Square</Name>
       <Position>
        <Z>
@@ -2920,6 +2956,8 @@ z = 0;
        </Z>
       </ScaleValue>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Reference Frame</Name>
       <Position>
        <X>
@@ -3013,6 +3051,8 @@ z = 0;
         </ShininessPower>
         <OverrideQuality>false</OverrideQuality>
         <ShowReferenceFrame>false</ShowReferenceFrame>
+        <ShowCOM>false</ShowCOM>
+        <ShowCOMOnSelection>false</ShowCOMOnSelection>
         <Name>Cylinder</Name>
         <Position>
         </Position>
@@ -3034,6 +3074,8 @@ z = 0;
      </Frame>
      <Camera>
       <ShowReferenceFrame>false</ShowReferenceFrame>
+      <ShowCOM>false</ShowCOM>
+      <ShowCOMOnSelection>false</ShowCOMOnSelection>
       <Name>Camera</Name>
       <Position>
        <X>
@@ -3141,12 +3183,12 @@ z = 0;
      <ToggleState>Base</ToggleState>
     </PlotPanel>
    </PlotPanels>
-   <WindowRectangles virtualDesktopWidth="5120" virtualDesktopHeight="1846">
-     <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="1">
-0.360547 0.488889 0.809375 1.02708
+   <WindowRectangles virtualDesktopWidth="1707" virtualDesktopHeight="960">
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="1">
+0.360281 0.461458 0.809607 1
      </WindowRectangle>
-     <WindowRectangle monitor="0" left="0" top="0" right="2560" bottom="1440" plotpanelid="2">
-0.0957031 0.159722 0.503125 0.619444
+     <WindowRectangle monitor="0" left="0" top="0" right="1707" bottom="960" plotpanelid="2">
+0.0954892 0.159375 0.503222 0.619792
      </WindowRectangle>
    </WindowRectangles>
   </PlotSpecs>
