@@ -221,7 +221,6 @@ int main()
     PORTD &= ~(1 << PIND6);
 
 	alive = !alive;
-    _delay_ms(200);
 
 	//do_one_serial_echo();
   }
