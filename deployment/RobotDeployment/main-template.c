@@ -178,7 +178,7 @@ int main()
 
 		now = now + step;
 		//Introduce approximate delay corresponding to thread period.
-		_delay_ms(1);
+		_delay_ms(XX_delay_XX / 1.0E6);
 
 		// sync buffer with hardware
 

@@ -30,6 +30,7 @@ forwardspeed=`grep 'name="forwardSpeed"' modelDescription.xml | awk -F \" '{prin
 rightval=`grep 'name="lfRightVal"' modelDescription.xml | awk -F \" '{print $4}'`
 backwardrotate=`grep 'name="backwardRotate"' modelDescription.xml | awk -F \" '{print $4}'`
 threshold=`grep 'name="threshold"' modelDescription.xml | awk -F \" '{print $4}'`
+delay=`grep ', &periodic_taskg_System' sources/FmuModel.c | awk -F ' ' '{print $2}' | sed 's/,//g'`
 
 cp ../main-template.c main.c
 
@@ -41,6 +42,7 @@ sed -i'.original' "s/XX_forwardspeed_XX/$forwardspeed/g" main.c
 sed -i'.original' "s/XX_rightval_XX/$rightval/g" main.c
 sed -i'.original' "s/XX_backwardrotate_XX/$backwardrotate/g" main.c
 sed -i'.original' "s/XX_threshold_XX/$threshold/g" main.c
+sed -i'.original' "s/XX_delay_XX/$delay/g" main.c
 
 echo "Copying libraries in place"
 
