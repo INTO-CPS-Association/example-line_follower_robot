@@ -1,6 +1,6 @@
 within LineFollower.Examples;
 model TestSensor
-
+  extends Modelica.Icons.Example;
   Components.Sensor sensor
     annotation (Placement(transformation(extent={{40,10},{60,30}})));
   Modelica.Blocks.Sources.Constant const_y(k=0)
@@ -21,19 +21,19 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(integrator_x.y, sensor.robot_state[1]) annotation (Line(
-      points={{-19,70},{10,70},{10,19.4},{39.2,19.4}},
+      points={{-19,70},{10,70},{10,18.5},{38,18.5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(const_z.y, sensor.robot_state[3]) annotation (Line(
-      points={{-59,-10},{-10,-10},{-10,20.2},{39.2,20.2}},
+      points={{-59,-10},{-10,-10},{-10,20.5},{38,20.5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(const_theta.y, sensor.robot_state[4]) annotation (Line(
-      points={{-59,-50},{-10,-50},{-10,20.6},{39.2,20.6}},
+      points={{-59,-50},{-10,-50},{-10,21.5},{38,21.5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(const_y.y, sensor.robot_state[2]) annotation (Line(
-      points={{-59,30},{-10,30},{-10,19.8},{39.2,19.8}},
+      points={{-59,30},{-10,30},{-10,19.5},{38,19.5}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(sensor.sensor_output, sensor_output) annotation (Line(
@@ -42,10 +42,6 @@ equation
       smooth=Smooth.None));
   annotation (experiment(StartTime = 0, StopTime = 60),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}), graphics={Rectangle(extent={{-100,100},{100,-100}},
-            lineColor={0,0,255}), Text(
-          extent={{-20,20},{20,-20}},
-          lineColor={0,0,255},
-          textString="TestSensor")}), Diagram(coordinateSystem(
+            {100,100}})),             Diagram(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
 end TestSensor;

@@ -1,11 +1,12 @@
 within LineFollower.Components;
 block AD_8bit
+  extends Modelica.Blocks.Interfaces.BlockIcon;
   //Author: Mark D. Jackson - m.jackson3@ncl.ac.uk
   //Date  : 28/10/2015
-  import Modelica.Blocks.Interfaces.RealInput;
-  import Modelica.Blocks.Interfaces.RealOutput;
-  RealInput i;
-  RealOutput o;
+  Modelica.Blocks.Interfaces.RealInput i
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  Modelica.Blocks.Interfaces.RealOutput o
+    annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   AD_8bitBlock ad_8bitblock1 annotation(Placement(visible = true, transformation(origin = {30, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   //inner Modelica_Noise.Blocks.Noise.GlobalSeed globalSeed annotation(Placement(transformation(extent = {{-20, 40}, {0, 60}})));
   //Modelica_Noise.Blocks.Noise.GenericNoise genericNoise(samplePeriod = 0.02, redeclare function distribution = Modelica_Noise.Math.Distributions.Uniform.quantile(y_min = -1, y_max = 3)) annotation(Placement(transformation(extent = {{-60, 20}, {-40, 40}})));
