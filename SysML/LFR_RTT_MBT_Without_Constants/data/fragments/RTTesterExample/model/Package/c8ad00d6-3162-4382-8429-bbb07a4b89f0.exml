@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Datatypes" version="4">
+  <OBJECT>
+    <ID name="Datatypes" mc="Standard.Package" uid="c8ad00d6-3162-4382-8429-bbb07a4b89f0"/>
+    <PID name="rttesterexample" mc="Standard.Package" uid="64536edf-b5f8-47c3-9b04-3ba9c95784b2"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Datatypes]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="bool" mc="Standard.DataType" uid="9a1b5381-d075-4238-b154-9bcb2f1ef5b7"/>
+        <COMPID name="char" mc="Standard.DataType" uid="eea15e74-1e8a-43ed-9385-30cb1ca6a546"/>
+        <COMPID name="float" mc="Standard.DataType" uid="3baf899e-c32c-4fea-87df-710d24c992cf"/>
+        <COMPID name="int" mc="Standard.DataType" uid="e87a8a1f-c1fa-4869-ad73-ed3b391e663c"/>
+        <COMPID name="signed char" mc="Standard.DataType" uid="b9877289-6969-4bd5-aa40-63808ff18666"/>
+        <COMPID name="signed int" mc="Standard.DataType" uid="b577f3ac-52f3-439e-89a6-f75f1de0de5b"/>
+        <COMPID name="timer" mc="Standard.DataType" uid="342f2186-ae91-4404-a593-353b39ddedae"/>
+        <COMPID name="unsigned char" mc="Standard.DataType" uid="2b9e73e2-9e4f-48f3-b5a1-75878253f61c"/>
+        <COMPID name="unsigned int" mc="Standard.DataType" uid="13a15140-5ddd-4082-a98b-6fa650b6c196"/>
+        <COMPID name="void" mc="Standard.DataType" uid="0dc88f88-3a8d-46c1-909b-a0aac708a605"/>
+        <OBJECT>
+          <ID name="TurnIndPos_t" mc="Standard.Enumeration" uid="a514f81b-e4e7-4b4e-b236-93bcf3694ec1"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[TurnIndPos_t]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="posNeutral" mc="Standard.EnumerationLiteral" uid="9af5e4f6-94d0-403e-b2ea-bb2d8bcd3967"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[posNeutral]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Extension">
+                    <ID name="Literal_Value" mc="Standard.Stereotype" uid="acf39813-b21e-4fe8-93e5-b083dd4eb87f"/>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID name="" mc="Standard.TaggedValue" uid="bee6e979-cce8-4b73-889a-57e3897304a2"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID name="" mc="Standard.TagParameter" uid="4c9d6ad7-b514-42a5-b84e-6d259cb1994e"/>
+                            <ATTRIBUTES>
+                              <ATT name="Value"><![CDATA[0]]></ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <REFOBJ>
+                            <ID name="Value" mc="Standard.TagType" uid="54cbbb16-b1ce-423d-b66d-a0cf276c4230"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="posLeft" mc="Standard.EnumerationLiteral" uid="fc7d879a-16ef-4a40-8695-a359756ea792"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[posLeft]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Extension">
+                    <ID name="Literal_Value" mc="Standard.Stereotype" uid="acf39813-b21e-4fe8-93e5-b083dd4eb87f"/>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID name="" mc="Standard.TaggedValue" uid="306e6780-8487-40ac-ad89-049142a984fe"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID name="" mc="Standard.TagParameter" uid="658ab922-a7f8-41b3-9abc-d1a27a9bbd7e"/>
+                            <ATTRIBUTES>
+                              <ATT name="Value"><![CDATA[1]]></ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <REFOBJ>
+                            <ID name="Value" mc="Standard.TagType" uid="54cbbb16-b1ce-423d-b66d-a0cf276c4230"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="posRight" mc="Standard.EnumerationLiteral" uid="c19624e5-b12e-48b0-ae32-1b87339057ca"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[posRight]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Extension">
+                    <ID name="Literal_Value" mc="Standard.Stereotype" uid="acf39813-b21e-4fe8-93e5-b083dd4eb87f"/>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID name="" mc="Standard.TaggedValue" uid="b26b7d48-c1d0-4470-b0e2-2529c43b92f9"/>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID name="" mc="Standard.TagParameter" uid="b3f0b728-3222-4ad9-bfc0-f60310e747a8"/>
+                            <ATTRIBUTES>
+                              <ATT name="Value"><![CDATA[2]]></ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <REFOBJ>
+                            <ID name="Value" mc="Standard.TagType" uid="54cbbb16-b1ce-423d-b66d-a0cf276c4230"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <ID name="DATATYPES" mc="Standard.Stereotype" uid="c1bed54e-1031-4f41-b9b3-005349a072ad"/>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
