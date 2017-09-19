@@ -1,3 +1,19 @@
+--##	EXPORT	f6497414eba905d8f2da5114fc78f71ee49d672f	LFRController.fmu	2017-11-09 12:34:55	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	4e5e3a841510728137be86d9d95c5e8e7e3084be	LFRController.fmu	2017-10-09 21:45:21	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	c545552e1e0177720c625d5cb83acefdc708ee9a	LFRController.fmu	2017-10-09 21:45:12	tool-wrapper	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	5f69bedbff7b00721de70da4eb3423cdb15ac76f	LFRController.fmu	2017-10-09 21:10:04	tool-wrapper	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	e01d634377269ecb22bc619251b0418f9b1049b3	LFRController.fmu	2017-10-09 21:09:39	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	eb0b15ffe1ee684ce73c4f25c0b06ce9d7048d0a	LFRController.fmu	2017-10-09 21:09:33	tool-wrapper	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	8401ed4d3c3581df9399ea459350056d86c6c9cc	LFRController.fmu	2017-10-09 20:47:35	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	5efb70d60aee515842fef6945ca3683da694bcac	LFRController.fmu	2017-10-09 20:37:25	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	59214a04967996634b7990998628ca0811fbd6a5	LFRController.fmu	2017-10-09 20:15:34	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	4974ffb5e914d65f2fda3e183cbbd036e7702c24	LFRController.fmu	2017-10-09 19:53:44	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	fabc845249620cc1b72b5e1e103c9e1233f8de1f	LFRController.fmu	2017-10-09 19:53:22	tool-wrapper	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	3d6884d946e13abb4b227dee91b39ca8b390d761	LFRController.fmu	2017-10-09 19:33:33	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	75cfe280b54686ef9134a0662286daf079714063	LFRController.fmu	2017-08-09 16:30:22	tool-wrapper	{"name":"fmu-import-export","version":"0.2.8"}
+--##	EXPORT	b8e6e242d45141258a52d421522dc31f04f25179	LFRController.fmu	2017-08-09 16:28:30	c-code	{"name":"fmu-import-export","version":"0.2.8"}
+--##	EXPORT	cebe91c818a4f761ee8efba3c7bc002cb81471df	LFRController.fmu	2017-28-08 16:51:14	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
+--##	EXPORT	4af60315692229bd18f96c1145679f78ea5e4734	LFRController.fmu	2017-21-08 15:54:26	c-code	{"name":"fmu-import-export","version":"0.2.9-SNAPSHOT"}
 class HardwareInterface
 
 values
