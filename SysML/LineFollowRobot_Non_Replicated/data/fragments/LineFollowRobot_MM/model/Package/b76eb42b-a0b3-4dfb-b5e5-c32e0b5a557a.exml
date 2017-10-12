@@ -41,7 +41,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Controller" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
+                    <ID name="controllerFMU" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -298,7 +298,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Body" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
+                    <ID name="bodyFMU" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -897,7 +897,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Sensor1" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
+                    <ID name="sensor1FMU" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
                   </LINK>
                   <COMP relation="Slot">
                     <OBJECT>
@@ -1157,7 +1157,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Sensor2" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
+                    <ID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
                   </LINK>
                   <COMP relation="Slot">
                     <OBJECT>
@@ -1438,7 +1438,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Controller" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
+                    <ID name="controllerFMU" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -1649,7 +1649,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Body" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
+                    <ID name="bodyFMU" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -2349,7 +2349,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Sensor1" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
+                    <ID name="sensor1FMU" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -2580,7 +2580,7 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Base">
-                    <ID name="Sensor2" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
+                    <ID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
                   </LINK>
                   <COMP relation="Part">
                     <OBJECT>
@@ -2939,16 +2939,18 @@
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="Robot" mc="Standard.Class" uid="93359b18-e579-4141-8e37-8b82d8036bf3"/>
-        <COMPID name="Body" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
-        <COMPID name="Sensor1" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
-        <COMPID name="Controller" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
+        <COMPID name="bodyFMU" mc="Standard.Class" uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e"/>
+        <COMPID name="sensor1FMU" mc="Standard.Class" uid="f0e7744d-9ab1-4036-b802-a024e03f8166"/>
+        <COMPID name="controllerFMU" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
         <COMPID name="3DVisualisation" mc="Standard.Class" uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb"/>
-        <COMPID name="Sensor2" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
+        <COMPID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
+        <COMPID name="EComponent" mc="Standard.Class" uid="5627c8e5-642f-4996-b959-ff39d3488955"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Architecture diagram" mc="Standard.ClassDiagram" uid="4a39c167-de97-402e-8caa-aa082fa034fa"/>
         <COMPID name="Connections diagram" mc="Standard.ObjectDiagram" uid="8a5dc1d3-b359-443e-b409-b10b19897a35"/>
         <COMPID name="Connections diagram1" mc="Standard.ObjectDiagram" uid="2afe05a9-a923-441e-9c12-cf9e077b4fed"/>
+        <COMPID name="Architecture diagram1" mc="Standard.ClassDiagram" uid="c884ee98-6efb-4a7c-a093-b64d17ca82fb"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
