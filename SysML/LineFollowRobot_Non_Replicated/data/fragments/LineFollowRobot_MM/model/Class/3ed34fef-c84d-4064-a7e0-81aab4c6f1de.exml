@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="EComponent1" version="4">
+  <OBJECT>
+    <ID name="EComponent1" mc="Standard.Class" uid="3ed34fef-c84d-4064-a7e0-81aab4c6f1de"/>
+    <PID name="Architecture" mc="Standard.Package" uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[EComponent1]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID name="EComponent" mc="Standard.Stereotype" uid="b988949d-fefe-4623-b48e-8161edb603f7"/>
+        <FOREIGNID name="Subsystem" mc="Standard.Stereotype" uid="50d159b2-4d32-40ad-8990-c686943cb1f3"/>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID name="" mc="Standard.TaggedValue" uid="3944e1dd-3636-4cac-a7b1-1f579d0ef1a9"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID name="" mc="Standard.TagParameter" uid="21e45966-e770-4ffb-8260-28067214aa80"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"><![CDATA[SubSystem]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID name="Component_kind" mc="Standard.TagType" uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="" mc="Standard.TaggedValue" uid="b943a9d1-4f7e-4d5f-b6b1-fff2c6a69253"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Qualifier">
+              <OBJECT>
+                <ID name="" mc="Standard.TagParameter" uid="773325d0-63de-441d-8e58-528536c5c75b"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"><![CDATA[33b49c0e-3c00-4234-957f-9c0f827ebaa0]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID name="EComponent_guid" mc="Standard.TagType" uid="55c344fa-b72e-477d-ab79-370ac53bc104"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
