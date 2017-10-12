@@ -20,7 +20,7 @@
             <ATT name="ParamNumber"><![CDATA[1]]></ATT>
             <ATT name="IsQualified">false</ATT>
             <ATT name="BelongToPrototype">false</ATT>
-            <ATT name="IsHidden">false</ATT>
+            <ATT name="IsHidden">true</ATT>
             <ATT name="LabelKey"><![CDATA[direction]]></ATT>
             <ATT name="Name"><![CDATA[FlowPort_direction]]></ATT>
             <ATT name="status">1970354901745664</ATT>

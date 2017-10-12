@@ -17,7 +17,6 @@
       <COMP relation="DefinedStereotype">
         <COMPID name="ArchitectureDiagram" mc="Standard.Stereotype" uid="4ce56474-e7a1-46e3-a5b0-a165d85cd3b6"/>
         <COMPID name="ConnectionDiagram" mc="Standard.Stereotype" uid="0a40650b-4f72-4e18-8fb4-4efe7f89d535"/>
-        <COMPID name="ConnectionDiagram2" mc="Standard.Stereotype" uid="d24323ce-d342-4f05-8590-47d5b7567577"/>
         <COMPID name="Variable" mc="Standard.Stereotype" uid="9370cbd9-c177-4594-b614-2e9ed4c3a439"/>
         <COMPID name="Parameter" mc="Standard.Stereotype" uid="cb4ad4d7-d537-4f97-a935-7cba81d3dbed"/>
         <COMPID name="System" mc="Standard.Stereotype" uid="c1fa91b1-ddd0-4521-b1ab-883550b7c337"/>
