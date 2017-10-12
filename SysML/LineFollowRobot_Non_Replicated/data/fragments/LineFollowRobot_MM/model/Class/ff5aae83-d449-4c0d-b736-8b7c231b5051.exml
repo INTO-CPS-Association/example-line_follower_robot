@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="CComponent" version="4">
+  <OBJECT>
+    <ID name="CComponent" mc="Standard.Class" uid="ff5aae83-d449-4c0d-b736-8b7c231b5051"/>
+    <PID name="Architecture" mc="Standard.Package" uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[CComponent]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID name="CComponent" mc="Standard.Stereotype" uid="edf11cbc-1844-405d-8944-605700074c35"/>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID name="" mc="Standard.TaggedValue" uid="d892d92b-563b-428f-8ea3-5a266f6fa7f6"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID name="" mc="Standard.TagParameter" uid="03b47af5-6513-4ed4-b5d6-4a9254e3188b"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"><![CDATA[Composition]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID name="Component_kind" mc="Standard.TagType" uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
