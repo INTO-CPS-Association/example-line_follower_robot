@@ -2944,14 +2944,12 @@
         <COMPID name="controllerFMU" mc="Standard.Class" uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9"/>
         <COMPID name="3DVisualisation" mc="Standard.Class" uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb"/>
         <COMPID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
-        <COMPID name="EComponent" mc="Standard.Class" uid="5627c8e5-642f-4996-b959-ff39d3488955"/>
-        <COMPID name="EComponent1" mc="Standard.Class" uid="3ed34fef-c84d-4064-a7e0-81aab4c6f1de"/>
+        <COMPID name="CComponent" mc="Standard.Class" uid="f7b5dd35-8b12-497a-accf-a2af440e2c6e"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Architecture diagram" mc="Standard.ClassDiagram" uid="4a39c167-de97-402e-8caa-aa082fa034fa"/>
         <COMPID name="Connections diagram" mc="Standard.ObjectDiagram" uid="8a5dc1d3-b359-443e-b409-b10b19897a35"/>
         <COMPID name="Connections diagram1" mc="Standard.ObjectDiagram" uid="2afe05a9-a923-441e-9c12-cf9e077b4fed"/>
-        <COMPID name="Architecture diagram1" mc="Standard.ClassDiagram" uid="c884ee98-6efb-4a7c-a093-b64d17ca82fb"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
