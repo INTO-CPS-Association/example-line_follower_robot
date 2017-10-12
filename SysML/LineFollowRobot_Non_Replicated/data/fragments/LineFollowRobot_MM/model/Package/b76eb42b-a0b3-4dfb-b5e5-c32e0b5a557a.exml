@@ -2945,6 +2945,7 @@
         <COMPID name="3DVisualisation" mc="Standard.Class" uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb"/>
         <COMPID name="sensor2FMU" mc="Standard.Class" uid="fad413db-fcbc-4931-8ca9-41d831935895"/>
         <COMPID name="EComponent" mc="Standard.Class" uid="5627c8e5-642f-4996-b959-ff39d3488955"/>
+        <COMPID name="CComponent" mc="Standard.Class" uid="134b5101-01eb-42a7-8617-e14a016a0601"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Architecture diagram" mc="Standard.ClassDiagram" uid="4a39c167-de97-402e-8caa-aa082fa034fa"/>
