@@ -64,6 +64,25 @@
       <LINK relation="Extension">
         <FOREIGNID name="CComponent" mc="Standard.Stereotype" uid="edf11cbc-1844-405d-8944-605700074c35"/>
       </LINK>
+      <COMP relation="DependsOnDependency">
+        <OBJECT>
+          <ID name="" mc="Standard.Dependency" uid="8acc60b5-0a95-47f5-8b14-a22e9b86270d"/>
+          <ATTRIBUTES>
+            <ATT name="DependsOnId"></ATT>
+            <ATT name="DependsOnName"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="DependsOn">
+              <ID name="Requirement" mc="Standard.Requirement" uid="1646f12f-86bc-4ebc-9680-7767437ab1b7"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="satisfy" mc="Standard.Stereotype" uid="01ec12fc-0000-0224-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="Tag">
         <OBJECT>
           <ID name="" mc="Standard.TaggedValue" uid="d0d007fb-e6d8-4258-a2ec-b6538e130ff2"/>

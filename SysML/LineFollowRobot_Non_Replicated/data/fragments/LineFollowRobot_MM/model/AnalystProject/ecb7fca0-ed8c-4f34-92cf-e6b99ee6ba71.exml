@@ -10,6 +10,9 @@
       <COMP relation="PropertyRoot">
         <COMPID name="LineFollowRobot_MM" mc="Standard.PropertyContainer" uid="e490907f-aaeb-40c3-83b9-477c90c2c575"/>
       </COMP>
+      <COMP relation="RequirementRoot">
+        <COMPID name="Requirement Container" mc="Standard.RequirementContainer" uid="fdfc7f29-7305-4a4d-844a-26d9184aee69"/>
+      </COMP>
     </DEPENDENCIES>
   </OBJECT>
 </EXT>

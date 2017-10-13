@@ -2950,7 +2950,6 @@
         <COMPID name="Architecture diagram" mc="Standard.ClassDiagram" uid="4a39c167-de97-402e-8caa-aa082fa034fa"/>
         <COMPID name="Connections diagram" mc="Standard.ObjectDiagram" uid="8a5dc1d3-b359-443e-b409-b10b19897a35"/>
         <COMPID name="Connections diagram1" mc="Standard.ObjectDiagram" uid="2afe05a9-a923-441e-9c12-cf9e077b4fed"/>
-        <COMPID name="Architecture diagram1" mc="Standard.ClassDiagram" uid="0d9c25bf-b6bd-4a0f-915a-382024ac1c67"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
