@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fmiModelDescription fmiVersion="2.0" modelName="Friday" guid="59989b0e-ffe2-4d15-ad8d-4803c2849281" generationTool="Modelio">
+    <CoSimulation modelIdentifier="Friday"/>
+    <ModelVariables>
+        <ScalarVariable name="weekend" valueReference="0" causality="output" variability="discrete"/>
+    </ModelVariables>
+    <ModelStructure>
+        <Outputs>
+            <Unknown index="1"/>
+        </Outputs>
+    </ModelStructure>
+</fmiModelDescription>
