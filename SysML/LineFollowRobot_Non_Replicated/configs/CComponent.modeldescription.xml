@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<fmiModelDescription fmiVersion="2.0" modelName="CComponent" guid="d48543f1-b376-48f9-8d19-e4d25ab67cf7" generationTool="Modelio">
+<fmiModelDescription fmiVersion="2.0" modelName="CComponent" guid="8c20f8be-aa4a-40ee-ace2-b94862a3e29e" generationTool="Modelio">
     <CoSimulation modelIdentifier="CComponent"/>
     <ModelVariables/>
     <ModelStructure>
