@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="POComponent" version="4">
   <OBJECT>
     <ID name="POComponent" mc="Standard.Stereotype" uid="788b8bb2-ef45-412a-a60a-b13b693eab07"/>
-    <PID name="INTOCPS" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
+    <PID name="INTOCPS::Modelling" mc="Standard.Profile" uid="25337a0e-7f00-4647-ac49-414f8597ba57"/>
     <ATTRIBUTES>
       <ATT name="Image"></ATT>
       <ATT name="Icon"></ATT>
