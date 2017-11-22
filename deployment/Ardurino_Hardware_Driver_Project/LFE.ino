@@ -172,9 +172,9 @@ void reStoreInt(byte address, int* ptr) {
 	int tmp = receivedCommands[1];
 	tmp += (receivedCommands[1 + 1] << 8);
 	*ptr = tmp;
-	char buffer[200];
-	sprintf(buffer, "Setting address %d = %d", address, *ptr);
-	Serial.println(buffer);
+	//char buffer[200];
+	//sprintf(buffer, "Setting address %d = %d", address, *ptr);
+	//Serial.println(buffer);
 }
 
 void storeData() {
