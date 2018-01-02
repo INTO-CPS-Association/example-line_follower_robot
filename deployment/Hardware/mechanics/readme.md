@@ -17,12 +17,25 @@
 
 ## Design
 
+DSE bars are with 3Ø and spaced every 5mm
+
+### Initial design
+
 <img src="IMG_3927.jpg" alt="Drawing" style="width: 100px;"/>
 <img src="IMG_3928.jpg" alt="Drawing" style="width: 100px;"/>
 <img src="IMG_3929.jpg" alt="Drawing" style="width: 100px;"/>
 <img src="IMG_3930.jpg" alt="Drawing" style="width: 100px;"/>
 
+### Improved Design for stability of the sensor mounts
 
+<img src="fusion360/robot.jpg" alt="Drawing" style="width: 100px;"/>
+
+<img src="fusion360/front-bar.jpg" alt="Drawing" style="width: 100px;"/>
+<img src="fusion360/front-bar3.jpg" alt="Drawing" style="width: 100px;"/>
+
+<img src="fusion360/front-bar-holder.png" alt="Drawing" style="width: 100px;"/>
+<img src="fusion360/front-bar-holder2.png" alt="Drawing" style="width: 100px;"/>
+<img src="fusion360/sensorholder.png" alt="Drawing" style="width: 100px;"/>
 
 
 
