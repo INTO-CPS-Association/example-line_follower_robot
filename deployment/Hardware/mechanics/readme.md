@@ -37,5 +37,9 @@ DSE bars are with 3Ø and spaced every 5mm
 <img src="fusion360/front-bar-holder2.png" alt="Drawing" style="width: 100px;"/>
 <img src="fusion360/sensorholder.png" alt="Drawing" style="width: 100px;"/>
 
+Printing the parts
+
+[![3d printing parts](https://img.youtube.com/vi/dKBB2aBwGF8/0.jpg)](https://www.youtube.com/watch?v=dKBB2aBwGF8)
+
 
 
