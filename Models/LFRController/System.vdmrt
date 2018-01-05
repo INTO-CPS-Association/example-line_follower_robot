@@ -7,7 +7,7 @@ instance variables
   
   public static controller : [Controller] := nil;
 
-  cpu : CPU := new CPU(<FP>, 1E9);
+  cpu : CPU := new CPU(<FP>, 1E6);
 
 operations
 
