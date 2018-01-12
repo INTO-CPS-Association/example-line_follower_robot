@@ -18,7 +18,7 @@ operations
   );
 
    private control_loop : () ==> ()
-	control_loop() == cycles(0) (
+	control_loop() == cycles(2) (
 	
 		if (sensorRightVal.getReading() < 150 and sensorLeftVal.getReading() < 150)
 		then (
