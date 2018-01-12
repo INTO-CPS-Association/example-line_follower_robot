@@ -2,7 +2,7 @@
 
 ## BRANCH INFO
 This branch is used for the Maestro paper. Ask Casper at casper.thule@eng.au.dk for more information.
-
+The simulation results used in the paper are stored within the paper folder in svn.
 ## Overview
 This example was originally developed in the DESTECS project. The model simulates a robot that can follow a line painted on the ground. The line contrasts from the background and the robot uses a number of sensors to detect light and dark areas on the ground. The robot has two wheels, each powered by individual motors to enable the robot to make controlled changes in direction. The number and position of the sensors may be configured in the model. A controller takes input from the sensors and encoders from the wheels to make outputs to the motors.
 
