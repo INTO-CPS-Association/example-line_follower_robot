@@ -18,8 +18,15 @@
 				"scriptParameters": {
 					"1": "time",
 					"2": "{bodyFMU}.body.robot_x",
-					"3": "{bodyFMU}.body.robot_y",
-					"4": "studentMap"
+					"3": "{bodyFMU}.body.robot_y"
+				}
+			},
+			"lapEnergy": {
+				"scriptFile": "lapEnergy.py",
+				"scriptParameters": {
+					"1": "{bodyFMU}.body.total_energy_used",
+					"2": "{bodyFMU}.body.robot_x",
+					"3": "{bodyFMU}.body.robot_y"
 				}
 			},
 			"maxCrossTrackError": {

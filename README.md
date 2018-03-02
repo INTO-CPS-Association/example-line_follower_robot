@@ -26,3 +26,5 @@ This study supports the following INTO-CPS technologies:
 Additional Information about this case study can be found in the [Examples Compendium](http://projects.au.dk/fileadmin/D3.5_Examples_Compendium_2.pdf#page=34)
 
 Alternatively, contact the case study owner, [Carl Gamble](mailto:carl.gamble@ncl.ac.uk).
+
+Requires DSE scipts 0.3.0 or above

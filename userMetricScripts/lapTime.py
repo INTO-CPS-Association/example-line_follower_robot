@@ -1,5 +1,14 @@
 import csv,os, sys, json, io, math
 
+#Objective Script Fault Codes
+FAULT_NO_RESULTS = 'noResultsFound'
+FAULT_COLUMN_NOT_FOUND = 'columnNotFound'
+FAULT_SIMULATION_DID_NOT_END = 'simulationDidNotEnd'
+FAULT_VALUE_COULD_NOT_BE_COMPUTED = 'valueCouldNotBeComputed'
+FAULT_OBJECTIVE_ARGUMENT_MISSING = 'objectiveArgumentMissing'
+FAULT_EMPTY_RESULTS_FOUND = 'emptyResultsFound'
+FAULT_GENERAL = 'fault'
+
 def getColumnFor(colName, row):
   index = 0
   for thisName in row:
@@ -54,10 +63,6 @@ resultsFile = sys.argv[1] + os.path.sep + resultsFileName
 objectivesFileName = "objectives.json"
 objectivesFile = sys.argv[1] + os.path.sep + objectivesFileName
 objectiveName = sys.argv[2]
-#scenarioDataFolder = sys.argv[4]
-#scenarioDataFolder = 'C:\\Users\\ncjg5\\Dropbox\\Shares\\CarlRiffShare\\0.0.3_0.0.4_environment\\userMetricScripts\\studentMap'
-#scenarioDataFolder = 'D:\\Dropbox\\Dropbox\\Shares\\CarlRiffShare\\0.0.3_0.0.4_environment\\userMetricScripts\\studentMap'
-#scenarioDataFolder = '/Users/ncjg5/Dropbox/Shares/CarlRiffShare/0.0.3_0.0.4_environment/userMetricScripts/studentMap'
 scenarioDataFolder = sys.argv[3]
 time = sys.argv[4]
 xcol = sys.argv[5]
@@ -94,4 +99,4 @@ for i in range(len(xs) - 1):
 		completed = True
 		
 if not completed:	
-	writeObjectiveToOutfile(objectiveName, 45)
+	writeObjectiveToOutfile(objectiveName, FAULT_VALUE_COULD_NOT_BE_COMPUTED)
