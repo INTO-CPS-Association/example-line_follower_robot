@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Architecture diagram1">
+  <OBJECT>
+    <ID uid="0d9c25bf-b6bd-4a0f-915a-382024ac1c67" mc="Standard.ClassDiagram" name="Architecture diagram1"></ID>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">11</ATT>
+      <ATT name="UiData">eJztm+FTozgUwP8VpnNfQaC0wtZ1R1vPc9ZVx97tzd0XJ0CoWSHpJelq/esvoaWnFCkFSj2HGWdaUnh54f1e8l5ePPryFIXKT0gZIvhzx9D0jvLl+Oja/QE9riBfNHUUPp/Czx1CJ1pEfBgiovkITCiINOgjTqjGOODoQYMhjCDmbHHtJTedR+P4erS47igR+EHo3apTvXN8dEPJFFI+VzCIRF8hmJMZHwEOxG/fQTiDSyXwLAw7B8dHB8kDa4+O+TyEnVdDMPOGwOT9TPMIhdri2QL6DQHzgA/9pLOzJ34Lg4K9XAkRyycV+MRH7oXQMf4qvyDMiTdlqUEeLIaTN3AKQ8ChL/RIvbNvskn5KVuE5iFgbGkJRfcdz+y5ger2XV+1gB6ojtEDatc2ddMCnuH1D/PftpDGv2LyiC+BC8NUx2NOEZ50jk+od4+4UH9GobJ8I8bRQXxr7ohICC/wkERTwhAXtnhDfgFRw3sU+hRKCZeI8Vd4dEsQ7oXg+VmQHb/OSkTfCjUAnkgYliYyevbANA8HhqEPbH1r2q2d0y5RX/jVLiFVeo5jO64O1SCApmr5Rk8Fvi04tfWuZ9qWY9pGDXT+SpEP5u8Hx15VHG8oigCdX4lHayazP9AHhm6VobJflEoh6mleGU2rRTNL4DeAsOSiIqKHJRCVUtkUePAeCoNRAetV0vJb3NJ8XGA3y2S/ZTJL4ML6BQSye/J4h7w1QadE9ATw6nUEIGQwf6SxqAc4fyTUr0EaB97DHeOQQrJBGqezIqqFGQbYXhRwGafA4yVGuGLzhbs45RYmxlCAYocfri5uIUPPwA3hOSWzafOeb+it678D16+4DBllclPARefujMOJRE9QeZI07IvFwulpPSwa6eCthXGRpb7ioAyaB8uP/GnUKJNvSoFAKp9Qe5007IvawmlmS+1OI3rI74m/a2TL5KQIi4AIi9hCBCrx1o+g9mLZNk7aKoErpU1k4rC0pLrBQlkYN5yXthhnC0zAqBoRlMlMC4G6r2m24RzV+BiRao1k7npqLZNVFSL2b4KrTa/lai0NZ1YfBNjaJ1Rp/ZqpLQa0WSYpQxhDGu8VxCSLi+qFlRqiA7NNzd4FzDERFUMDs0za9QaXewoGzIZzLrMt8O0jJDDLZVuZpEK2pzCg4byqRfU9hAHrP6X6Qey7uEIeKFHcKN7Leh1cWzK1IUToFqiCmKVSzAhM4KoCGld3pJvKVlkFHcvWBRd1RjzpIngBt2043WzL9JkCx2KEYYh4Edf9CFXRorqVLItmunGZvHtKKJfr64343NpTX544y02S/yuekigiOO5V2JcDJFZ1TfY9JFhWdhEupAWF/8ygsIN/SmbYZxtP+eiDnjU4NAZra+qa3EDYFnvwVPAipp3Xcs/wLPpUdXi/LEUnqv0pxrFJqeVgh1BuiKSUuiHxO1sdZ+r3tp+AMqbNbm7O+/84cydfvGL1AteyfF3VPddRLccBqtMPeqoX9M2uZwS27to1TJiPED5A7Nc4Y0rtqx4DzU32C8wIuzt3JzxyYHTF39YLejc3661/Qe+m19OWz20P3hGKBFogQ1g6vtsw1DUqC0bBb5rwJVe5WxEFnKV6tJtxcLo7EJ5ib1y4svwkN+du/aQpP2kj391EvjvK5y8RfmA5mwap208nIwoehaEvwTyOzV56YO6O0WoO8RcCmBZKEWIyeSWxmX2u7Z7ay//loDTGiYONzrXLk7/Obu9OT4Zfz2+v/7ga1b0/9KaUl6ZimSFY/t5Ky0DNDPx+fdPY5uC/1N6/Sw==</ATT>
+      <ATT name="Name">Architecture diagram1</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID uid="4ce56474-e7a1-46e3-a5b0-a165d85cd3b6" mc="Infrastructure.Stereotype" name="ArchitectureDiagram"></FOREIGNID>
+      </LINK>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

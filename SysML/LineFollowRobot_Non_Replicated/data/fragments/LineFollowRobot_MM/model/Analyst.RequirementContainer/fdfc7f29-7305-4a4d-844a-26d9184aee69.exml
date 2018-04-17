@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Requirement Container">
+  <OBJECT>
+    <ID uid="fdfc7f29-7305-4a4d-844a-26d9184aee69" mc="Analyst.RequirementContainer" name="Requirement Container"></ID>
+    <PID uid="ecb7fca0-ed8c-4f34-92cf-e6b99ee6ba71" mc="Analyst.AnalystProject" name="LineFollowRobot_MM"></PID>
+    <ATTRIBUTES>
+      <ATT name="Definition"></ATT>
+      <ATT name="Name">Requirement Container</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedRequirement">
+        <COMPID uid="1646f12f-86bc-4ebc-9680-7767437ab1b7" mc="Analyst.Requirement" name="Requirement"></COMPID>
+      </COMP>
+      <COMP relation="AnalystProperties">
+        <OBJECT>
+          <ID uid="98327c60-6849-4573-a244-09de42d9a19d" mc="Analyst.AnalystPropertyTable" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="Content">#Fri Oct 13 14:51:25 CEST 2017
+Origin=\ 
+Risk=Low
+Target\ Release=0
+Stability=Low
+Cost=0
+Benefit=Critical
+Documentation=
+</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID uid="00080cf0-0000-001a-0000-000000000000" mc="Infrastructure.PropertyTableDefinition" name="Functionality"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID uid="dba7f48a-eca9-438b-a0bc-c58983ab8673" mc="Standard.StaticDiagram" name="Requirement diagram"></COMPID>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

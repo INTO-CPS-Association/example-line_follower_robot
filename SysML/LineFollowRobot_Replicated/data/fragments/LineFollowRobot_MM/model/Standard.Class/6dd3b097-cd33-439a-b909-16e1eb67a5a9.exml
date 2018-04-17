@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Controller">
+  <OBJECT>
+    <ID uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9" mc="Standard.Class" name="Controller"></ID>
+    <PID uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152" mc="Standard.Package" name="linefollowrobot_mm"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">Controller</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedAttribute">
+        <OBJECT>
+          <ID uid="9ba296fe-0561-411f-aac4-abf96b3f349e" mc="Standard.Attribute" name="forwardSpeed"></ID>
+          <ATTRIBUTES>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value">0.4</ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">forwardSpeed</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="cb4ad4d7-d537-4f97-a935-7cba81d3dbed" mc="Infrastructure.Stereotype" name="Parameter"></FOREIGNID>
+            </LINK>
+            <COMP relation="Tag">
+              <OBJECT>
+                <ID uid="c04e2929-14a1-4afc-a5aa-f3db931b6582" mc="Infrastructure.TaggedValue" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Actual">
+                    <OBJECT>
+                      <ID uid="de463cd3-8f1d-4286-9243-05b545f6babc" mc="Infrastructure.TagParameter" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Value">parameter</ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID uid="f33eaffb-c38f-4bbf-8c3a-66f30766b707" mc="Infrastructure.TagType" name="Variable_variableKind"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID uid="82d9235c-3106-490d-a7d4-3ec82a1ff8ea" mc="Infrastructure.Note" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Content"></ATT>
+                  <ATT name="MimeType"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="94e48949-32ab-4cb3-b4a0-e716ae831272" mc="Standard.Attribute" name="forwardRotate"></ID>
+          <ATTRIBUTES>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value">0.5</ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">forwardRotate</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="cb4ad4d7-d537-4f97-a935-7cba81d3dbed" mc="Infrastructure.Stereotype" name="Parameter"></FOREIGNID>
+            </LINK>
+            <COMP relation="Tag">
+              <OBJECT>
+                <ID uid="dc0561e2-c237-469c-8546-6e210ba4edd0" mc="Infrastructure.TaggedValue" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Actual">
+                    <OBJECT>
+                      <ID uid="bda838bb-0340-45ee-8ab2-4e059dee237c" mc="Infrastructure.TagParameter" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Value">parameter</ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID uid="f33eaffb-c38f-4bbf-8c3a-66f30766b707" mc="Infrastructure.TagType" name="Variable_variableKind"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID uid="5e1376de-31d6-448c-921e-d0b5c467b6ac" mc="Infrastructure.Note" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Content"></ATT>
+                  <ATT name="MimeType"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="3d8d32a0-5908-4a85-844f-a8c7c5ac634f" mc="Standard.Attribute" name="backwardRotate"></ID>
+          <ATTRIBUTES>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value">0.1</ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">backwardRotate</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="cb4ad4d7-d537-4f97-a935-7cba81d3dbed" mc="Infrastructure.Stereotype" name="Parameter"></FOREIGNID>
+            </LINK>
+            <COMP relation="Tag">
+              <OBJECT>
+                <ID uid="447e9665-d8fa-4374-b169-2fc146fdc3a8" mc="Infrastructure.TaggedValue" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Actual">
+                    <OBJECT>
+                      <ID uid="e161d69e-f5fc-4a3e-aeab-d149c2c03533" mc="Infrastructure.TagParameter" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Value">parameter</ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID uid="f33eaffb-c38f-4bbf-8c3a-66f30766b707" mc="Infrastructure.TagType" name="Variable_variableKind"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID uid="c945d02e-0a3f-4a5b-8c21-8d830f8144cc" mc="Infrastructure.Note" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Content"></ATT>
+                  <ATT name="MimeType"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="InternalStructure">
+        <OBJECT>
+          <ID uid="8f555574-e7ee-4043-9d65-c126b10a4d4b" mc="Standard.Port" name="lfLeftVal"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">lfLeftVal</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="d2138a8a-d241-4a35-8e00-15e64009c071" mc="Standard.Port" name="lfRightVal"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">lfRightVal</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="d230248c-f142-4ccb-a3d9-c6b956a1efc1" mc="Standard.Port" name="servo_right_out"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">Out</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">servo_right_out</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="96d878af-2352-4e25-baae-079aeca7e834" mc="Standard.Port" name="servo_left_out"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">Out</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">servo_left_out</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID uid="b988949d-fefe-4623-b48e-8161edb603f7" mc="Infrastructure.Stereotype" name="EComponent"></FOREIGNID>
+        <FOREIGNID uid="50d159b2-4d32-40ad-8990-c686943cb1f3" mc="Infrastructure.Stereotype" name="Subsystem"></FOREIGNID>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="5e2c0875-1084-493a-8f51-16bf5e42a0ad" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="d2a0046e-a7db-451f-94ec-990a464a5d88" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">SubSystem</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84" mc="Infrastructure.TagType" name="Component_kind"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="55ec410d-cf43-4cf8-a8a2-25175f7f71a3" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="99556e75-e138-4ea3-a4e8-1bf9ea31c6f8" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">Discrete</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="b6d8966b-58ec-45ee-b8e2-cf0a9e21470c" mc="Infrastructure.TagType" name="EComponent_modelTy"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="e4ca0909-9852-4230-b684-7c31d5691a15" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="eef22b4d-2c0f-4b0b-836f-4c63e96ae466" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">VDMRT</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="6d54dcce-4c9d-4c9d-8189-43e75e7ccf31" mc="Infrastructure.TagType" name="EComponent_platform"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
