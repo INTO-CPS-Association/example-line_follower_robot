@@ -18,32 +18,50 @@ operations
   );
 
    private control_loop : () ==> ()
-	control_loop() == cycles(0) (
+	control_loop() == cycles(0) 
+		let t = HardwareInterface`threshold.getValue(),
+				ls = sensorLeftVal.getReading(),
+				rs = sensorRightVal.getReading(),
+				fs = HardwareInterface`forwardSpeed.getValue(),
+				fr = HardwareInterface`forwardRotate.getValue(),
+				br = HardwareInterface`backwardRotate.getValue()
+	  in
+		(
+		
 	
-		if (sensorRightVal.getReading() < HardwareInterface`threshold.getValue() and sensorLeftVal.getReading() < HardwareInterface`threshold.getValue())
-		then (
-			servoRight.setServo(-HardwareInterface`forwardSpeed.getValue());
-			servoLeft.setServo(HardwareInterface`forwardSpeed.getValue());
+		if rs < t and ls < t then 
+		(
+			--   X  ||  X
+			-- none of the sensors triggered
+			-- Go strait => Right = !FW, Left = FW (motor mounted in rewerse)
+			servoRight.setServo(-fs);
+			servoLeft.setServo(fs);
 		);
 		
-		if (sensorRightVal.getReading() < HardwareInterface`threshold.getValue() and sensorLeftVal.getReading() > HardwareInterface`threshold.getValue())
-		then (
-			servoRight.setServo(-(HardwareInterface`forwardRotate.getValue()));
-			servoLeft.setServo(HardwareInterface`backwardRotate.getValue());
+		if rs < t and ls > t then
+		( 
+			--   X||    X
+			-- left triggered
+			-- Go Left away from line => Right = !FW, Left = RW (motor mounted in rewerse)
+			servoRight.setServo(-fr);
+			servoLeft.setServo(br);
 		);
 		
-		if (sensorRightVal.getReading() > HardwareInterface`threshold.getValue() and sensorLeftVal.getReading() < HardwareInterface`threshold.getValue())
-		then (
-			servoRight.setServo(-(HardwareInterface`backwardRotate.getValue()));
-			servoLeft.setServo(HardwareInterface`forwardRotate.getValue());
+		if rs > t and ls < t then 
+		(
+			--   X    ||X
+			-- right triggered
+			-- Go Right away from line => Right = !RW, Left = FW (motor mounted in rewerse)
+			servoRight.setServo(-br);
+			servoLeft.setServo(fr);
 		);
 
-		if (sensorRightVal.getReading() > HardwareInterface`threshold.getValue() and sensorLeftVal.getReading() > HardwareInterface`threshold.getValue())
-		then skip
+		if rs > t and ls > t then 
+			skip
    );
 
 thread
 
-	periodic(10E6,0,0,0)(control_loop);	 
-		 
+--	periodic(10E6,0,0,0)(control_loop);	 
+		periodic(10000,0,0,0)(control_loop);	 
 end Controller

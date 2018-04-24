@@ -44,3 +44,7 @@ Icon[^-0-9a-zA-Z]
 
 *.s#*
 *.b#*
+
+deployment/build/
+*.jar
+deployment/*.fmu
