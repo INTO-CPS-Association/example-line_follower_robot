@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="DSE">
+  <OBJECT>
+    <ID uid="bc3ff0f3-2a1c-4483-ae60-939a2691b1eb" mc="Standard.Package" name="DSE"></ID>
+    <PID uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152" mc="Standard.Package" name="linefollowrobot_mm"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">DSE</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID uid="5ee62cb6-ec4a-41aa-a342-cf9a9593de40" mc="Standard.Class" name="DSE_Example"></COMPID>
+        <COMPID uid="5821d8ab-3b7f-436d-a80f-5a42b4cb64d6" mc="Standard.Class" name="meanSpeed"></COMPID>
+        <COMPID uid="314f6541-0923-4ea7-b7fd-e65710896bbf" mc="Standard.Class" name="lapTime"></COMPID>
+        <COMPID uid="85909bc6-263f-4712-8715-4d79e6b207e3" mc="Standard.Class" name="maxCrossTrackError"></COMPID>
+        <COMPID uid="eebc5d78-b59d-47dc-9d4b-0a8a841eabc5" mc="Standard.Class" name="meanCrossTrackError"></COMPID>
+        <COMPID uid="764e1441-8d0f-44df-a905-1df156e7c3e8" mc="Standard.Class" name="S1X"></COMPID>
+        <COMPID uid="4df0ce54-3a3f-4649-b206-6e654eec9d70" mc="Standard.Class" name="S1Y"></COMPID>
+        <COMPID uid="63e269c1-5e70-4710-92fd-724d70968650" mc="Standard.Class" name="S2X"></COMPID>
+        <COMPID uid="d0b66f00-c318-4008-8135-89be1e7b80d6" mc="Standard.Class" name="S2Y"></COMPID>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID uid="3bb91ae4-6620-4e5e-bfcb-cc8f5908ff19" mc="Standard.ClassDiagram" name="DSE Objectif Definition diagram"></COMPID>
+        <COMPID uid="eafc4f44-90bd-43e7-8df8-6654205d3984" mc="Standard.ClassDiagram" name="DSE Objectif Connections diagram"></COMPID>
+        <COMPID uid="2d2470ad-3066-421d-8e41-307cb923c2e6" mc="Standard.ClassDiagram" name="DSE Parameter Definition diagram"></COMPID>
+        <COMPID uid="a19ee169-9d4a-4df1-8d22-a9dbd05c679b" mc="Standard.ClassDiagram" name="DSE Parameter Connections diagram"></COMPID>
+        <COMPID uid="898ec7d4-4f2a-4a35-a6a7-b3fb5cf0e286" mc="Standard.ClassDiagram" name="DSE Ranking"></COMPID>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

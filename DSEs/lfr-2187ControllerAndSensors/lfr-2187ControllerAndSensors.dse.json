@@ -1,5 +1,7 @@
 {
-    "algorithm": {},
+    "algorithm": {
+			"type": "exhaustive"
+	},
     "objectiveConstraints": [],
     "objectiveDefinitions": {
         "externalScripts": {

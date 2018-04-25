@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="DSE_Example">
+  <OBJECT>
+    <ID uid="5ee62cb6-ec4a-41aa-a342-cf9a9593de40" mc="Standard.Class" name="DSE_Example"></ID>
+    <PID uid="bc3ff0f3-2a1c-4483-ae60-939a2691b1eb" mc="Standard.Package" name="DSE"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">DSE_Example</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <OBJECT>
+          <ID uid="bf101cfe-1e3f-4f9b-ba4e-bf77e08b8fca" mc="Standard.AssociationEnd" name="meanSpeed"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">meanSpeed</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="5821d8ab-3b7f-436d-a80f-5a42b4cb64d6" mc="Standard.Class" name="meanSpeed"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="43b5c51c-fbec-4d06-9e9a-df086633d97d" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="bf101cfe-1e3f-4f9b-ba4e-bf77e08b8fca" mc="Standard.AssociationEnd" name="meanSpeed"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="19875e73-3c6b-4a21-bcf6-154c73a2d6ee" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="19875e73-3c6b-4a21-bcf6-154c73a2d6ee" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="15bb8751-6efb-48fe-82e0-18c7ac0c68c5" mc="Standard.AssociationEnd" name="lapTime"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">lapTime</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="314f6541-0923-4ea7-b7fd-e65710896bbf" mc="Standard.Class" name="lapTime"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="61de4657-6fe0-4ab1-83d2-67635b599c57" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="15bb8751-6efb-48fe-82e0-18c7ac0c68c5" mc="Standard.AssociationEnd" name="lapTime"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="f7e54f89-0422-4b01-adfe-3bbd3cb31fa0" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="f7e54f89-0422-4b01-adfe-3bbd3cb31fa0" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="48dcf669-3204-4c82-ba89-f65961c6e04c" mc="Standard.AssociationEnd" name="maxCrossTrackError"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">maxCrossTrackError</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="85909bc6-263f-4712-8715-4d79e6b207e3" mc="Standard.Class" name="maxCrossTrackError"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="848f2bd9-0fe5-4a48-a153-4d1baf858029" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="48dcf669-3204-4c82-ba89-f65961c6e04c" mc="Standard.AssociationEnd" name="maxCrossTrackError"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="f9687eb2-177e-4bb0-adf3-547dbe9bc774" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="f9687eb2-177e-4bb0-adf3-547dbe9bc774" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="2bd5d71d-ba93-44da-9012-de848c94b123" mc="Standard.AssociationEnd" name="meanCrossTrackError"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">meanCrossTrackError</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="eebc5d78-b59d-47dc-9d4b-0a8a841eabc5" mc="Standard.Class" name="meanCrossTrackError"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="f8565b9c-f36c-40dc-832f-40bcf04d3415" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="2bd5d71d-ba93-44da-9012-de848c94b123" mc="Standard.AssociationEnd" name="meanCrossTrackError"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="d367aec9-506b-46c8-80d1-f3f272ac2707" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="d367aec9-506b-46c8-80d1-f3f272ac2707" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="56f7507f-2b9c-4c16-ba6e-5e9a0ae2d3e5" mc="Standard.AssociationEnd" name="s1X"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">s1X</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="764e1441-8d0f-44df-a905-1df156e7c3e8" mc="Standard.Class" name="S1X"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="c57fbfbc-4241-4011-b008-0df0068083b2" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="56f7507f-2b9c-4c16-ba6e-5e9a0ae2d3e5" mc="Standard.AssociationEnd" name="s1X"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="1bbcf528-99d9-445b-a3e7-f67152e521ca" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="1bbcf528-99d9-445b-a3e7-f67152e521ca" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="581486a9-6dd1-443b-8703-3e9bc080681e" mc="Standard.AssociationEnd" name="s1Y"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">s1Y</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="4df0ce54-3a3f-4649-b206-6e654eec9d70" mc="Standard.Class" name="S1Y"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="1ece18f9-0221-4fa9-af28-092e1f8b9ee2" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="581486a9-6dd1-443b-8703-3e9bc080681e" mc="Standard.AssociationEnd" name="s1Y"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="5e506933-8fbb-42ce-adb9-b6b421fa47eb" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="5e506933-8fbb-42ce-adb9-b6b421fa47eb" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="7e23a3bf-8d3d-4883-8ee9-61e98a290021" mc="Standard.AssociationEnd" name="s2X"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">s2X</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="63e269c1-5e70-4710-92fd-724d70968650" mc="Standard.Class" name="S2X"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="918981b9-7e08-42ab-a8cb-377fcd8e9f20" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="7e23a3bf-8d3d-4883-8ee9-61e98a290021" mc="Standard.AssociationEnd" name="s2X"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="9a69cb3c-5e15-4d2b-98a1-b003219e3be3" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="9a69cb3c-5e15-4d2b-98a1-b003219e3be3" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="6522a1c6-50e8-445f-b92d-dc9500a09a35" mc="Standard.AssociationEnd" name="s2Y"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">s2Y</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="d0b66f00-c318-4008-8135-89be1e7b80d6" mc="Standard.Class" name="S2Y"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="de502459-044e-4bbe-bb86-25450c5bc2db" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="6522a1c6-50e8-445f-b92d-dc9500a09a35" mc="Standard.AssociationEnd" name="s2Y"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="2b15e3da-d464-42c9-859a-331604507318" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="2b15e3da-d464-42c9-859a-331604507318" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="InternalStructure">
+        <OBJECT>
+          <ID uid="5a83084c-164d-4887-be45-b5a1091ae246" mc="Standard.BindableInstance" name="ms"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">ms</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="5821d8ab-3b7f-436d-a80f-5a42b4cb64d6" mc="Standard.Class" name="meanSpeed"></ID>
+            </LINK>
+            <COMP relation="Part">
+              <OBJECT>
+                <ID uid="5e4190d6-d9f5-45ac-bc4f-95d811caac77" mc="Standard.Port" name="1"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">1</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="e10ff6ed-ff4a-4f4e-bb90-6d681bb4740f" mc="Standard.Port" name="1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="15e58779-745e-4d6e-b232-d7003af89a21" mc="Infrastructure.Stereotype" name="ScriptParameter_Port"></FOREIGNID>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID uid="18c7d79d-60e9-4a38-959e-29fe1d0c73e3" mc="Infrastructure.TaggedValue" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID uid="742bff2e-20aa-4920-857e-68a1bba649e0" mc="Infrastructure.TagParameter" name=""></ID>
+                            <ATTRIBUTES>
+                              <ATT name="Value">step-size</ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <FOREIGNID uid="b6e99b33-c1df-4eaa-91ea-9318ab313d42" mc="Infrastructure.TagType" name="ScriptParameter_Port_value"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="519dac37-e31a-4be3-aca8-006f90e2a114" mc="Standard.Port" name="2"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">2</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="d3ed32aa-ede2-4129-9f8f-7cdc9097b04d" mc="Standard.Port" name="2"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="1eb4cd0b-cd35-4a28-ad34-c48d9351e364" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="ec0ce054-cd88-41eb-8d7e-b79d0ddcb385" mc="Standard.Port" name="3"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">3</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="8c071c8a-1079-40f0-ad5d-8a193ed2f1e9" mc="Standard.Port" name="3"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="d62ed5fe-5511-4442-a44c-12c5de39b8df" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="6724aa70-33b7-4b09-a7a2-971bea19702b" mc="Standard.BindableInstance" name="lt"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">lt</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="314f6541-0923-4ea7-b7fd-e65710896bbf" mc="Standard.Class" name="lapTime"></ID>
+            </LINK>
+            <COMP relation="Part">
+              <OBJECT>
+                <ID uid="aa411c74-5244-4924-a7ad-cff76cd968fe" mc="Standard.Port" name="1"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">1</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="6019a3e6-0b91-43bd-b29d-b3b573d7403b" mc="Standard.Port" name="1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="15e58779-745e-4d6e-b232-d7003af89a21" mc="Infrastructure.Stereotype" name="ScriptParameter_Port"></FOREIGNID>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID uid="112b2c50-b79c-4a6d-9f62-2d8e9c960935" mc="Infrastructure.TaggedValue" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID uid="d7c6cf38-71aa-46a4-9d3f-d33a5de73ced" mc="Infrastructure.TagParameter" name=""></ID>
+                            <ATTRIBUTES>
+                              <ATT name="Value">time</ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <FOREIGNID uid="b6e99b33-c1df-4eaa-91ea-9318ab313d42" mc="Infrastructure.TagType" name="ScriptParameter_Port_value"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="62a55c5f-5e7a-46de-bcbf-60b9cd261705" mc="Standard.Port" name="2"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">2</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="2c6bb97c-f483-4bec-a222-eefd699eb155" mc="Standard.Port" name="2"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="0c2e2ffe-ec20-4245-ad35-7f1cfbee041b" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="84b16ae3-25c5-4406-9d52-4a92e17ecdd3" mc="Standard.Port" name="3"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">3</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="c73ad8b7-17b5-4865-b0f1-3e9e00a490b1" mc="Standard.Port" name="3"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="43815d61-4d34-42f1-a28f-72e32a60c783" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="0bc75e2d-b446-46ae-8f7a-596cb88bb011" mc="Standard.Port" name="4"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">4</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="bbfe1bbc-d7eb-43cb-8e92-c3a2be29c4d0" mc="Standard.Port" name="4"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="15e58779-745e-4d6e-b232-d7003af89a21" mc="Infrastructure.Stereotype" name="ScriptParameter_Port"></FOREIGNID>
+                  </LINK>
+                  <COMP relation="Tag">
+                    <OBJECT>
+                      <ID uid="7a86602e-43af-4c47-a32b-d20b30589f95" mc="Infrastructure.TaggedValue" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <COMP relation="Actual">
+                          <OBJECT>
+                            <ID uid="0ca9854c-f888-4ffa-845a-29dfd63a1fbc" mc="Infrastructure.TagParameter" name=""></ID>
+                            <ATTRIBUTES>
+                              <ATT name="Value">studentMap</ATT>
+                              <ATT name="status">1970354901745664</ATT>
+                            </ATTRIBUTES>
+                            <DEPENDENCIES></DEPENDENCIES>
+                          </OBJECT>
+                        </COMP>
+                        <LINK relation="Definition">
+                          <FOREIGNID uid="b6e99b33-c1df-4eaa-91ea-9318ab313d42" mc="Infrastructure.TagType" name="ScriptParameter_Port_value"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID uid="3522242f-7d47-47ea-bd21-cc248007eb70" mc="Infrastructure.Note" name="Note"></ID>
+                <ATTRIBUTES>
+                  <ATT name="Content">&lt;p&gt;weight = - 1.0&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</ATT>
+                  <ATT name="MimeType"></ATT>
+                  <ATT name="Name">Note</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="878fa83a-4a68-4af8-b13b-cefcd00bf6f9" mc="Standard.BindableInstance" name="macte"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">macte</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="85909bc6-263f-4712-8715-4d79e6b207e3" mc="Standard.Class" name="maxCrossTrackError"></ID>
+            </LINK>
+            <COMP relation="Part">
+              <OBJECT>
+                <ID uid="d4f6c223-e51e-4dc4-bc30-618a79b7c23d" mc="Standard.Port" name="1"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">1</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="938242d0-a358-4d79-a17e-c94c338259c3" mc="Standard.Port" name="1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="15e58779-745e-4d6e-b232-d7003af89a21" mc="Infrastructure.Stereotype" name="ScriptParameter_Port"></FOREIGNID>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="9172bda6-2b94-4a43-8c0a-c4f1b28f93a2" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="22c036c3-1fb0-4d27-8552-78caa7bde120" mc="Standard.Port" name="2"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">2</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="b5909a7c-d17b-442f-a36c-f035ea90f768" mc="Standard.Port" name="2"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="0b564d94-aea9-4332-8b4f-226a90a87277" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="eb41d5f7-0d40-4af2-8026-cfae7e971f6a" mc="Standard.BindableInstance" name="mecte"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">mecte</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="eebc5d78-b59d-47dc-9d4b-0a8a841eabc5" mc="Standard.Class" name="meanCrossTrackError"></ID>
+            </LINK>
+            <COMP relation="Part">
+              <OBJECT>
+                <ID uid="cca62c24-fa6f-4637-9bc6-22b0e57d8824" mc="Standard.Port" name="1"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">1</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="44a36590-4810-4798-9d63-25f4c3e611a3" mc="Standard.Port" name="1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="15e58779-745e-4d6e-b232-d7003af89a21" mc="Infrastructure.Stereotype" name="ScriptParameter_Port"></FOREIGNID>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="31b8eb0f-d264-49b7-9a12-08c080f8c414" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="b12793c7-aa37-4a86-ab5a-f4c71e08a128" mc="Standard.Port" name="2"></ID>
+                <ATTRIBUTES>
+                  <ATT name="IsBehavior">false</ATT>
+                  <ATT name="IsService">true</ATT>
+                  <ATT name="IsConjugated">false</ATT>
+                  <ATT name="Direction">None</ATT>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name">2</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="RepresentedFeature">
+                    <REFOBJ>
+                      <ID uid="b2adc81f-2b35-408c-98be-32bdd49207e4" mc="Standard.Port" name="2"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <COMP relation="DependsOnDependency">
+                    <OBJECT>
+                      <ID uid="1c727ba2-1ed0-4354-9c6b-5db11e823898" mc="Infrastructure.Dependency" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="DependsOn">
+                          <REFOBJ>
+                            <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+                          </REFOBJ>
+                        </LINK>
+                        <LINK relation="Extension">
+                          <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID uid="684f9b72-4e10-4f9b-92b3-5e79bd8c1a97" mc="Infrastructure.Note" name="Note"></ID>
+                <ATTRIBUTES>
+                  <ATT name="Content">&lt;p&gt;weight = -1.0&lt;/p&gt;
+</ATT>
+                  <ATT name="MimeType"></ATT>
+                  <ATT name="Name">Note</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="bde14f86-ad00-4c7a-960b-effada0e323e" mc="Standard.BindableInstance" name="s1x"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">s1x</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="764e1441-8d0f-44df-a905-1df156e7c3e8" mc="Standard.Class" name="S1X"></ID>
+            </LINK>
+            <COMP relation="DependsOnDependency">
+              <OBJECT>
+                <ID uid="c1ec8758-2683-4ac8-9bca-d201db947cef" mc="Infrastructure.Dependency" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="DependsOn">
+                    <REFOBJ>
+                      <ID uid="c428c607-a7f6-4cbe-b2f8-e638f855e16b" mc="Standard.AttributeLink" name="AttributeLink"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="161665f0-b4ee-4c16-b504-5036a5b7613f" mc="Standard.BindableInstance" name="s1y"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">s1y</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="4df0ce54-3a3f-4649-b206-6e654eec9d70" mc="Standard.Class" name="S1Y"></ID>
+            </LINK>
+            <COMP relation="DependsOnDependency">
+              <OBJECT>
+                <ID uid="1a095c7d-0ed6-45f8-9a73-070928b52a37" mc="Infrastructure.Dependency" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="DependsOn">
+                    <REFOBJ>
+                      <ID uid="c732f273-e5db-42c3-95e1-994a8bd4e890" mc="Standard.AttributeLink" name="AttributeLink1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="73a31266-569c-4271-b046-63be66e1dd97" mc="Standard.BindableInstance" name="s2x"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">s2x</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="63e269c1-5e70-4710-92fd-724d70968650" mc="Standard.Class" name="S2X"></ID>
+            </LINK>
+            <COMP relation="DependsOnDependency">
+              <OBJECT>
+                <ID uid="f734bdcb-b389-4026-95b0-f6ffc1685bab" mc="Infrastructure.Dependency" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="DependsOn">
+                    <REFOBJ>
+                      <ID uid="7aae8067-678b-4952-985c-f9f2fb3e72f7" mc="Standard.AttributeLink" name="AttributeLink"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="3ae816bc-7998-4fd2-90c6-2fef89461a8b" mc="Standard.BindableInstance" name="s2y"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">s2y</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <ID uid="d0b66f00-c318-4008-8135-89be1e7b80d6" mc="Standard.Class" name="S2Y"></ID>
+            </LINK>
+            <COMP relation="DependsOnDependency">
+              <OBJECT>
+                <ID uid="ba2d6482-9498-4f20-89d1-1f4b44bb46fc" mc="Infrastructure.Dependency" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="DependsOn">
+                    <REFOBJ>
+                      <ID uid="2f6c3ec3-8d79-4fdc-8bfa-63b58a4bbb2f" mc="Standard.AttributeLink" name="AttributeLink1"></ID>
+                    </REFOBJ>
+                  </LINK>
+                  <LINK relation="Extension">
+                    <FOREIGNID uid="f1ae046a-76f9-4c92-8a77-d20f77a2c03c" mc="Infrastructure.Stereotype" name="Reference"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID uid="37659a36-aa75-40fe-95e0-ed69ef2c0a56" mc="Infrastructure.Stereotype" name="DSEAnalysis"></FOREIGNID>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="a21f391b-f46c-4eab-92c4-d753a6d2eb7c" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="2c28ab9c-b996-4a47-928d-de45002d0f2c" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">pareto</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="3c4cb3a7-fca5-425c-8b77-3badbde16716" mc="Infrastructure.TagType" name="DSEAnalysis_ranking"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="02343c57-706a-4ec9-bf3a-282f0a735e0d" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="3c0c73ea-45df-48d2-9a11-22694f20a256" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">scenarios</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="fece229a-88ed-4f7f-ab3b-bccc4cb6afda" mc="Infrastructure.TagType" name="DSEAnalysis_scenarios"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

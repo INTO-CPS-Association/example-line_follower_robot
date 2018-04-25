@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Requirement diagram">
+  <OBJECT>
+    <ID uid="dba7f48a-eca9-438b-a0bc-c58983ab8673" mc="Standard.StaticDiagram" name="Requirement diagram"></ID>
+    <PID uid="fdfc7f29-7305-4a4d-844a-26d9184aee69" mc="Analyst.RequirementContainer" name="Requirement Container"></PID>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">6</ATT>
+      <ATT name="UiData">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</ATT>
+      <ATT name="Name">Requirement diagram</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID uid="01ec12fc-0000-0bfd-0000-000000000000" mc="Infrastructure.Stereotype" name="requirement_diagram"></FOREIGNID>
+      </LINK>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID uid="59a9147c-e958-429c-9482-c06957daf0e7" mc="Infrastructure.Note" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID uid="00000000-0000-3e81-0000-000000000000" mc="Infrastructure.NoteType" name="description"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

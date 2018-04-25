@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="S1X">
+  <OBJECT>
+    <ID uid="764e1441-8d0f-44df-a905-1df156e7c3e8" mc="Standard.Class" name="S1X"></ID>
+    <PID uid="bc3ff0f3-2a1c-4483-ae60-939a2691b1eb" mc="Standard.Package" name="DSE"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">S1X</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <LINK relation="Extension">
+        <FOREIGNID uid="389712c5-96e3-41a9-8995-60a4a50dfa50" mc="Infrastructure.Stereotype" name="DSEParameter"></FOREIGNID>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="12a86acc-eaea-4f84-bb78-0bc604c5dafd" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="06cd08d1-31d3-448e-a3fb-13776a2ae1d7" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">0.01</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID uid="e2342289-99f3-4409-9bf7-e731c40ed242" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">0.03</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="dc5a476d-fc9d-4e41-96c1-72074511b70b" mc="Infrastructure.TagType" name="Parameter_values"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

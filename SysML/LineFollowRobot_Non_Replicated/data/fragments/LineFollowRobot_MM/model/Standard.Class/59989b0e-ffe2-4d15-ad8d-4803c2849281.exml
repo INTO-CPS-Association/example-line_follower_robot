@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Friday">
+  <OBJECT>
+    <ID uid="59989b0e-ffe2-4d15-ad8d-4803c2849281" mc="Standard.Class" name="Friday"></ID>
+    <PID uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a" mc="Standard.Package" name="Architecture"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">Friday</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="InternalStructure">
+        <OBJECT>
+          <ID uid="45fb44d0-0cb9-499a-96f5-cf623c1f80b8" mc="Standard.Port" name="weekend"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">Out</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">weekend</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+            <COMP relation="Tag">
+              <OBJECT>
+                <ID uid="498a03e1-bc79-451e-9bff-983a456ecb48" mc="Infrastructure.TaggedValue" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Actual">
+                    <OBJECT>
+                      <ID uid="65b236d3-a62e-4fe4-8fd4-4092b469778d" mc="Infrastructure.TagParameter" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Value">out</ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="Definition">
+                    <FOREIGNID uid="e4a31e60-3c87-4816-ad26-4b1f922b7ffd" mc="Infrastructure.TagType" name="FlowPort_direction"></FOREIGNID>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID uid="edf11cbc-1844-405d-8944-605700074c35" mc="Infrastructure.Stereotype" name="CComponent"></FOREIGNID>
+      </LINK>
+      <COMP relation="DependsOnDependency">
+        <OBJECT>
+          <ID uid="8acc60b5-0a95-47f5-8b14-a22e9b86270d" mc="Infrastructure.Dependency" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="DependsOn">
+              <ID uid="1646f12f-86bc-4ebc-9680-7767437ab1b7" mc="Analyst.Requirement" name="Requirement"></ID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="01ec12fc-0000-0224-0000-000000000000" mc="Infrastructure.Stereotype" name="satisfy"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="d0d007fb-e6d8-4258-a2ec-b6538e130ff2" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="16024b20-b090-468e-91d9-54fede18fff7" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">Composition</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84" mc="Infrastructure.TagType" name="Component_kind"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="3DVisualisation">
+  <OBJECT>
+    <ID uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb" mc="Standard.Class" name="3DVisualisation"></ID>
+    <PID uid="b76eb42b-a0b3-4dfb-b5e5-c32e0b5a557a" mc="Standard.Package" name="Architecture"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">3DVisualisation</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="InternalStructure">
+        <OBJECT>
+          <ID uid="f997a238-ba36-4c29-8f1f-8aaeb0ed7ac7" mc="Standard.Port" name="robot.position.x"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">robot.position.x</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="e200c1f2-95e1-4944-b62f-ebeb6a329087" mc="Standard.Port" name="robot.position.y"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">robot.position.y</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="24c35e73-77df-41f0-9f74-cb4140947a99" mc="Standard.Port" name="robot.angle.z"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">robot.angle.z</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="7cbfce24-c16a-413e-8e47-85cd8af6d9ce" mc="Standard.Port" name="sensor.lf.left.reading"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">sensor.lf.left.reading</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="847da79b-aadd-4c21-9320-3037d7883182" mc="Standard.Port" name="sensor.lf.right.reading"></ID>
+          <ATTRIBUTES>
+            <ATT name="IsBehavior">false</ATT>
+            <ATT name="IsService">true</ATT>
+            <ATT name="IsConjugated">false</ATT>
+            <ATT name="Direction">In</ATT>
+            <ATT name="IsConstant">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="Name">sensor.lf.right.reading</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Base">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID uid="197dab5e-85eb-4fef-8313-f113b85ca2b4" mc="Infrastructure.Stereotype" name="FlowPort"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID uid="b988949d-fefe-4623-b48e-8161edb603f7" mc="Infrastructure.Stereotype" name="EComponent"></FOREIGNID>
+        <FOREIGNID uid="1c2bc602-60a9-401c-923b-0c12269afd17" mc="Infrastructure.Stereotype" name="Cyber"></FOREIGNID>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="f5d8245e-99a1-4a8a-ac14-526b1af20567" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="6a5eb973-eaf8-43f3-9555-4c00b9fdc5c0" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">Cyber</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84" mc="Infrastructure.TagType" name="Component_kind"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="d43d2332-6982-4748-8d45-912ef1870d62" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="1adf6245-90df-4986-a567-bce7b1405682" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">Continuous</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="b6d8966b-58ec-45ee-b8e2-cf0a9e21470c" mc="Infrastructure.TagType" name="EComponent_modelTy"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="f4019888-33db-4012-bccf-d2dd5da5e83f" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="c2a38ac8-de55-40ca-a2cf-096e92b7d33f" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value">TwentySim</ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="6d54dcce-4c9d-4c9d-8189-43e75e7ccf31" mc="Infrastructure.TagType" name="EComponent_platform"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

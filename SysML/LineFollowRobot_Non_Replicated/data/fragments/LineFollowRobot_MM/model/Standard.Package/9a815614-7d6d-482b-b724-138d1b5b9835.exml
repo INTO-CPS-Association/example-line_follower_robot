@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Flows">
+  <OBJECT>
+    <ID uid="9a815614-7d6d-482b-b724-138d1b5b9835" mc="Standard.Package" name="Flows"></ID>
+    <PID uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152" mc="Standard.Package" name="linefollowrobot_mm"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">Flows</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedInformationFlow">
+        <OBJECT>
+          <ID uid="8a039d41-2f0d-4651-9a5e-726c3bcff804" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="5c6a3b25-818f-4dc6-9b40-926ff0b87d58" mc="Standard.Port" name="servoLeftVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="617b29b9-63d2-486a-9fe0-f282c3b71fd8" mc="Standard.Port" name="servo_left_input"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="041f875a-7aa8-44ff-9b3f-94d5792cbc2d" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="b4f5663e-c5d0-4df0-9115-25f480d82be9" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="bef99937-fc58-4955-895b-8cc2c60db25d" mc="Standard.Port" name="servoRightVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="686a48ca-fecc-4792-917b-9e23ee5d3e20" mc="Standard.Port" name="servo_right_input"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="9e6ff9e2-2a92-4769-9d44-49045058614b" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="821596e8-3f41-48e8-980a-a6c94600c8a1" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="94dd438f-7af5-4fd3-99d1-2f1ba62a3022" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="79cbabd9-29a3-40a2-84bd-915f5ddaae62" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="bb6fa2b1-ece1-4d11-a37f-5287d2310826" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="3942b5d3-170c-4260-9f26-f7c0df97e200" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="e4edaa32-abe4-4636-a19c-f520f17dbc12" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="4f9106ba-cefd-46df-b06a-e5e3035f453d" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="806ca9f6-489e-4f67-9164-91b7839b9f4e" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="4dfd7d95-3ed8-480f-8d8e-617d9b6e73fb" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="e99c8b57-e432-4c5b-8bc1-1787a6b576fc" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="37b412b0-fc27-4492-9f44-584636094670" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="dc4b2622-a990-4e03-86b4-6c2a7f7e1331" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="74a3bc19-79be-4668-aa90-afff41a25b3f" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="3ddc07c1-f686-4c20-bb82-bec14fe92c3d" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="4ebcd836-4eb1-432c-9724-f23a92ad6ad1" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="975e2d5b-b078-4ca1-bcf3-f39e25dbf578" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="92037f94-3abc-4738-91a6-6de64696b3f1" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="fd1edcae-2fc8-4c80-9938-341821cb19c9" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="88e33db7-4c96-4b9b-837e-795daa4f39b7" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="d49eec2d-ae6a-4081-898f-7d22c67b14bd" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="4772e128-7c62-4315-8bd2-45f30a3a9107" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="8f57d391-7483-4367-b63c-35b7bf1097d7" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="35105006-dbe2-4d7a-a613-7dba632147ac" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="806ca9f6-489e-4f67-9164-91b7839b9f4e" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="740cb335-84da-4eae-8b4b-46da53211956" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="13752e01-bdae-4c0a-8f91-71a0b4478991" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="a700325b-4af5-4ea0-936a-78348fef8308" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="dc4b2622-a990-4e03-86b4-6c2a7f7e1331" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="1cfb5765-58b1-4ee2-890d-7565b15f06b6" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="9992b77e-b9e7-4967-b60f-a415f9c5a0bf" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="060b26ed-3af6-4dc3-917c-f2aa4d720bb3" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="a77527df-e5d9-483c-9e63-2891fccaa854" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="8d51a3a6-d416-4932-8fd1-8e9b1c8e13a0" mc="Standard.Port" name="lfLeftVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="1f8a6146-f220-46db-8f92-0dfefd34170a" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="13d3fdf8-92f1-4915-9756-17a2acbfe9ce" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="d70851e9-b398-412c-b469-4ced2fbb30c1" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="07edb371-86de-4d7a-9582-84dd453dacb2" mc="Standard.Port" name="lfRightVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="ffd1d048-c623-4374-bf26-028fa1afceaa" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="719ce340-0040-4cb7-993f-1f0f912e59c8" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="4754e102-7ff5-4f2e-8933-0be5267903b1" mc="Standard.Port" name="servoLeftVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="b81cf9b5-928a-4594-84c3-9321081355cf" mc="Standard.Port" name="servo_left_input"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="38ca5574-3cb8-45c0-be83-f3545ec3558b" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="9f5a40ac-e8d6-4016-bb06-e71a8344e462" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="38f29c45-3f70-44ad-ae37-93f11346d1e0" mc="Standard.Port" name="servoRightVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="7b04be6c-6184-4e78-8137-da012214a4ab" mc="Standard.Port" name="servo_right_input"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="34104877-bd1b-4985-9b61-873279bd2bf3" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="1989d00e-f6c2-426f-b427-204e679d31ed" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="cf50bbea-5121-4cca-9f0d-2d7d14db6b28" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="bb534c1d-585c-43e8-90af-72b9090714e6" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="cdee3da3-e4d3-4c4c-920d-e159584501de" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="409ce265-391b-4856-87a1-463455d7745f" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="beb972d6-1138-4917-9334-5417ff72fa37" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="453ddd77-43fc-4e0c-abd9-45308a177aa1" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="ce59a757-05d0-4da1-a10a-45b0441fbded" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="c5110bd4-9e1a-4d98-bae9-8ccba2555b5f" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="22edc3fe-24b2-4088-952e-6d89943dce37" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="c2aebf51-a166-4338-9278-0d312b9a9bbb" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="afa57bb8-b8d7-4db6-8002-36416932ee32" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="ef547086-39a3-44cb-befa-69e3bcb13155" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="6f20dff5-da39-4258-bc1f-3ab40188bd32" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="a8a7ab9c-ce16-422e-a86a-61ebe630f7bf" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="ca3ab014-fe9a-4836-81c2-90b0f0557040" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="6e16fa6b-0b4a-4aae-91fe-b50f653761c6" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="cf50bbea-5121-4cca-9f0d-2d7d14db6b28" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="86dcc098-2d93-443e-bc3b-38d149b3e752" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="ec8fe437-b65d-484c-8b84-0533cdc6b0f0" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="4bc70665-67ef-4cc2-961a-0e68af758dcb" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="beb972d6-1138-4917-9334-5417ff72fa37" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="d0b29ced-277f-4e7d-ba28-3dde59c7332d" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="56ce08ea-5b74-4018-9a84-f669970973d5" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="3dd1e002-8fda-43ba-a4f6-e57b4c0d17ee" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="22edc3fe-24b2-4088-952e-6d89943dce37" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="b9e7093b-5fc4-4ff0-9687-363fdd0ec314" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="639e4010-1a1f-4005-8405-4c20ee6c56d4" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="246e2ccf-11dd-4aa0-b4f5-9e040a822088" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="6f20dff5-da39-4258-bc1f-3ab40188bd32" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="c31d3247-320a-43a7-abc5-04a0db523afd" mc="Standard.Port" name="robot_theta"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="26d9a0e3-ed36-4e69-b68a-521ced8e81de" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="3a777243-d55b-4914-ada3-028690872b62" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="cf50bbea-5121-4cca-9f0d-2d7d14db6b28" mc="Standard.Port" name="robot_x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="78595dcf-feb4-46a9-a1a9-b26c710e3b90" mc="Standard.Port" name="robot.position.x"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="6313f6e6-28af-4897-8835-2fe6c614a3c5" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="3ff7496b-81cb-4663-a551-0e3343fd24dd" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="beb972d6-1138-4917-9334-5417ff72fa37" mc="Standard.Port" name="robot_y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="0928e203-b8ee-4ed4-8dd5-e0225ffc7093" mc="Standard.Port" name="robot.position.y"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="01ea8f77-b7d5-4666-b92e-22f86310a063" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="e29940c5-7b6c-4bfa-b430-586fa2a7060f" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="22edc3fe-24b2-4088-952e-6d89943dce37" mc="Standard.Port" name="robot_z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="0846f4ae-dab9-48c9-86f0-71ca50271284" mc="Standard.Port" name="robot.angle.z"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="64108262-37eb-4b18-8880-b50bffdddf01" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="22577660-aa09-465d-a0ef-3800cbdbbd46" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="70627859-93e0-4fb4-88a7-3ff362dc7493" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="76c88424-9455-480d-b853-404f2e263c69" mc="Standard.Port" name="sensor.lf.right.reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="d17538d7-5da1-414b-a562-8febf139b162" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="06a03bb2-ce31-4b0e-a435-5d5b9a653e2f" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="8ad781eb-4cd3-4f39-82ba-505bf326b2cd" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="e98b58a1-18ab-44a2-b767-be4fdf246f64" mc="Standard.Port" name="sensor.lf.left.reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="00d2af8b-56f0-4c1e-914c-f3b17c3a77fc" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="47fce3ba-aac8-4a72-8372-b8c0c1be502b" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="8ad781eb-4cd3-4f39-82ba-505bf326b2cd" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="84074ca4-ac2e-4acf-a5df-708e155f9d10" mc="Standard.Port" name="lfLeftVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="661cb134-a8b3-42f2-848f-3280ee641f42" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="decc535e-5faa-4327-8467-ae95ad4da7d7" mc="Standard.InformationFlow" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="InformationSource">
+              <REFOBJ>
+                <ID uid="70627859-93e0-4fb4-88a7-3ff362dc7493" mc="Standard.Port" name="lf_1_sensor_reading"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="InformationTarget">
+              <REFOBJ>
+                <ID uid="e740a095-82f4-4bb0-bc4c-2ae83bafd52b" mc="Standard.Port" name="lfRightVal"></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="RealizingLink">
+              <REFOBJ>
+                <ID uid="a07b4fb1-03ed-46fd-a725-fe7a4ff6a8b0" mc="Standard.ConnectorEnd" name=""></ID>
+              </REFOBJ>
+            </LINK>
+            <LINK relation="Conveyed">
+              <FOREIGNID uid="cf54ada1-c5bf-4eaf-9ef5-a2fc8c7edcad" mc="Standard.DataType" name="Real"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

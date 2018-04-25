@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="Robot">
+  <OBJECT>
+    <ID uid="93359b18-e579-4141-8e37-8b82d8036bf3" mc="Standard.Class" name="Robot"></ID>
+    <PID uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152" mc="Standard.Package" name="linefollowrobot_mm"></PID>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name">Robot</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedEnd">
+        <OBJECT>
+          <ID uid="67897089-5a3f-40a5-b37e-2bfb8ecb4c23" mc="Standard.AssociationEnd" name="body"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">body</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="ea58fe43-f9ed-4830-8b1d-99a35ba87d6e" mc="Standard.Class" name="Body"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="ab77d8fe-3135-4be8-a3ef-0a8a38110945" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="67897089-5a3f-40a5-b37e-2bfb8ecb4c23" mc="Standard.AssociationEnd" name="body"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="d1d4a902-085f-4d74-bb0c-9ec7370b9658" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="d1d4a902-085f-4d74-bb0c-9ec7370b9658" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="39bf3550-b624-41d4-9524-a26f5398a53c" mc="Standard.AssociationEnd" name="sensor"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">sensor</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="f0e7744d-9ab1-4036-b802-a024e03f8166" mc="Standard.Class" name="Sensor"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="531c3b1a-9632-4c49-a288-59c40053e495" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="39bf3550-b624-41d4-9524-a26f5398a53c" mc="Standard.AssociationEnd" name="sensor"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="59046c81-c7d8-465e-8935-9326d82f617d" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="59046c81-c7d8-465e-8935-9326d82f617d" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="a3f91860-d1fa-4dcd-91fd-87c1e6b951d0" mc="Standard.AssociationEnd" name="controller"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">1</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">controller</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="6dd3b097-cd33-439a-b909-16e1eb67a5a9" mc="Standard.Class" name="Controller"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="26a88cb8-7cf0-443a-844a-7b1495adf9f2" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="a3f91860-d1fa-4dcd-91fd-87c1e6b951d0" mc="Standard.AssociationEnd" name="controller"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="e4fa3130-8d62-4b86-9c2e-b383830111ca" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="e4fa3130-8d62-4b86-9c2e-b383830111ca" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID uid="ff5e282f-b482-4bc8-824a-bbded36c487b" mc="Standard.AssociationEnd" name="3dvisualisation"></ID>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin">0</ATT>
+            <ATT name="MultiplicityMax">1</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name">3dvisualisation</ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID uid="c55a2d6f-a5ff-4fd9-8733-25fb05ff21fb" mc="Standard.Class" name="3DVisualisation"></ID>
+            </LINK>
+            <COMP relation="Opposite">
+              <OBJECT>
+                <ID uid="fc05457d-7c83-4d5c-96b3-543316c0b75a" mc="Standard.AssociationEnd" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Aggregation">KindIsAssociation</ATT>
+                  <ATT name="IsChangeable">true</ATT>
+                  <ATT name="Changeable">ReadWrite</ATT>
+                  <ATT name="IsDerived">false</ATT>
+                  <ATT name="IsOrdered">false</ATT>
+                  <ATT name="IsUnique">false</ATT>
+                  <ATT name="MultiplicityMin">1</ATT>
+                  <ATT name="MultiplicityMax">1</ATT>
+                  <ATT name="Visibility">Public</ATT>
+                  <ATT name="IsClass">false</ATT>
+                  <ATT name="IsAbstract">false</ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="Opposite">
+                    <COMPID uid="ff5e282f-b482-4bc8-824a-bbded36c487b" mc="Standard.AssociationEnd" name="3dvisualisation"></COMPID>
+                  </COMP>
+                  <COMP relation="Association">
+                    <OBJECT>
+                      <ID uid="adcef779-759c-46dc-8101-32b72c68180d" mc="Standard.Association" name=""></ID>
+                      <ATTRIBUTES>
+                        <ATT name="Name"></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <COMP relation="Association">
+              <COMPID uid="adcef779-759c-46dc-8101-32b72c68180d" mc="Standard.Association" name=""></COMPID>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+      <LINK relation="Extension">
+        <FOREIGNID uid="c1fa91b1-ddd0-4521-b1ab-883550b7c337" mc="Infrastructure.Stereotype" name="System"></FOREIGNID>
+      </LINK>
+      <COMP relation="Tag">
+        <OBJECT>
+          <ID uid="a99125a8-2a84-424d-bb45-36551056d15e" mc="Infrastructure.TaggedValue" name=""></ID>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Actual">
+              <OBJECT>
+                <ID uid="b006b79f-c1a7-4b52-bca0-7980c4638f38" mc="Infrastructure.TagParameter" name=""></ID>
+                <ATTRIBUTES>
+                  <ATT name="Value"> </ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+            <LINK relation="Definition">
+              <FOREIGNID uid="4d3dea1a-7494-48e4-a74a-c13e045bfe84" mc="Infrastructure.TagType" name="Component_kind"></FOREIGNID>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

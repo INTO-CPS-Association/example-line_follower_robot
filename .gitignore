@@ -1,16 +1,27 @@
 # Modelio #
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.0
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.t
-SysML/LineFollowRobot_MM/.runtime/lock.info
-SysML/LineFollowRobot_MM/.runtime/lock.dat
-SysML/LineFollowRobot_MM/.runtime/projectInfo.html
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.0
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.t
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.t
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.0
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.0
-SysML/LineFollowRobot_MM/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.t
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.0
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.t
+SysML/LineFollowRobot_Non_Replicated/.runtime/lock.info
+SysML/LineFollowRobot_Non_Replicated/.runtime/lock.dat
+SysML/LineFollowRobot_Non_Replicated/.runtime/projectInfo.html
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.0
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.t
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.t
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.0
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.0
+SysML/LineFollowRobot_Non_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.t
 
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.0
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbf.t
+SysML/LineFollowRobot_Replicated/.runtime/lock.info
+SysML/LineFollowRobot_Replicated/.runtime/lock.dat
+SysML/LineFollowRobot_Replicated/.runtime/projectInfo.html
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.0
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.t
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.dbr.t
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.0
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idf.0
+SysML/LineFollowRobot_Replicated/.runtime/fragments/LineFollowRobot_MM/.index/index.idr.t
 
 
 Multi-models/**/R_*

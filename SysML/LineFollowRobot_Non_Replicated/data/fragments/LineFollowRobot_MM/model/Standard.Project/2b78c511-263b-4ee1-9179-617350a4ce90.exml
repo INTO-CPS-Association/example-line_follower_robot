@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT version="4" object="LineFollowRobot_MM">
+  <OBJECT>
+    <ID uid="2b78c511-263b-4ee1-9179-617350a4ce90" mc="Standard.Project" name="LineFollowRobot_MM"></ID>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name">LineFollowRobot_MM</ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID uid="e70a699d-66c7-4b2a-bf1b-f55eb0fc2152" mc="Standard.Package" name="linefollowrobot_mm"></COMPID>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID uid="ad09d681-ed06-4874-b8f7-a537b944ebc0" mc="Infrastructure.DiagramSet" name="LineFollowRobot_MM"></COMPID>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
