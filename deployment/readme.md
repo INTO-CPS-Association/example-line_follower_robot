@@ -114,3 +114,10 @@ avrdude: safemode: Fuses OK (E:FD, H:D8, L:FF)
 avrdude done.  Thank you.
 
 ```
+
+# Robot Test
+
+To test the robot platform please use the provided `robot-test.ino` Arduino file. It can be uploaded using Arduino IDE while selecting Arduino Mega 2560 as the board.
+
+After upload open a serial port using baudrate 115200 and send `h` to obtain the menu. Use it to check the sensor readings and to check that the motor controller working correctly.
+
