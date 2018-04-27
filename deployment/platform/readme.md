@@ -51,7 +51,7 @@ The Robot platform is using the Arduino Mega 2560 controller board and a standar
 <a href="sensor-mount.png">
 <img src="sensor-mount.png"  height="500"></a>
 
-The mount should be x mm high.
+The mount should be 20 mm high i.e. the distance from under the robot frame to where the sensors are screwed into the mount.
 
 ## Controller wiring
 
