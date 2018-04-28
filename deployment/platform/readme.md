@@ -48,11 +48,20 @@ The Robot platform is using the Arduino Mega 2560 controller board and a standar
 
 ### Sensor Front Mount
 
-<a href="sensor-mount.png">
-<img src="sensor-mount.png"  height="500"></a>
+<a href="wiring.png">
+<img src="wiring.png"  height="500"></a>
 
 The mount should be 20 mm high i.e. the distance from under the robot frame to where the sensors are screwed into the mount.
 
 ## Controller wiring
 
+<a href="sensor-mount.png">
+<img src="sensor-mount.png"  height="700"></a>
+
 ## Assembled robot 
+
+<a href="IMG_5031.jpg">
+<img src="IMG_5031.jpg"  height="400"></a>
+
+<a href="IMG_5033.jpg">
+<img src="IMG_5033.jpg"  height="400"></a>
