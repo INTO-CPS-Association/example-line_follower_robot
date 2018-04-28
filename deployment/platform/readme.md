@@ -44,6 +44,10 @@ The Robot platform is using the Arduino Mega 2560 controller board and a standar
 <img src="TCRT5000-analog.jpg"  height="150"></a>
 
 * 3d printed parts
+
+<a href="LF_sensor_holder.png">
+<img src="LF_sensor_holder.png"  height="150"></a>
+
 * cables
 
 ### Sensor Front Mount
@@ -52,6 +56,11 @@ The Robot platform is using the Arduino Mega 2560 controller board and a standar
 <img src="sensor-mount.png"  height="700"></a>
 
 The mount should be 20 mm high i.e. the distance from under the robot frame to where the sensors are screwed into the mount.
+
+<a href="LF_sensor_holder.png">
+<img src="LF_sensor_holder.png"  height="150"></a>
+
+[Sensor Mount STL](LF_sensor_holder.stl)
 
 ## Controller wiring
 
