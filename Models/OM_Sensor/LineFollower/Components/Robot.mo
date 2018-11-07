@@ -5,7 +5,7 @@ model Robot
   //Date  : 28/10/2015
   import Modelica.Blocks.Interfaces.RealInput;
   import Modelica.Blocks.Interfaces.RealOutput;
-  import .LineFollower.Components.Sensor;
+  import LineFollower.Components.Sensor;
   //input and outputs
   //Real robot_state[4] = {0.138, -0.08, 0, 0};
   RealInput robot_state[4] annotation (Placement(transformation(extent={{-120,-10},
