@@ -1,6 +1,6 @@
 # Robot Platform
 
-The Robot platform is using the Arduino Mega 2560 controller board and a standard cheap eBay 2WD line following robot platform.
+The Robot platform is using the Arduino Mega 2560 controller board [link](https://www.ebay.com/itm/MEGA-2560-R3-ATMEGA16U2-ATMEGA2560-16AU-Board-Free-USB-Cable-For-Arduino/272386431938?hash=item3f6b7f1bc2:g:cycAAOSwLF1X4~Zt:rk:3:pf:0) and a standard cheap eBay 2WD line following robot platform.
 
 ## Hardware
 
