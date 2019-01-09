@@ -51,6 +51,13 @@ The Robot platform is using the Arduino Mega 2560 controller board [link](https:
 
 * cables
 
+* Arduino MEGA Sensor Shield. [Gerber files](PCB/gerber.zip)
+
+<a href="PCB/top.png">
+<img src="PCB/top.png"  height="150"></a>
+
+
+
 ### Sensor Front Mount
 
 <a href="sensor-mount.png">
