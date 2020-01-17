@@ -5,6 +5,60 @@
 #include <stdio.h>
 
 #include "modeldescription.h"
+
+#define DATA_BITS_PER_SECONDS(t) (8*(t))
+#define DATA_BROADCAST_INTERVAL_MS 10
+#define DATA_BOUDRATE 115200
+
+#define checkBoudRate(typeSize, intervalInMs) intervalInMs>0 && DATA_BOUDRATE > (DATA_BITS_PER_SECONDS(typeSize)*(1000/intervalInMs))
+
+struct measurement_pair {
+
+	uint8_t vref;
+	float value;
+
+}__attribute ((__packed__));
+
+struct measurement_bundle {
+
+	uint8_t msg_type;
+	float time;
+	measurement_pair values[4];
+
+}__attribute ((__packed__));
+
+#define SERIAL_PROTOCOL_ESCAPE 0x7d
+#define SERIAL_PROTOCOL_FRAME_FLAG 0x7e
+#define SERIAL_PROTOCOL_ESCAPE_VALUE 0x20
+typedef size_t (*SerialWriterFunc)(uint8_t val);
+void sendSerialMessage(SerialWriterFunc sender, uint8_t *data, int length) {
+	(*sender)(SERIAL_PROTOCOL_FRAME_FLAG);
+	uint8_t checksum = 0;
+	for (int i = 0; i < length; i++) {
+		uint8_t c = data[i];
+		checksum ^= c;
+
+		if (c == SERIAL_PROTOCOL_ESCAPE || c == SERIAL_PROTOCOL_FRAME_FLAG) {
+			(*sender)(SERIAL_PROTOCOL_ESCAPE);
+			(*sender)(c ^ SERIAL_PROTOCOL_ESCAPE_VALUE);
+
+		} else {
+			(*sender)(c);
+		}
+	}
+	(*sender)(checksum);
+	(*sender)(0x0A);
+}
+
+void send(SerialWriterFunc sender, measurement_bundle *serialMessage) {
+	sendSerialMessage(sender, (uint8_t *) serialMessage,
+			sizeof(measurement_bundle));
+}
+
+size_t swSend(uint8_t val) {
+	return Serial3.write(val);
+}
+
 extern "C" {
 
 #include "Fmu.h"
@@ -28,8 +82,7 @@ int enB = 7;
 #define MOTOR_LEFT 0
 #define MOTOR_RIGHT 1
 
-
-
+measurement_bundle m;
 
 void direction(int motor, bool fw) {
 
@@ -67,12 +120,9 @@ void turn(bool dir) {
 	}
 }
 
-
-
-
 void fmuLoggerCache(void *componentEnvironment, fmi2String instanceName,
 		fmi2Status status, fmi2String category, fmi2String format, ...) {
-return;
+	return;
 //	Serial.println(format);
 	va_list args;
 	size_t len;
@@ -81,7 +131,7 @@ return;
 	va_start(args, format);
 	len = vsnprintf(0, 0, format, args);
 	va_end(args);
-	if ((space = (char*)malloc(len + 1)) != 0) {
+	if ((space = (char*) malloc(len + 1)) != 0) {
 		va_start(args, format);
 		vsnprintf(space, len + 1, format, args);
 		va_end(args);
@@ -103,24 +153,26 @@ int alive = 0;
 
 #define ALIVE_PIN 13
 
-int availableMemory()
-{
-  int size = 8192;
-  byte *buf;
-  while ((buf = (byte *) malloc(--size)) == NULL);
-  free(buf);
-  return size;
+int availableMemory() {
+	int size = 8192;
+	byte *buf;
+	while ((buf = (byte *) malloc(--size)) == NULL)
+		;
+	free(buf);
+	return size;
 }
 
 void setup() {
 
 	pinMode(ALIVE_PIN, OUTPUT);
 	Serial.begin(115200);
+	Serial3.begin(DATA_BOUDRATE);
 	while (!Serial)
 		;
-	Serial.println("booting...");
+	Serial.println(F("booting..."));
+	//Serial.println(sizeof(measurement_bundle));
 
-	Serial.println("setting pin mode");
+	Serial.println(F("setting pin mode"));
 	// set all the motor control pins to outputs
 	pinMode(enA, OUTPUT);
 	pinMode(enB, OUTPUT);
@@ -134,7 +186,7 @@ void setup() {
 	pinMode(SENSOR_CENTER_CENTER_PIN, INPUT);
 	pinMode(SENSOR_CENTER_LEFT_PIN, INPUT);
 
-	Serial.println("setting motor direction motors");
+	Serial.println(F("setting motor direction motors"));
 	// turn motor A FW
 	digitalWrite(in1, HIGH);
 	digitalWrite(in2, LOW);
@@ -145,7 +197,7 @@ void setup() {
 
 	// turn on
 
-	Serial.println("starting motors low speed");
+	Serial.println(F("starting motors low speed"));
 	analogWrite(enA, 50);
 	analogWrite(enB, 50);
 
@@ -160,82 +212,88 @@ void setup() {
 	fmiBuffer.realBuffer[FMI_FORWARDROTATE] = FR;
 	fmiBuffer.realBuffer[FMI_BACKWARDROTATE] = BR;
 	fmiBuffer.realBuffer[FMI_FORWARDSPEED] = FS;
-	
-
-
-
 
 	fmi2CallbackFunctions callback = { &fmuLoggerCache, NULL, NULL, NULL, NULL };
 
-	Serial.println("Instantiating: ");
+	Serial.println(F("Instantiating: "));
 	Serial.println(availableMemory());
-	instReturn = fmi2Instantiate("this system", fmi2CoSimulation,	FMI_GUID, "", &callback, fmi2True, fmi2True);
-	Serial.println("Instantiate called");
+	instReturn = fmi2Instantiate("S", fmi2CoSimulation, FMI_GUID, "", &callback,
+			fmi2True, fmi2True);
+	Serial.println(F("Instantiate called"));
 	Serial.println(availableMemory());
 	Serial.println(instReturn == NULL);
-	Serial.println("setup done");
+	Serial.println(F("setup done"));
 
 	//callback.logger(NULL, "some name", fmi2OK, "logAll", "called &periodic_taskg_System_controller__Z12control_loopEV\n");
 }
 
 int count = 0;
 
+int encode(uint8_t *checksum, uint8_t *value, size_t size) {
+//	Serial.println("k");
+
+	int index = 0;
+	for (size_t i = 0; i < size; i++) {
+//		Serial.println("k");
+		uint8_t c = *(value + i);
+//		Serial.println("k1");
+		//Serial.print(c, HEX);
+		//Serial.print(" ");
+		*checksum ^= c;
+
+		if (c == SERIAL_PROTOCOL_ESCAPE || c == SERIAL_PROTOCOL_FRAME_FLAG) {
+			Serial3.write(SERIAL_PROTOCOL_ESCAPE);
+			//delay(10);
+			//	c2 = c;	// ^ SERIAL_PROTOCOL_ESCAPE_VALUE;
+			//c2 ^= SERIAL_PROTOCOL_ESCAPE_VALUE;
+			//				delay(1);
+			Serial3.write(c ^ SERIAL_PROTOCOL_ESCAPE_VALUE);
+
+		} else {
+			Serial3.write(c);
+		}
+	}
+
+	return index;
+}
+
+unsigned int lastBroadcast = 0;
 // The loop function is called in an endless loop
 void loop() {
-//	Serial.print("loop\n");
-//	return;
+
 	if (instReturn == NULL)
 		return;
 
-//	Serial.println("looping");
-//Add your repeated code here
-	//Read switch values that indicate sensor threshold crossings.
-	//Serial.println("ADC'ing");
-	fmiBuffer.realBuffer[FMI_LEFTVAL] = 500*!digitalRead(SENSOR_CENTER_LEFT_PIN);
-	fmiBuffer.realBuffer[FMI_RIGHTVAL] = 500*!digitalRead(SENSOR_CENTER_RIGHT_PIN);
-	
-/*	Serial.print("L ");
-	Serial.print(fmiBuffer.realBuffer[FMI_LEFTVAL]);
-	Serial.print(" R ");
-	Serial.println(fmiBuffer.realBuffer[FMI_RIGHTVAL]);
-*/
-	Serial.println("fmi2DoStep");
+	fmiBuffer.realBuffer[FMI_LEFTVAL] = 500
+			* !digitalRead(SENSOR_CENTER_LEFT_PIN);
+	fmiBuffer.realBuffer[FMI_RIGHTVAL] = 500
+			* !digitalRead(SENSOR_CENTER_RIGHT_PIN);
+
+	Serial.print(".");
 	fmi2DoStep(NULL, now, step, false);
-//	syncInputsToModel();
-//CALL_FUNC(Controller, Controller, g_System_controller, CLASS_Controller__Z12control_loopEV);
-	//threads[0].call();
-	//vdm_gc();
- //syncOutputsToBuffers();
-//	Serial.println("fmi2DoStep done");
 
 	now = now + step;
+	Serial.print(" ");
+	Serial.print(now);
 
 	// sync buffer with hardware
 	double servoRight = fmiBuffer.realBuffer[FMI_SERVORIGHTOUT];
 	double servoLeft = fmiBuffer.realBuffer[FMI_SERVOLEFTOUT];
-	
-	/*Serial.print("LM ");
-	Serial.print(servoLeft);
-	Serial.print(" RM ");
-	Serial.println(servoRight);
-*/
+
 	if (servoRight == -FS && servoLeft == FS) {
 		//Go Strait
 		direction(MOTOR_LEFT, true);
 		direction(MOTOR_RIGHT, true);
-//		Serial.println("||");
 	}
 
 	if (servoRight == -FR && servoLeft == BR) {
 		//go left
 		turn(TURN_LEFT);
-//		Serial.println("<");
 	}
 
 	if (servoRight == -BR && servoLeft == FR) {
 		//go right
 		turn(TURN_RIGHT);
-//		Serial.println(">");
 	}
 
 	// alive indicator
@@ -243,9 +301,69 @@ void loop() {
 
 	alive = !alive;
 
-	//Serial.println(availableMemory());
-	//Serial.println(count++);
-	//delay(1000);
-}
+	unsigned int broadcastTimeNow = millis();
 
+	static_assert(checkBoudRate(sizeof(measurement_bundle),DATA_BROADCAST_INTERVAL_MS),"Too many bits per second");
+
+	if (broadcastTimeNow - lastBroadcast > DATA_BROADCAST_INTERVAL_MS) {
+		lastBroadcast = broadcastTimeNow;
+
+		m.time = broadcastTimeNow;
+		m.values[0].vref = FMI_LEFTVAL;
+		m.values[0].value = fmiBuffer.realBuffer[FMI_LEFTVAL];
+
+		m.values[1].vref = FMI_RIGHTVAL;
+		m.values[1].value = fmiBuffer.realBuffer[FMI_RIGHTVAL];
+
+		m.values[2].vref = FMI_SERVOLEFTOUT;
+		m.values[2].value = fmiBuffer.realBuffer[FMI_SERVOLEFTOUT];
+
+		m.values[3].vref = FMI_SERVORIGHTOUT;
+		m.values[3].value = fmiBuffer.realBuffer[FMI_SERVORIGHTOUT];
+
+		send(&swSend, &m);
+
+		size_t index = 0;
+		Serial3.write(SERIAL_PROTOCOL_FRAME_FLAG);
+		uint8_t checksum = 0;
+
+//		uint8_t offset = index;
+//		uint8_t value = 4;
+//		Serial.println("A");
+		/*
+		 * Encode a struct like
+		 *
+		 * double time
+		 * uint8_t id
+		 * double value
+		 * ...
+		 * */
+		//encode(&checksum, &now, sizeof(uint8_t));
+		encode(&checksum, (uint8_t*) &now, sizeof(double));
+		uint8_t id = FMI_LEFTVAL;
+		encode(&checksum, &id, sizeof(uint8_t));
+		encode(&checksum, (uint8_t*) &(fmiBuffer.realBuffer[FMI_LEFTVAL]),
+				sizeof(double));
+
+//		id = FMI_RIGHTVAL;
+//		encode(&checksum, &id, sizeof(uint8_t));
+//		encode(&checksum, (uint8_t*) &(fmiBuffer.realBuffer[FMI_RIGHTVAL]),
+//				sizeof(double));
+//
+//		id = FMI_SERVOLEFTOUT;
+//		encode(&checksum, &id, sizeof(uint8_t));
+//		encode(&checksum, (uint8_t*) &(fmiBuffer.realBuffer[FMI_SERVOLEFTOUT]),
+//				sizeof(double));
+//
+//		id = FMI_SERVORIGHTOUT;
+//		encode(&checksum, &id, sizeof(uint8_t));
+//		encode(&checksum, (uint8_t*) &(fmiBuffer.realBuffer[FMI_SERVORIGHTOUT]),
+//				sizeof(double));
+
+		Serial3.write(checksum);
+		Serial3.write(0x0A);
+		Serial3.flush();
+	}
+
+}
 
