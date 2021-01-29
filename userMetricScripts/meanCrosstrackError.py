@@ -21,10 +21,10 @@ def writeObjectiveToOutfile(key, val):
     dataString = json.dumps(parsed_json, sort_keys=True,indent=4, separators=(',', ': '))
 
     with io.open(objectivesFile, 'w', encoding='utf-8') as f:
-      f.write(unicode(dataString))
+      f.write(str(dataString))
 
 def loadCSV(f):
-  with open(f, 'rU') as infile:
+  with open(f, 'r') as infile:
     # read the file as a dictionary for each row ({header : value})
     reader = csv.DictReader(infile)
     data = {}
@@ -46,11 +46,11 @@ xcol = sys.argv[4]
 ycol = sys.argv[5]
 
 results = loadCSV(resultsFile)
-points = zip(results[xcol],results[ycol])[1:]
+points = list(zip(results[xcol],results[ycol]))[1:]
 
 mapFilePath = scenarioDataFolder + os.path.sep + 'map1px.csv'
 mapdata = loadCSV(mapFilePath)
-mappoints = zip(mapdata['x'], mapdata['y'])
+mappoints = list(zip(mapdata['x'], mapdata['y']))
 
 def error(T):
   distance = math.hypot(T[0] - mappoints[0][0], T[1] - mappoints[0][1])

@@ -1,14 +1,5 @@
 import csv,os, sys, json, io, math
 
-#Objective Script Fault Codes
-FAULT_NO_RESULTS = 'noResultsFound'
-FAULT_COLUMN_NOT_FOUND = 'columnNotFound'
-FAULT_SIMULATION_DID_NOT_END = 'simulationDidNotEnd'
-FAULT_VALUE_COULD_NOT_BE_COMPUTED = 'valueCouldNotBeComputed'
-FAULT_OBJECTIVE_ARGUMENT_MISSING = 'objectiveArgumentMissing'
-FAULT_EMPTY_RESULTS_FOUND = 'emptyResultsFound'
-FAULT_GENERAL = 'fault'
-
 def getColumnFor(colName, row):
   index = 0
   for thisName in row:
@@ -20,7 +11,7 @@ def getColumnFor(colName, row):
 
 def writeObjectiveToOutfile(key, val):
   parsed_json = {}
-  print key,val
+  print(f"{key},{val}")
   if os.path.isfile(objectivesFile):
     json_data = open(objectivesFile)
     parsed_json = json.load(json_data)
@@ -30,10 +21,10 @@ def writeObjectiveToOutfile(key, val):
     dataString = json.dumps(parsed_json, sort_keys=True,indent=4, separators=(',', ': '))
 
     with io.open(objectivesFile, 'w', encoding='utf-8') as f:
-      f.write(unicode(dataString))
+      f.write(dataString)
 
 def loadCSV(f):
-  with open(f, 'rU') as infile:
+  with open(f, 'r') as infile:
     # read the file as a dictionary for each row ({header : value})
     reader = csv.DictReader(infile)
     data = {}
@@ -102,4 +93,4 @@ for i in range(len(xs) - 1):
 		completed = True
 		
 if not completed:		
-	writeObjectiveToOutfile(objectiveName, FAULT_VALUE_COULD_NOT_BE_COMPUTED)
+	writeObjectiveToOutfile(objectiveName, 2000)
