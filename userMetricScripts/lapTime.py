@@ -1,14 +1,5 @@
 import csv,os, sys, json, io, math
 
-#Objective Script Fault Codes
-FAULT_NO_RESULTS = 'noResultsFound'
-FAULT_COLUMN_NOT_FOUND = 'columnNotFound'
-FAULT_SIMULATION_DID_NOT_END = 'simulationDidNotEnd'
-FAULT_VALUE_COULD_NOT_BE_COMPUTED = 'valueCouldNotBeComputed'
-FAULT_OBJECTIVE_ARGUMENT_MISSING = 'objectiveArgumentMissing'
-FAULT_EMPTY_RESULTS_FOUND = 'emptyResultsFound'
-FAULT_GENERAL = 'fault'
-
 def getColumnFor(colName, row):
   index = 0
   for thisName in row:
@@ -20,7 +11,7 @@ def getColumnFor(colName, row):
 
 def writeObjectiveToOutfile(key, val):
   parsed_json = {}
-  print key,val
+  print(f"{key},{val}")
   if os.path.isfile(objectivesFile):
     json_data = open(objectivesFile)
     parsed_json = json.load(json_data)
@@ -30,10 +21,10 @@ def writeObjectiveToOutfile(key, val):
     dataString = json.dumps(parsed_json, sort_keys=True,indent=4, separators=(',', ': '))
 
     with io.open(objectivesFile, 'w', encoding='utf-8') as f:
-      f.write(unicode(dataString))
+      f.write(str(dataString))
 
 def loadCSV(f):
-  with open(f, 'rU') as infile:
+  with open(f, 'r') as infile:
     # read the file as a dictionary for each row ({header : value})
     reader = csv.DictReader(infile)
     data = {}
@@ -63,6 +54,10 @@ resultsFile = sys.argv[1] + os.path.sep + resultsFileName
 objectivesFileName = "objectives.json"
 objectivesFile = sys.argv[1] + os.path.sep + objectivesFileName
 objectiveName = sys.argv[2]
+#scenarioDataFolder = sys.argv[4]
+#scenarioDataFolder = 'C:\\Users\\ncjg5\\Dropbox\\Shares\\CarlRiffShare\\0.0.3_0.0.4_environment\\userMetricScripts\\studentMap'
+#scenarioDataFolder = 'D:\\Dropbox\\Dropbox\\Shares\\CarlRiffShare\\0.0.3_0.0.4_environment\\userMetricScripts\\studentMap'
+#scenarioDataFolder = '/Users/ncjg5/Dropbox/Shares/CarlRiffShare/0.0.3_0.0.4_environment/userMetricScripts/studentMap'
 scenarioDataFolder = sys.argv[3]
 time = sys.argv[4]
 xcol = sys.argv[5]
@@ -86,8 +81,7 @@ completed = False
 for i in range(len(xs) - 1):
 	if inStartBox(xs[i],ys[i]) and not started:
 		startTime = ts[i]
-		print ('startTime')
-		print startTime
+		print (f"startTime: {startTime}")
 		started = True
 		
 	if inMidwayBox(xs[i],ys[i]) and started and not midwayReached:
@@ -99,4 +93,4 @@ for i in range(len(xs) - 1):
 		completed = True
 		
 if not completed:	
-	writeObjectiveToOutfile(objectiveName, FAULT_VALUE_COULD_NOT_BE_COMPUTED)
+	writeObjectiveToOutfile(objectiveName, 45)

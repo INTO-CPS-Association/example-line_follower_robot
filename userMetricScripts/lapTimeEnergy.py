@@ -11,7 +11,7 @@ def getColumnFor(colName, row):
 
 def writeObjectiveToOutfile(key, val):
   parsed_json = {}
-  print key,val
+  print(f"{key},{val}")
   if os.path.isfile(objectivesFile):
     json_data = open(objectivesFile)
     parsed_json = json.load(json_data)
@@ -21,10 +21,10 @@ def writeObjectiveToOutfile(key, val):
     dataString = json.dumps(parsed_json, sort_keys=True,indent=4, separators=(',', ': '))
 
     with io.open(objectivesFile, 'w', encoding='utf-8') as f:
-      f.write(unicode(dataString))
+      f.write(str(dataString))
 
 def loadCSV(f):
-  with open(f, 'rU') as infile:
+  with open(f, 'r') as infile:
     # read the file as a dictionary for each row ({header : value})
     reader = csv.DictReader(infile)
     data = {}
